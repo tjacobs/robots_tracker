@@ -37,12 +37,12 @@ const companyColors={
   "Nori":"#32c7a0",
   "Matic":"#00a6a6",
   "Innate":"#4f8cff",
-  "Feather":"#f4f0e8",
+  "Feather":"#5f6368",
   "Syncere":"#d84cff",
   "Dyna":"#ff4d4d",
   "Flourish":"#72d572",
   "Tesla":"#e82127",
-  "Figure":"#cfd5dc",
+  "Figure":"#4b5563",
   "1X":"#5b8cff"
 };
 
