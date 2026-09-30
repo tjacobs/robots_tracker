@@ -6,6 +6,22 @@ const metrics=[
   {key:"valuation",label:"VALUATION",type:"money"}
 ];
 
+const companyColors={
+  "Weave":"#ff7a45",
+  "Sunday":"#8b5cf6",
+  "Almond":"#f2b84b",
+  "Nori":"#32c7a0",
+  "Matic":"#00a6a6",
+  "Innate":"#4f8cff",
+  "Feather":"#f4f0e8",
+  "Syncere":"#d84cff",
+  "Dyna":"#ff4d4d",
+  "Flourish":"#72d572",
+  "Tesla":"#e82127",
+  "Figure":"#cfd5dc",
+  "1X":"#5b8cff"
+};
+
 const companies=[
   {name:"Weave",group:"SEMI-HUMANOID",product:"Isaac 0",launchDate:"2026-02-01",robotsBuilt:null,robotsDeployed:null,funding:500000,valuation:null,status:{funding:"reported"},sources:[{label:"Weave Robotics",url:"https://www.weaverobotics.com/"}]},
   {name:"Sunday",group:"SEMI-HUMANOID",product:"Memo",launchDate:null,launchStatus:"not-launched",robotsBuilt:null,robotsDeployed:null,funding:165000000,valuation:1150000000,status:{funding:"confirmed",valuation:"confirmed",robotsDeployed:"not-launched"},sources:[{label:"Sunday — Series B",url:"https://www.sunday.ai/blog/series-b"}]},
@@ -55,7 +71,8 @@ function render(){
     const rows=companies.filter(c=>c.group===group);
     return `<section class="group"><div class="group-label">${group}</div><div class="bars" style="--count:${rows.length}">${rows.map(c=>{
       const v=c[active],st=statusFor(c),height=typeof v==="number"&&v>0?Math.max(8,v/max*100):0;
-      return `<button class="company" data-company="${c.name}"><div class="value">${labelFor(c)}</div><div class="bar-stage"><div class="bar ${st}" style="height:${height}%"></div>${v==null||v===0?`<div class="empty ${st}">${st==="not-launched"?"—":"·"}</div>`:""}</div><div class="company-name">${c.name}</div><div class="product-name">${c.product||"&nbsp;"}</div></button>`;
+      const color=companyColors[c.name]||"#d9dee3";
+      return `<button class="company" data-company="${c.name}" style="--company-color:${color}"><div class="value">${labelFor(c)}</div><div class="bar-stage"><div class="bar ${st}" style="height:${height}%"></div>${v==null||v===0?`<div class="empty ${st}">${st==="not-launched"?"—":"·"}</div>`:""}</div><div class="company-name">${c.name}</div><div class="product-name">${c.product||"&nbsp;"}</div></button>`;
     }).join("")}</div></section>`;
   }).join("");
 
@@ -63,7 +80,8 @@ function render(){
 }
 function renderDrawer(){
   if(!selected){drawerRoot.innerHTML="";return}
-  drawerRoot.innerHTML=`<div class="backdrop"></div><aside class="drawer"><button class="drawer-close">×</button><div class="drawer-kicker">${selected.group}</div><h2>${selected.name}</h2><p class="drawer-product">${selected.product||"Product not yet recorded"}</p><div class="detail-grid">${metrics.map(m=>`<div class="detail-row"><span>${m.label}</span><strong>${labelFor(selected,m.key)}</strong><small>${statusText(statusFor(selected,m.key))}</small></div>`).join("")}</div><div class="source-block"><div class="source-title">SOURCES</div>${selected.sources?.length?selected.sources.map(s=>`<a href="${s.url}" target="_blank" rel="noreferrer">${s.label}<span>↗</span></a>`).join(""):'<div class="no-source">No verified public source added yet.</div>'}</div></aside>`;
+  const color=companyColors[selected.name]||"#d9dee3";
+  drawerRoot.innerHTML=`<div class="backdrop"></div><aside class="drawer" style="--company-color:${color}"><button class="drawer-close">×</button><div class="drawer-kicker">${selected.group}</div><h2>${selected.name}</h2><p class="drawer-product">${selected.product||"Product not yet recorded"}</p><div class="detail-grid">${metrics.map(m=>`<div class="detail-row"><span>${m.label}</span><strong>${labelFor(selected,m.key)}</strong><small>${statusText(statusFor(selected,m.key))}</small></div>`).join("")}</div><div class="source-block"><div class="source-title">SOURCES</div>${selected.sources?.length?selected.sources.map(s=>`<a href="${s.url}" target="_blank" rel="noreferrer">${s.label}<span>↗</span></a>`).join(""):'<div class="no-source">No verified public source added yet.</div>'}</div></aside>`;
   document.querySelector(".drawer-close").onclick=closeDrawer;
   document.querySelector(".backdrop").onclick=closeDrawer;
 }
