@@ -65,7 +65,7 @@ function metric(){return metrics.find(m=>m.key===active)}
 function statusFor(c,key=active){return c.status?.[key] || (c[key]==null?"unknown":"reported")}
 function labelFor(c,key=active){
   const st=statusFor(c,key),m=metrics.find(x=>x.key===key),v=c[key];
-  if(st==="not-launched")return"NOT LAUNCHED";if(st==="na")return"N/A";if(v==null)return"UNKNOWN";
+  if(st==="not-launched")return"NOT LAUNCHED";if(st==="na")return"N/A";if(v==null)return"";
   return m.type==="money"?money(v):v.toLocaleString();
 }
 function statusText(s){return({confirmed:"Confirmed",reported:"Reported / estimated",unknown:"Unknown","not-launched":"Not launched",na:"Not applicable"})[s]||s}
