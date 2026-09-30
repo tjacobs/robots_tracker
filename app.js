@@ -47,19 +47,19 @@ const companyColors={
 };
 
 const companies=[
-  {name:"Weave",group:"SEMI-HUMANOID",product:"Isaac 0",launchDate:"2026-02-01",robotsBuilt:25,robotsDeployed:null,funding:500000,valuation:null,status:{robotsBuilt:"reported",funding:"reported"},sources:[{label:"Weave Robotics",url:"https://www.weaverobotics.com/"}]},
-  {name:"Sunday",group:"SEMI-HUMANOID",product:"Memo",launchDate:null,launchStatus:"not-launched",robotsBuilt:null,robotsDeployed:null,funding:165000000,valuation:1150000000,status:{funding:"confirmed",valuation:"confirmed",robotsDeployed:"not-launched"},sources:[{label:"Sunday — Series B",url:"https://www.sunday.ai/blog/series-b"}]},
-  {name:"Almond",group:"SEMI-HUMANOID",product:"Axol",launchDate:null,robotsBuilt:null,robotsDeployed:null,funding:null,valuation:null},
-  {name:"Nori",group:"SEMI-HUMANOID",product:"Nori",launchDate:null,robotsBuilt:null,robotsDeployed:null,funding:null,valuation:null},
-  {name:"Matic",group:"SEMI-HUMANOID",product:"Matic",launchDate:"2024-11-01",robotsBuilt:6000,robotsDeployed:6000,funding:60000000,valuation:null,status:{robotsBuilt:"confirmed",robotsDeployed:"confirmed",funding:"confirmed"},sources:[{label:"Matic — 6,000+ shipped / funding",url:"https://maticrobots.com/blog/the-usd60-million-bet-that-what-comes-after-roomba-is-matic"}]},
-  {name:"Innate",group:"SEMI-HUMANOID",product:"MARS",launchDate:null,robotsBuilt:null,robotsDeployed:null,funding:null,valuation:null},
-  {name:"Feather",group:"SEMI-HUMANOID",product:"Feather",launchDate:null,robotsBuilt:null,robotsDeployed:null,funding:null,valuation:null},
-  {name:"Syncere",group:"SEMI-HUMANOID",product:"Lume",launchDate:null,robotsBuilt:null,robotsDeployed:null,funding:null,valuation:null},
-  {name:"Dyna",group:"SEMI-HUMANOID",product:"Taku",launchDate:null,robotsBuilt:null,robotsDeployed:null,funding:120000000,valuation:null,status:{funding:"confirmed"},sources:[{label:"Dyna",url:"https://www.dyna.co/"}]},
-  {name:"Flourish",group:"SEMI-HUMANOID",product:"Flourish 1",launchDate:null,launchStatus:"not-launched",robotsBuilt:null,robotsDeployed:null,funding:null,valuation:null,status:{robotsDeployed:"not-launched"}},
-  {name:"Tesla",group:"HUMANOID",product:"Optimus",launchDate:null,launchStatus:"not-launched",robotsBuilt:null,robotsDeployed:0,funding:null,valuation:null,status:{robotsDeployed:"not-launched",funding:"na",valuation:"na"}},
-  {name:"Figure",group:"HUMANOID",product:"Figure 03",launchDate:null,launchStatus:"not-launched",robotsBuilt:null,robotsDeployed:0,funding:null,valuation:null,status:{robotsDeployed:"not-launched"}},
-  {name:"1X",group:"HUMANOID",product:"NEO",launchDate:null,launchStatus:"not-launched",robotsBuilt:null,robotsDeployed:0,funding:null,valuation:null,status:{robotsDeployed:"not-launched"}}
+  {name:"Weave",productUrl:"https://www.weaverobotics.com/isaac-0",group:"SEMI-HUMANOID",product:"Isaac 0",launchDate:"2026-02-01",robotsBuilt:25,robotsDeployed:null,funding:500000,valuation:null,status:{robotsBuilt:"reported",funding:"reported"},sources:[{label:"Weave Robotics",url:"https://www.weaverobotics.com/"}]},
+  {name:"Sunday",productUrl:"https://www.sunday.ai/",group:"SEMI-HUMANOID",product:"Memo",launchDate:null,launchStatus:"not-launched",robotsBuilt:null,robotsDeployed:null,funding:165000000,valuation:1150000000,status:{funding:"confirmed",valuation:"confirmed",robotsDeployed:"not-launched"},sources:[{label:"Sunday — Series B",url:"https://www.sunday.ai/blog/series-b"}]},
+  {name:"Almond",productUrl:"https://www.almond.bot/axol",group:"SEMI-HUMANOID",product:"Axol",launchDate:null,robotsBuilt:null,robotsDeployed:null,funding:null,valuation:null},
+  {name:"Nori",productUrl:"https://norirobotics.com/",group:"SEMI-HUMANOID",product:"Nori",launchDate:null,robotsBuilt:null,robotsDeployed:null,funding:null,valuation:null},
+  {name:"Matic",productUrl:"https://maticrobots.com/product",group:"SEMI-HUMANOID",product:"Matic",launchDate:"2024-11-01",robotsBuilt:6000,robotsDeployed:6000,funding:60000000,valuation:null,status:{robotsBuilt:"confirmed",robotsDeployed:"confirmed",funding:"confirmed"},sources:[{label:"Matic — 6,000+ shipped / funding",url:"https://maticrobots.com/blog/the-usd60-million-bet-that-what-comes-after-roomba-is-matic"}]},
+  {name:"Innate",productUrl:"https://www.innate.bot/",group:"SEMI-HUMANOID",product:"MARS",launchDate:null,robotsBuilt:null,robotsDeployed:null,funding:null,valuation:null},
+  {name:"Feather",productUrl:"https://feather.dev/technology",group:"SEMI-HUMANOID",product:"Feather",launchDate:null,robotsBuilt:null,robotsDeployed:null,funding:null,valuation:null},
+  {name:"Syncere",productUrl:"https://syncere.com/product",group:"SEMI-HUMANOID",product:"Lume",launchDate:null,robotsBuilt:null,robotsDeployed:null,funding:null,valuation:null},
+  {name:"Dyna",productUrl:"https://www.dyna.co/dyna-2.1",group:"SEMI-HUMANOID",product:"Taku",launchDate:null,robotsBuilt:null,robotsDeployed:null,funding:120000000,valuation:null,status:{funding:"confirmed"},sources:[{label:"Dyna",url:"https://www.dyna.co/"}]},
+  {name:"Flourish",productUrl:"https://flourish-robots.com/",group:"SEMI-HUMANOID",product:"Flourish 1",launchDate:null,launchStatus:"not-launched",robotsBuilt:null,robotsDeployed:null,funding:null,valuation:null,status:{robotsDeployed:"not-launched"}},
+  {name:"Tesla",productUrl:"https://www.tesla.com/AI",group:"HUMANOID",product:"Optimus",launchDate:null,launchStatus:"not-launched",robotsBuilt:null,robotsDeployed:0,funding:null,valuation:null,status:{robotsDeployed:"not-launched",funding:"na",valuation:"na"}},
+  {name:"Figure",productUrl:"https://www.figure.ai/figure",group:"HUMANOID",product:"Figure 03",launchDate:null,launchStatus:"not-launched",robotsBuilt:null,robotsDeployed:0,funding:null,valuation:null,status:{robotsDeployed:"not-launched"}},
+  {name:"1X",productUrl:"https://www.1x.tech/neo",group:"HUMANOID",product:"NEO",launchDate:null,launchStatus:"not-launched",robotsBuilt:null,robotsDeployed:0,funding:null,valuation:null,status:{robotsDeployed:"not-launched"}}
 ];
 
 const today=new Date("2026-09-30T00:00:00");
@@ -105,7 +105,7 @@ function render(){
 function renderDrawer(){
   if(!selected){drawerRoot.innerHTML="";return}
   const color=companyColors[selected.name]||"#d9dee3";
-  drawerRoot.innerHTML=`<div class="backdrop"></div><aside class="drawer" style="--company-color:${color}"><button class="drawer-close">×</button><div class="drawer-kicker">${selected.group}</div><h2>${selected.name}</h2><p class="drawer-product">${selected.product||"Product not yet recorded"}</p><div class="detail-grid">${metrics.map(m=>`<div class="detail-row"><span>${m.label}</span><strong>${labelFor(selected,m.key)}</strong><small>${statusText(statusFor(selected,m.key))}</small></div>`).join("")}</div><div class="source-block"><div class="source-title">SOURCES</div>${selected.sources?.length?selected.sources.map(s=>`<a href="${s.url}" target="_blank" rel="noreferrer">${s.label}<span>↗</span></a>`).join(""):'<div class="no-source">No verified public source added yet.</div>'}</div></aside>`;
+  drawerRoot.innerHTML=`<div class="backdrop"></div><aside class="drawer" style="--company-color:${color}"><button class="drawer-close">×</button><div class="drawer-kicker">${selected.group}</div><h2>${selected.name}</h2><p class="drawer-product">${selected.product||"Product not yet recorded"}</p>${selected.productUrl?`<a class="product-link" href="${selected.productUrl}" target="_blank" rel="noreferrer">View product page <span>↗</span></a>`:""}<div class="detail-grid">${metrics.map(m=>`<div class="detail-row"><span>${m.label}</span><strong>${labelFor(selected,m.key)}</strong><small>${statusText(statusFor(selected,m.key))}</small></div>`).join("")}</div><div class="source-block"><div class="source-title">SOURCES</div>${selected.sources?.length?selected.sources.map(s=>`<a href="${s.url}" target="_blank" rel="noreferrer">${s.label}<span>↗</span></a>`).join(""):'<div class="no-source">No verified public source added yet.</div>'}</div></aside>`;
   document.querySelector(".drawer-close").onclick=closeDrawer;
   document.querySelector(".backdrop").onclick=closeDrawer;
 }
