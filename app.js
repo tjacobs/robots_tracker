@@ -31,8 +31,8 @@ const companyBadges={
 };
 
 const companyColors={
-  "Weave":"#ff7a45",
-  "Sunday":"#8b5cf6",
+  "Weave":"#737b66",
+  "Sunday":"#f2cf24",
   "Almond":"#f2b84b",
   "Nori":"#32c7a0",
   "Matic":"#00a6a6",
