@@ -14,6 +14,22 @@ const metricDescriptions={
   "valuation": "Valuation from last round raised."
 };
 
+const companyBadges={
+  "Weave":"W",
+  "Sunday":"S",
+  "Almond":"A",
+  "Nori":"N",
+  "Matic":"M",
+  "Innate":"I",
+  "Feather":"F",
+  "Syncere":"S",
+  "Dyna":"D",
+  "Flourish":"F",
+  "Tesla":"T",
+  "Figure":"F",
+  "1X":"1X"
+};
+
 const companyColors={
   "Weave":"#ff7a45",
   "Sunday":"#8b5cf6",
@@ -82,7 +98,7 @@ function render(){
     return `<section class="group"><div class="group-label">${group}</div><div class="bars" style="--count:${rows.length}">${rows.map(c=>{
       const v=c[active],st=statusFor(c),height=typeof v==="number"&&v>0?Math.max(8,v/max*100):0;
       const color=companyColors[c.name]||"#d9dee3";
-      return `<button class="company" data-company="${c.name}" style="--company-color:${color}"><div class="value">${labelFor(c)}</div><div class="bar-stage"><div class="bar ${st}" style="height:${height}%"></div>${v==null||v===0?`<div class="empty ${st}">${st==="not-launched"?"—":"·"}</div>`:""}</div><div class="company-name">${c.name}</div><div class="product-name">${c.product||"&nbsp;"}</div></button>`;
+      return `<button class="company" data-company="${c.name}" style="--company-color:${color}"><div class="value">${labelFor(c)}</div><div class="bar-stage"><div class="bar ${st}" style="height:${height}%"></div>${v==null||v===0?`<div class="empty ${st}">${st==="not-launched"?"—":"·"}</div>`:""}</div><div class="company-brand"><div class="logo-badge" aria-hidden="true">${companyBadges[c.name]||"◆"}</div><div><div class="company-name">${c.name}</div><div class="product-name">${c.product||"&nbsp;"}</div></div></div></button>`;
     }).join("")}</div></section>`;
   }).join("");
 
