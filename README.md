@@ -1,14 +1,27 @@
 # Robots
 
+**Live site:** https://tjacobs.github.io/robots_tracker/
+
 A lightweight public tracker comparing semi-humanoid and humanoid robotics companies across:
 
 - Robots built
 - Robots deployed
-- Months since launch
+- Months deployed
 - Funding
 - Valuation
 
-The UI distinguishes confirmed, reported/estimated, unknown, and not-launched values. Unknown values are never silently treated as zero.
+The tracker is designed to make incomplete robotics-company data easier to compare without pretending every figure is exact.
+
+## Data conventions
+
+- **Robots built** — Number of robots built.
+- **Robots deployed** — Number of robots with customers.
+- **Months deployed** — Number of months since launching robots to customers.
+- **Funding** — Amount of funding raised so far.
+- **Valuation** — Valuation from the last round raised.
+- Missing values are left blank.
+- Estimated figures may be marked with an asterisk (`*`) and should be treated as directional rather than company-disclosed numbers.
+- Internal prototypes and lab-only robots should not be counted as customer deployments.
 
 ## Companies
 
@@ -16,6 +29,22 @@ The UI distinguishes confirmed, reported/estimated, unknown, and not-launched va
 
 **HUMANOID:** Tesla, Figure, 1X
 
-Deployment means robots deployed to actual users/customers rather than internal prototypes. Months since launch means months since first customer deployment, not the product announcement date.
+## Robot / product names
 
-This is a static site and can be hosted with GitHub Pages.
+- Weave — Isaac 0
+- Sunday — Memo
+- Almond — Axol
+- Nori — Nori
+- Matic — Matic
+- Innate — MARS
+- Feather — Feather
+- Syncere — Lume
+- Dyna — Taku
+- Flourish — Flourish 1
+- Tesla — Optimus
+- Figure — Figure 03
+- 1X — NEO
+
+## Site
+
+This is a static HTML/CSS/JavaScript site deployed automatically with GitHub Pages from the `main` branch.
