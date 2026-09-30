@@ -2,7 +2,7 @@
 
 **Live site:** https://tjacobs.github.io/robots_tracker/
 
-A lightweight public tracker comparing semi-humanoid and humanoid robotics companies across:
+A website comparing semi-humanoid and humanoid robotics companies across:
 
 - Robots built
 - Robots deployed
