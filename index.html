@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0c10" />
+  <title>Robots</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="header">
+      <div>
+        <div class="eyebrow">ROBOT INDUSTRY TRACKER</div>
+        <h1>Robots</h1>
+      </div>
+      <div class="updated">UPDATED SEP 30, 2026</div>
+    </header>
+
+    <nav class="tabs" aria-label="Metric">
+      <button class="tab active" data-metric="robotsBuilt">ROBOTS BUILT</button>
+      <button class="tab" data-metric="robotsDeployed">ROBOTS DEPLOYED</button>
+      <button class="tab" data-metric="monthsSinceLaunch">MONTHS SINCE LAUNCH</button>
+      <button class="tab" data-metric="funding">FUNDING</button>
+      <button class="tab" data-metric="valuation">VALUATION</button>
+    </nav>
+
+    <section class="chart-card">
+      <div class="chart-header">
+        <div>
+          <div class="metric-title" id="metricTitle">ROBOTS BUILT</div>
+          <div class="metric-note">Customer-facing deployments only. Unknown values are never treated as zero.</div>
+        </div>
+        <div class="legend">
+          <span><i class="dot confirmed"></i>Confirmed</span>
+          <span><i class="dot reported"></i>Reported / estimated</span>
+          <span><i class="dot unknown"></i>Unknown</span>
+          <span><i class="dot not-launched"></i>Not launched</span>
+        </div>
+      </div>
+      <div id="groups"></div>
+    </section>
+
+    <footer>
+      <span>Public company disclosures and reputable reporting.</span>
+      <span>Click a company for details and sources.</span>
+    </footer>
+  </main>
+
+  <div id="drawerRoot"></div>
+  <script src="app.js"></script>
+</body>
+</html>
