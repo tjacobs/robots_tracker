@@ -47,7 +47,7 @@ const companyColors={
 };
 
 const companies=[
-  {name:"Weave",group:"SEMI-HUMANOID",product:"Isaac 0",launchDate:"2026-02-01",robotsBuilt:null,robotsDeployed:null,funding:500000,valuation:null,status:{funding:"reported"},sources:[{label:"Weave Robotics",url:"https://www.weaverobotics.com/"}]},
+  {name:"Weave",group:"SEMI-HUMANOID",product:"Isaac 0",launchDate:"2026-02-01",robotsBuilt:25,robotsDeployed:null,funding:500000,valuation:null,status:{robotsBuilt:"reported",funding:"reported"},sources:[{label:"Weave Robotics",url:"https://www.weaverobotics.com/"}]},
   {name:"Sunday",group:"SEMI-HUMANOID",product:"Memo",launchDate:null,launchStatus:"not-launched",robotsBuilt:null,robotsDeployed:null,funding:165000000,valuation:1150000000,status:{funding:"confirmed",valuation:"confirmed",robotsDeployed:"not-launched"},sources:[{label:"Sunday — Series B",url:"https://www.sunday.ai/blog/series-b"}]},
   {name:"Almond",group:"SEMI-HUMANOID",product:"Axol",launchDate:null,robotsBuilt:null,robotsDeployed:null,funding:null,valuation:null},
   {name:"Nori",group:"SEMI-HUMANOID",product:"Nori",launchDate:null,robotsBuilt:null,robotsDeployed:null,funding:null,valuation:null},
