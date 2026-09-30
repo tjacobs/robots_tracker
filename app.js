@@ -1,10 +1,18 @@
 const metrics=[
   {key:"robotsBuilt",label:"ROBOTS BUILT",type:"count"},
   {key:"robotsDeployed",label:"ROBOTS DEPLOYED",type:"count"},
-  {key:"monthsSinceLaunch",label:"MONTHS SINCE LAUNCH",type:"count"},
+  {key:"monthsSinceLaunch",label:"MONTHS DEPLOYED",type:"count"},
   {key:"funding",label:"FUNDING",type:"money"},
   {key:"valuation",label:"VALUATION",type:"money"}
 ];
+
+const metricDescriptions={
+  "robotsBuilt": "Number of robots built.",
+  "robotsDeployed": "Number of robots with customers.",
+  "monthsSinceLaunch": "Number of months since launching robots to customers.",
+  "funding": "Amount of funding raised so far.",
+  "valuation": "Valuation from last round raised."
+};
 
 const companyColors={
   "Weave":"#ff7a45",
@@ -64,6 +72,8 @@ function statusText(s){return({confirmed:"Confirmed",reported:"Reported / estima
 
 function render(){
   metricTitle.textContent=metric().label;
+  const note=document.querySelector(".metric-note");
+  if(note) note.textContent=metricDescriptions[active]||"";
   document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.metric===active));
   const vals=companies.map(c=>c[active]).filter(v=>typeof v==="number"&&v>0);
   const max=Math.max(...vals,1);
