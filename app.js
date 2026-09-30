@@ -74,7 +74,6 @@ let active="robotsBuilt";
 let selected=null;
 const groupsEl=document.querySelector("#groups");
 const drawerRoot=document.querySelector("#drawerRoot");
-const metricTitle=document.querySelector("#metricTitle");
 
 function money(v){if(v==null)return"UNKNOWN";if(v>=1e9)return"$"+(v/1e9).toFixed(v%1e9===0?0:2).replace(/\.00$/,"")+"B";if(v>=1e6)return"$"+(v/1e6).toFixed(v%1e6===0?0:1).replace(/\.0$/,"")+"M";if(v>=1e3)return"$"+Math.round(v/1e3)+"K";return"$"+v.toLocaleString();}
 function metric(){return metrics.find(m=>m.key===active)}
@@ -87,7 +86,6 @@ function labelFor(c,key=active){
 function statusText(s){return({confirmed:"Confirmed",reported:"Reported / estimated",unknown:"Unknown","not-launched":"Not launched",na:"Not applicable"})[s]||s}
 
 function render(){
-  metricTitle.textContent=metric().label;
   const note=document.querySelector(".metric-note");
   if(note) note.textContent=metricDescriptions[active]||"";
   document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.metric===active));
