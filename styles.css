@@ -57,3 +57,9 @@ h1{margin:5px 0 0;font-size:clamp(50px,6vw,80px);line-height:.9;letter-spacing:-
 .matic-toggle-sub{font-size:9px;color:#8b929b;text-align:center;white-space:nowrap}
 @media(max-width:900px){.matic-toggle{height:300px}}
 @media(prefers-reduced-motion:reduce){.bar,.company,.matic-toggle{transition:none!important}}
+
+.matic-card-wrap{position:relative;height:320px;min-width:78px}
+.matic-card-wrap .company{width:100%;height:100%}
+.matic-hide-inline{position:absolute;top:7px;right:7px;z-index:2;border:0;background:rgba(255,255,255,.86);color:#667078;border-radius:7px;padding:4px 6px;font-size:9px;font-weight:750;letter-spacing:.04em;cursor:pointer;line-height:1}
+.matic-hide-inline:hover{background:#fff;color:#17191d}
+@media(max-width:900px){.matic-card-wrap{height:300px}}
