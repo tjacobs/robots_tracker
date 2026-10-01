@@ -2,16 +2,18 @@ const metrics=[
   {key:"robotsBuilt",label:"ROBOTS BUILT",type:"count"},
   {key:"robotsDeployed",label:"ROBOTS DEPLOYED",type:"count"},
   {key:"monthsSinceLaunch",label:"MONTHS DEPLOYED",type:"count"},
+  {key:"price",label:"PRICE",type:"money"},
   {key:"funding",label:"FUNDING",type:"money"},
   {key:"valuation",label:"VALUATION",type:"money"}
 ];
 
 const metricDescriptions={
-  "robotsBuilt": "Number of robots built.",
-  "robotsDeployed": "Number of robots with customers.",
-  "monthsSinceLaunch": "Number of months since launching robots to customers.",
-  "funding": "Amount of funding raised so far.",
-  "valuation": "Valuation from last round raised."
+  "robotsBuilt":"Number of robots built.",
+  "robotsDeployed":"Number of robots with customers.",
+  "monthsSinceLaunch":"Number of months since launching robots to customers.",
+  "price":"Current listed purchase price.",
+  "funding":"Amount of funding raised so far.",
+  "valuation":"Valuation from last round raised."
 };
 
 const companyBadges={
@@ -47,47 +49,173 @@ const companyColors={
 };
 
 const companies=[
-  {name:"Weave",productUrl:"https://www.weaverobotics.com/isaac-0",group:"SEMI-HUMANOID",product:"Isaac 0",launchDate:"2026-02-01",robotsBuilt:25,robotsDeployed:null,funding:500000,valuation:null,status:{robotsBuilt:"reported",funding:"reported"},sources:[{label:"Weave Robotics",url:"https://www.weaverobotics.com/"}]},
-  {name:"Sunday",productUrl:"https://www.sunday.ai/",group:"SEMI-HUMANOID",product:"Memo",launchDate:null,launchStatus:"not-launched",robotsBuilt:null,robotsDeployed:null,funding:165000000,valuation:1150000000,status:{funding:"confirmed",valuation:"confirmed",robotsDeployed:"not-launched"},sources:[{label:"Sunday — Series B",url:"https://www.sunday.ai/blog/series-b"}]},
-  {name:"Almond",productUrl:"https://www.almond.bot/axol",group:"SEMI-HUMANOID",product:"Axol",launchDate:null,robotsBuilt:null,robotsDeployed:null,funding:null,valuation:null},
-  {name:"Nori",productUrl:"https://norirobotics.com/",group:"SEMI-HUMANOID",product:"Nori",launchDate:null,robotsBuilt:null,robotsDeployed:null,funding:null,valuation:null},
-  {name:"Matic",productUrl:"https://maticrobots.com/product",group:"SEMI-HUMANOID",product:"Matic",launchDate:"2024-11-01",robotsBuilt:6000,robotsDeployed:6000,funding:60000000,valuation:null,status:{robotsBuilt:"confirmed",robotsDeployed:"confirmed",funding:"confirmed"},sources:[{label:"Matic — 6,000+ shipped / funding",url:"https://maticrobots.com/blog/the-usd60-million-bet-that-what-comes-after-roomba-is-matic"}]},
-  {name:"Innate",productUrl:"https://www.innate.bot/",group:"SEMI-HUMANOID",product:"MARS",launchDate:null,robotsBuilt:null,robotsDeployed:null,funding:null,valuation:null},
-  {name:"Feather",productUrl:"https://feather.dev/technology",group:"SEMI-HUMANOID",product:"Feather",launchDate:null,robotsBuilt:null,robotsDeployed:null,funding:null,valuation:null},
-  {name:"Syncere",productUrl:"https://syncere.com/product",group:"SEMI-HUMANOID",product:"Lume",launchDate:null,robotsBuilt:null,robotsDeployed:null,funding:null,valuation:null},
-  {name:"Dyna",productUrl:"https://www.dyna.co/dyna-2.1",group:"SEMI-HUMANOID",product:"Taku",launchDate:null,robotsBuilt:null,robotsDeployed:null,funding:120000000,valuation:null,status:{funding:"confirmed"},sources:[{label:"Dyna",url:"https://www.dyna.co/"}]},
-  {name:"Flourish",productUrl:"https://flourish-robots.com/",group:"SEMI-HUMANOID",product:"Flourish 1",launchDate:null,launchStatus:"not-launched",robotsBuilt:null,robotsDeployed:null,funding:null,valuation:null,status:{robotsDeployed:"not-launched"}},
-  {name:"Tesla",productUrl:"https://www.tesla.com/AI",group:"HUMANOID",product:"Optimus",launchDate:null,launchStatus:"not-launched",robotsBuilt:null,robotsDeployed:0,funding:null,valuation:null,status:{robotsDeployed:"not-launched",funding:"na",valuation:"na"}},
-  {name:"Figure",productUrl:"https://www.figure.ai/figure",group:"HUMANOID",product:"Figure 03",launchDate:null,launchStatus:"not-launched",robotsBuilt:null,robotsDeployed:0,funding:null,valuation:null,status:{robotsDeployed:"not-launched"}},
-  {name:"1X",productUrl:"https://www.1x.tech/neo",group:"HUMANOID",product:"NEO",launchDate:null,launchStatus:"not-launched",robotsBuilt:null,robotsDeployed:0,funding:null,valuation:null,status:{robotsDeployed:"not-launched"}}
+  {
+    name:"Weave",productUrl:"https://www.weaverobotics.com/isaac-0",group:"SEMI-HUMANOID",product:"Isaac 0",
+    robotsBuilt:25,robotsDeployed:20,monthsSinceLaunch:7,price:3999,funding:500000,valuation:null,
+    estimate:{robotsBuilt:true,robotsDeployed:true},
+    metricNotes:{price:"Purchase price; other subscription/financing options are offered."},
+    sources:[
+      {label:"Isaac 0",url:"https://www.weaverobotics.com/isaac-0"},
+      {label:"Weave Robotics",url:"https://www.weaverobotics.com/about"}
+    ]
+  },
+  {
+    name:"Sunday",productUrl:"https://www.sunday.ai/",group:"SEMI-HUMANOID",product:"Memo",
+    robotsBuilt:30,robotsDeployed:0,monthsSinceLaunch:0,price:null,funding:200000000,valuation:1150000000,
+    estimate:{robotsBuilt:true},
+    sources:[{label:"Sunday — Series B",url:"https://www.sunday.ai/blog/series-b"}]
+  },
+  {
+    name:"Almond",productUrl:"https://www.almond.bot/axol",group:"SEMI-HUMANOID",product:"Axol",
+    robotsBuilt:15,robotsDeployed:10,monthsSinceLaunch:1,price:9499,funding:500000,valuation:null,
+    estimate:{robotsBuilt:true,robotsDeployed:true},
+    lowerBound:{funding:true},
+    sources:[
+      {label:"Almond",url:"https://www.almond.bot/"},
+      {label:"Almond — YC",url:"https://www.ycombinator.com/companies/almond-2"}
+    ]
+  },
+  {
+    name:"Nori",productUrl:"https://www.ycombinator.com/companies/noril1",group:"SEMI-HUMANOID",product:"Nori",
+    robotsBuilt:10,robotsDeployed:1,monthsSinceLaunch:1,price:1688,funding:500000,valuation:null,
+    estimate:{robotsBuilt:true},
+    sources:[{label:"Nori — YC",url:"https://www.ycombinator.com/companies/noril1"}]
+  },
+  {
+    name:"Matic",productUrl:"https://maticrobots.com/product",group:"SEMI-HUMANOID",product:"Matic",
+    robotsBuilt:13000,robotsDeployed:13000,monthsSinceLaunch:24,price:1495,funding:115000000,valuation:645000000,
+    estimate:{monthsSinceLaunch:true},
+    lowerBound:{robotsBuilt:true,robotsDeployed:true},
+    sources:[
+      {label:"Matic product",url:"https://maticrobots.com/product"},
+      {label:"Matic company updates",url:"https://maticrobots.com/blog"}
+    ]
+  },
+  {
+    name:"Innate",productUrl:"https://www.innate.bot/",group:"SEMI-HUMANOID",product:"MARS",
+    robotsBuilt:50,robotsDeployed:40,monthsSinceLaunch:11,price:995,funding:500000,valuation:null,
+    estimate:{robotsBuilt:true,robotsDeployed:true},
+    lowerBound:{funding:true},
+    sources:[
+      {label:"Innate",url:"https://www.innate.bot/"},
+      {label:"MARS store",url:"https://store.innate.bot/products/innate-mars-founders-edition"}
+    ]
+  },
+  {
+    name:"Feather",productUrl:"https://feather.dev/technology",group:"SEMI-HUMANOID",product:"Feather",
+    robotsBuilt:35,robotsDeployed:30,monthsSinceLaunch:12,price:29990,funding:7600000,valuation:null,
+    estimate:{robotsBuilt:true,robotsDeployed:true,monthsSinceLaunch:true},
+    metricNotes:{price:"Promotional listed price; regular price has been listed higher."},
+    sources:[
+      {label:"Feather",url:"https://feather.dev/"},
+      {label:"Feather technology",url:"https://feather.dev/technology"}
+    ]
+  },
+  {
+    name:"Syncere",productUrl:"https://syncere.com/product",group:"SEMI-HUMANOID",product:"Lume",
+    robotsBuilt:10,robotsDeployed:0,monthsSinceLaunch:0,price:1999,funding:500000,valuation:null,
+    estimate:{robotsBuilt:true},
+    lowerBound:{funding:true},
+    sources:[
+      {label:"Lume",url:"https://syncere.com/product"},
+      {label:"Syncere — a16z Speedrun",url:"https://speedrun.a16z.com/companies/syncere"}
+    ]
+  },
+  {
+    name:"Dyna",productUrl:"https://www.dyna.co/dyna-2.1",group:"SEMI-HUMANOID",product:"Taku",
+    robotsBuilt:75,robotsDeployed:50,monthsSinceLaunch:13,price:null,funding:143500000,valuation:600000000,
+    estimate:{robotsBuilt:true,robotsDeployed:true,monthsSinceLaunch:true},
+    greaterThan:{valuation:true},
+    sources:[
+      {label:"Dyna — Series A",url:"https://www.dyna.co/news/series-a"},
+      {label:"Dyna deployments",url:"https://www.dyna.co/research/scaling-customer-deployments"}
+    ]
+  },
+  {
+    name:"Flourish",productUrl:"https://flourish-robots.com/",group:"SEMI-HUMANOID",product:"Flourish 1",
+    robotsBuilt:5,robotsDeployed:0,monthsSinceLaunch:0,price:3555,funding:null,valuation:null,
+    estimate:{robotsBuilt:true},
+    sources:[{label:"Flourish Robots",url:"https://flourish-robots.com/"}]
+  },
+  {
+    name:"Tesla",productUrl:"https://www.tesla.com/AI",group:"HUMANOID",product:"Optimus",
+    robotsBuilt:3000,robotsDeployed:0,monthsSinceLaunch:0,price:null,funding:null,valuation:null,
+    estimate:{robotsBuilt:true},
+    status:{price:"na",funding:"na",valuation:"na"},
+    sources:[{label:"Tesla AI / Optimus",url:"https://www.tesla.com/AI"}]
+  },
+  {
+    name:"Figure",productUrl:"https://www.figure.ai/figure",group:"HUMANOID",product:"Figure 03",
+    robotsBuilt:1000,robotsDeployed:20,monthsSinceLaunch:21,price:null,funding:5250000000,valuation:42500000000,
+    estimate:{robotsDeployed:true,monthsSinceLaunch:true},
+    lowerBound:{robotsBuilt:true},
+    status:{price:"na"},
+    sources:[
+      {label:"Figure 03 production",url:"https://www.figure.ai/news/ramping-figure-03-production"},
+      {label:"Figure",url:"https://www.figure.ai/"}
+    ]
+  },
+  {
+    name:"1X",productUrl:"https://www.1x.tech/discover/neo-home-robot",group:"HUMANOID",product:"NEO",
+    robotsBuilt:350,robotsDeployed:120,monthsSinceLaunch:48,price:20000,funding:136500000,valuation:820000000,
+    estimate:{robotsBuilt:true,robotsDeployed:true},
+    lowerBound:{monthsSinceLaunch:true},
+    metricNotes:{price:"Also offered at $499/mo."},
+    sources:[
+      {label:"NEO",url:"https://www.1x.tech/discover/neo-home-robot"},
+      {label:"1X",url:"https://www.1x.tech/about"}
+    ]
+  }
 ];
 
 const today=new Date("2026-09-30T00:00:00");
-function monthsSince(s){if(!s)return null;const d=new Date(s+"T00:00:00");return Math.max(0,(today.getFullYear()-d.getFullYear())*12+(today.getMonth()-d.getMonth()));}
-for(const c of companies){
-  c.monthsSinceLaunch=c.launchStatus==="not-launched"?null:monthsSince(c.launchDate);
-  c.status ||= {};
-  c.status.monthsSinceLaunch=c.launchStatus==="not-launched"?"not-launched":c.launchDate?"confirmed":"unknown";
-}
 
 let active="robotsBuilt";
 let selected=null;
 const groupsEl=document.querySelector("#groups");
 const drawerRoot=document.querySelector("#drawerRoot");
 
-function money(v){if(v==null)return"UNKNOWN";if(v>=1e9)return"$"+(v/1e9).toFixed(v%1e9===0?0:2).replace(/\.00$/,"")+"B";if(v>=1e6)return"$"+(v/1e6).toFixed(v%1e6===0?0:1).replace(/\.0$/,"")+"M";if(v>=1e3)return"$"+Math.round(v/1e3)+"K";return"$"+v.toLocaleString();}
+function money(v){
+  if(v==null)return"";
+  if(v>=1e9)return"$"+(v/1e9).toFixed(v%1e9===0?0:2).replace(/\\.00$/,"")+"B";
+  if(v>=1e6)return"$"+(v/1e6).toFixed(v%1e6===0?0:1).replace(/\\.0$/,"")+"M";
+  if(v>=1e3)return"$"+Math.round(v/1e3)+"K";
+  return"$"+v.toLocaleString();
+}
 function metric(){return metrics.find(m=>m.key===active)}
-function statusFor(c,key=active){return c.status?.[key] || (c[key]==null?"unknown":"reported")}
+function statusFor(c,key=active){
+  if(c.status?.[key])return c.status[key];
+  if(c.estimate?.[key])return"estimated";
+  return c[key]==null?"unknown":"confirmed";
+}
 function labelFor(c,key=active){
   const st=statusFor(c,key),m=metrics.find(x=>x.key===key),v=c[key];
-  if(st==="not-launched")return"NOT LAUNCHED";if(st==="na")return"N/A";if(v==null)return"";
-  return m.type==="money"?money(v):v.toLocaleString();
+  if(st==="na")return"N/A";
+  if(v==null)return"";
+  let out=m.type==="money"?money(v):v.toLocaleString();
+  if(c.greaterThan?.[key])out=">"+out;
+  if(c.lowerBound?.[key])out+="+";
+  if(c.estimate?.[key])out+="*";
+  return out;
 }
-function statusText(s){return({confirmed:"Confirmed",reported:"Reported / estimated",unknown:"Unknown","not-launched":"Not launched",na:"Not applicable"})[s]||s}
+function detailNoteFor(c,key){
+  const notes=[];
+  if(c.estimate?.[key])notes.push("Estimated from public disclosures");
+  else if(c.lowerBound?.[key])notes.push("Publicly disclosed lower bound");
+  else if(c.greaterThan?.[key])notes.push("Reported as greater than this value");
+  else if(statusFor(c,key)==="na")notes.push("Not applicable / not publicly for sale");
+  else if(c[key]==null)notes.push("Not publicly disclosed");
+  else notes.push("Publicly disclosed / reported");
+  if(c.metricNotes?.[key])notes.push(c.metricNotes[key]);
+  return notes.join(" · ");
+}
 
 function render(){
   const note=document.querySelector(".metric-note");
-  if(note) note.textContent=metricDescriptions[active]||"";
+  if(note){
+    const hasEstimates=companies.some(c=>c.estimate?.[active]);
+    note.textContent=(metricDescriptions[active]||"")+(hasEstimates?"  * estimated":"");
+  }
   document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.metric===active));
   const vals=companies.map(c=>c[active]).filter(v=>typeof v==="number"&&v>0);
   const max=Math.max(...vals,1);
@@ -105,7 +233,7 @@ function render(){
 function renderDrawer(){
   if(!selected){drawerRoot.innerHTML="";return}
   const color=companyColors[selected.name]||"#d9dee3";
-  drawerRoot.innerHTML=`<div class="backdrop"></div><aside class="drawer" style="--company-color:${color}"><button class="drawer-close">×</button><div class="drawer-kicker">${selected.group}</div><h2>${selected.name}</h2><p class="drawer-product">${selected.product||"Product not yet recorded"}</p>${selected.productUrl?`<a class="product-link" href="${selected.productUrl}" target="_blank" rel="noreferrer">View product page <span>↗</span></a>`:""}<div class="detail-grid">${metrics.map(m=>`<div class="detail-row"><span>${m.label}</span><strong>${labelFor(selected,m.key)}</strong><small>${statusText(statusFor(selected,m.key))}</small></div>`).join("")}</div><div class="source-block"><div class="source-title">SOURCES</div>${selected.sources?.length?selected.sources.map(s=>`<a href="${s.url}" target="_blank" rel="noreferrer">${s.label}<span>↗</span></a>`).join(""):'<div class="no-source">No verified public source added yet.</div>'}</div></aside>`;
+  drawerRoot.innerHTML=`<div class="backdrop"></div><aside class="drawer" style="--company-color:${color}"><button class="drawer-close">×</button><div class="drawer-kicker">${selected.group}</div><h2>${selected.name}</h2><p class="drawer-product">${selected.product||"Product not yet recorded"}</p>${selected.productUrl?`<a class="product-link" href="${selected.productUrl}" target="_blank" rel="noreferrer">View product page <span>↗</span></a>`:""}<div class="detail-grid">${metrics.map(m=>`<div class="detail-row"><span>${m.label}</span><strong>${labelFor(selected,m.key)}</strong><small>${detailNoteFor(selected,m.key)}</small></div>`).join("")}</div><div class="source-block"><div class="source-title">SOURCES</div>${selected.sources?.length?selected.sources.map(s=>`<a href="${s.url}" target="_blank" rel="noreferrer">${s.label}<span>↗</span></a>`).join(""):'<div class="no-source">No verified public source added yet.</div>'}</div></aside>`;
   document.querySelector(".drawer-close").onclick=closeDrawer;
   document.querySelector(".backdrop").onclick=closeDrawer;
 }
