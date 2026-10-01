@@ -79,7 +79,7 @@ const estimateReasons={
   },
   "Dyna":{
     robotsBuilt:"Dyna says deployments are scaling toward hundreds of robots by H1 2027. ~75 built is a midpoint estimate that allows for deployed systems plus internal, demo, and spare units.",
-    robotsDeployed:"Dyna publicly describes active customer deployments across multiple industries and a path to hundreds of robots. ~50 is a conservative current-fleet estimate.",
+    robotsDeployed:"Dyna has not disclosed its current customer fleet count. ~50 is our estimate from its active deployments across restaurants, hotels, laundromats, logistics and data centers, including the Din Tai Fung rollout, together with Dyna’s statement that its deployed fleet is expected to reach hundreds by H1 2027. A reasonable current range is roughly 30–70 robots.",
     monthsSinceLaunch:"Dyna had customer robots operating by 2025. ~13 months approximates elapsed commercial deployment time from those disclosures."
   },
   "Flourish":{
@@ -131,7 +131,11 @@ const estimateSources={
   },
   "Dyna":{
     robotsBuilt:[{label:"Dyna deployment disclosure",url:"https://www.dyna.co/research/scaling-customer-deployments"}],
-    robotsDeployed:[{label:"Dyna deployment disclosure",url:"https://www.dyna.co/research/scaling-customer-deployments"}],
+    robotsDeployed:[
+      {label:"Dyna — scaling customer deployments / Din Tai Fung rollout",url:"https://www.dyna.co/research/scaling-customer-deployments"},
+      {label:"PR Newswire — Dyna 2.1 launch and customer deployments",url:"https://www.prnewswire.com/news-releases/dyna-robotics-launches-dyna-2-1-physical-agent-a-semi-humanoid-robot-that-completes-full-workflows-such-as-a-commercial-laundry-shift-302892411.html"},
+      {label:"Dyna — Monster Laundry customer deployment",url:"https://www.dyna.co/news/monster-laundry"}
+    ],
     monthsSinceLaunch:[{label:"Dyna deployment disclosure",url:"https://www.dyna.co/research/scaling-customer-deployments"}]
   },
   "Flourish":{
