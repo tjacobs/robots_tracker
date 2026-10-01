@@ -9,7 +9,6 @@ A website comparing semi-humanoid and humanoid robotics companies across:
 - Months deployed
 - Price
 - Funding
-- Valuation
 
 The tracker is designed to make incomplete robotics-company data easier to compare without pretending every figure is exact.
 
@@ -19,8 +18,7 @@ The tracker is designed to make incomplete robotics-company data easier to compa
 - **Robots deployed** — Number of robots with customers.
 - **Months deployed** — Number of months since launching robots to customers.
 - **Price** — Current listed purchase price where publicly available.
-- **Funding** — Amount of funding raised so far.
-- **Valuation** — Valuation from the last round raised.
+- **Funding** — Amount of funding raised so far, displayed in millions (M).
 - Missing values are left blank.
 - Estimated figures may be marked with an asterisk (`*`) and should be treated as directional rather than company-disclosed numbers.
 - Internal prototypes and lab-only robots should not be counted as customer deployments.
