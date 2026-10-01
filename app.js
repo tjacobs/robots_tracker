@@ -3,8 +3,7 @@ const metrics=[
   {key:"robotsDeployed",label:"ROBOTS DEPLOYED",type:"count"},
   {key:"monthsSinceLaunch",label:"MONTHS DEPLOYED",type:"count"},
   {key:"price",label:"PRICE",type:"money"},
-  {key:"funding",label:"FUNDING",type:"money"},
-  {key:"valuation",label:"VALUATION",type:"money"}
+  {key:"funding",label:"FUNDING",type:"money"}
 ];
 
 const metricDescriptions={
@@ -12,8 +11,7 @@ const metricDescriptions={
   "robotsDeployed":"Number of robots with customers.",
   "monthsSinceLaunch":"Number of months since launching robots to customers.",
   "price":"Current listed purchase price.",
-  "funding":"Amount of funding raised so far.",
-  "valuation":"Valuation from last round raised."
+  "funding":"Amount of funding raised so far."
 };
 
 const companyBadges={
@@ -87,8 +85,9 @@ const companies=[
     estimate:{monthsSinceLaunch:true},
     lowerBound:{robotsBuilt:true,robotsDeployed:true},
     sources:[
-      {label:"Matic product",url:"https://maticrobots.com/product"},
-      {label:"Matic company updates",url:"https://maticrobots.com/blog"}
+      {label:"Matic — 13,000+ robots in homes",url:"https://maticrobots.com/blog/twice-the-intelligence-still-nothing-leaves-your-home"},
+      {label:"Matic — $115M total funding",url:"https://maticrobots.com/company"},
+      {label:"Matic — $1,495 price",url:"https://maticrobots.com/product"}
     ]
   },
   {
@@ -160,10 +159,14 @@ const companies=[
     robotsBuilt:350,robotsDeployed:120,monthsSinceLaunch:48,price:20000,funding:136500000,valuation:820000000,
     estimate:{robotsBuilt:true,robotsDeployed:true},
     lowerBound:{monthsSinceLaunch:true},
-    metricNotes:{price:"Also offered at $499/mo."},
+    metricNotes:{
+      robotsDeployed:"Approx. 120 robots in pilots from third-party 2026 deployment tracking; 1X confirms customer-home deployments but does not disclose an exact count.",
+      price:"Also offered at $499/mo."
+    },
     sources:[
-      {label:"NEO",url:"https://www.1x.tech/discover/neo-home-robot"},
-      {label:"1X",url:"https://www.1x.tech/about"}
+      {label:"1X — NEO product / customer deliveries",url:"https://www.1x.tech/discover/neo-home-robot"},
+      {label:"1X — customer-home deployment timeline",url:"https://www.1x.tech/about"},
+      {label:"1X deployment estimate — ~120 in pilots",url:"https://presenc.ai/research/humanoid-robot-market-tracker-2026"}
     ]
   }
 ];
@@ -192,7 +195,9 @@ function labelFor(c,key=active){
   const st=statusFor(c,key),m=metrics.find(x=>x.key===key),v=c[key];
   if(st==="na")return"N/A";
   if(v==null)return"";
-  let out=m.type==="money"?money(v):v.toLocaleString();
+  let out;
+  if(key==="funding") out="$"+(v/1e6).toLocaleString(undefined,{maximumFractionDigits:1})+"M";
+  else out=m.type==="money"?money(v):v.toLocaleString();
   if(c.greaterThan?.[key])out=">"+out;
   if(c.lowerBound?.[key])out+="+";
   if(c.estimate?.[key])out+="*";
