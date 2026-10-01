@@ -32,14 +32,14 @@ const companyBadges={
 
 const companyColors={
   "Weave":"#737b66",
-  "Sunday":"#f2cf24",
+  "Sunday":"#d04a3a",
   "Almond":"#f2b84b",
   "Nori":"#32c7a0",
   "Matic":"#00a6a6",
-  "Innate":"#4f8cff",
+  "Innate":"#4700f5",
   "Feather":"#5f6368",
   "Syncere":"#d84cff",
-  "Dyna":"#ff4d4d",
+  "Dyna":"#45484d",
   "Flourish":"#72d572",
   "Tesla":"#e82127",
   "Figure":"#4b5563",
