@@ -79,8 +79,7 @@ const estimateReasons={
   },
   "Dyna":{
     robotsBuilt:"Dyna says deployments are scaling toward hundreds of robots by H1 2027. ~75 built is a midpoint estimate that allows for deployed systems plus internal, demo, and spare units.",
-    robotsDeployed:"Dyna has not disclosed its current customer fleet count. ~50 is our estimate from its active deployments across restaurants, hotels, laundromats, logistics and data centers, including the Din Tai Fung rollout, together with Dyna’s statement that its deployed fleet is expected to reach hundreds by H1 2027. A reasonable current range is roughly 30–70 robots.",
-    monthsSinceLaunch:"Dyna had customer robots operating by 2025. ~13 months approximates elapsed commercial deployment time from those disclosures."
+    robotsDeployed:"Dyna has not disclosed its current customer fleet count. ~50 is our estimate from its active deployments across restaurants, hotels, laundromats, logistics and data centers, including the Din Tai Fung rollout, together with Dyna’s statement that its deployed fleet is expected to reach hundreds by H1 2027. A reasonable current range is roughly 30–70 robots."
   },
   "Flourish":{
     robotsBuilt:"Flourish has demonstrated working hardware but customer deliveries begin later. ~5 represents likely prototype / pre-production units only."
@@ -136,7 +135,7 @@ const estimateSources={
       {label:"PR Newswire — Dyna 2.1 launch and customer deployments",url:"https://www.prnewswire.com/news-releases/dyna-robotics-launches-dyna-2-1-physical-agent-a-semi-humanoid-robot-that-completes-full-workflows-such-as-a-commercial-laundry-shift-302892411.html"},
       {label:"Dyna — Monster Laundry customer deployment",url:"https://www.dyna.co/news/monster-laundry"}
     ],
-    monthsSinceLaunch:[{label:"Dyna deployment disclosure",url:"https://www.dyna.co/research/scaling-customer-deployments"}]
+    monthsSinceLaunch:[{label:"Taku launch / deployment status",url:"https://www.dyna.co/dyna-2.1"}]
   },
   "Flourish":{
     robotsBuilt:[{label:"Flourish disclosure",url:"https://flourish-robots.com/"}]
@@ -181,6 +180,7 @@ const metricSources={
     funding:[{label:"Funding source",url:"https://maticrobots.com/company"}]
   },
   "Innate":{
+    monthsSinceLaunch:[{label:"Deployment start — shipping from Oct 2025",url:"https://store.innate.bot/products/innate-mars-founders-edition"}],
     price:[{label:"Price source",url:"https://store.innate.bot/products/innate-mars-founders-edition"}],
     funding:[{label:"Funding source",url:"https://www.innate.bot/"}]
   },
@@ -193,6 +193,7 @@ const metricSources={
     funding:[{label:"Funding source",url:"https://speedrun.a16z.com/companies/syncere"}]
   },
   "Dyna":{
+    monthsSinceLaunch:[{label:"Taku launch / deployment status",url:"https://www.dyna.co/dyna-2.1"}],
     funding:[{label:"Funding source",url:"https://www.dyna.co/news/series-a"}]
   },
   "Flourish":{
@@ -284,9 +285,10 @@ const companies=[
   },
   {
     name:"Dyna",productUrl:"https://www.dyna.co/dyna-2.1",group:"SEMI-HUMANOID",product:"Taku",
-    robotsBuilt:75,robotsDeployed:50,monthsSinceLaunch:13,price:null,funding:143500000,valuation:600000000,
-    estimate:{robotsBuilt:true,robotsDeployed:true,monthsSinceLaunch:true},
+    robotsBuilt:75,robotsDeployed:50,monthsSinceLaunch:0,price:null,funding:143500000,valuation:600000000,
+    estimate:{robotsBuilt:true,robotsDeployed:true},
     greaterThan:{valuation:true},
+    metricNotes:{monthsSinceLaunch:"Taku was introduced Sep. 29, 2026. Dyna says its next milestone is taking this brand-new system to real-world customer sites; earlier Dyna robots have been deployed longer."},
     sources:[
       {label:"Dyna — Series A",url:"https://www.dyna.co/news/series-a"},
       {label:"Dyna deployments",url:"https://www.dyna.co/research/scaling-customer-deployments"}
