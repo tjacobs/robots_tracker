@@ -92,8 +92,7 @@ const estimateReasons={
     monthsSinceLaunch:"Figure’s BMW deployment began well before the current Figure 03 generation. ~21 months measures company-wide customer deployment time from that earlier commercial program."
   },
   "1X":{
-    robotsBuilt:"1X has disclosed factory-scale NEO production activity and earlier EVE production capacity, but no cumulative unit total. ~350 is a company-wide estimate across NEO and EVE.",
-    robotsDeployed:"1X confirms robots in customer environments and homes, while third-party deployment tracking puts pilots around ~120. We use 120 as an estimate, not a company-disclosed count."
+    robotsBuilt:"1X has disclosed factory-scale NEO production activity and earlier EVE production capacity, but no cumulative unit total. ~350 is a company-wide estimate across NEO and EVE."
   }
 };
 
@@ -151,10 +150,6 @@ const estimateSources={
     robotsBuilt:[
       {label:"1X factory disclosure",url:"https://www.1x.tech/discover/neo-factory"},
       {label:"1X production disclosure",url:"https://www.1x.tech/discover/neos-hands"}
-    ],
-    robotsDeployed:[
-      {label:"1X customer-home disclosure",url:"https://www.1x.tech/about"},
-      {label:"Estimate basis (~120)",url:"https://presenc.ai/research/humanoid-robot-market-tracker-2026"}
     ]
   }
 };
@@ -203,6 +198,10 @@ const metricSources={
     funding:[{label:"Funding source",url:"https://forgeglobal.com/figure-ai_stock/"}]
   },
   "1X":{
+    robotsDeployed:[
+      {label:"1X — NEO Beta home R&D deployment",url:"https://www.1x.tech/discover/announcement-1x-unveils-neo-beta-a-humanoid-robot-for-the-home"},
+      {label:"1X — NEO factory / planned customer deliveries",url:"https://www.1x.tech/discover/neo-factory"}
+    ],
     price:[{label:"Price source",url:"https://www.1x.tech/discover/neo-home-robot"}],
     funding:[{label:"Funding source",url:"https://www.altis.vc/research/company/1x"}]
   }
@@ -324,17 +323,17 @@ const companies=[
   },
   {
     name:"1X",productUrl:"https://www.1x.tech/discover/neo-home-robot",group:"HUMANOID",product:"NEO",
-    robotsBuilt:350,robotsDeployed:120,monthsSinceLaunch:48,price:20000,funding:136500000,valuation:820000000,
-    estimate:{robotsBuilt:true,robotsDeployed:true},
+    robotsBuilt:350,robotsDeployed:0,monthsSinceLaunch:48,price:20000,funding:136500000,valuation:820000000,
+    estimate:{robotsBuilt:true},
     lowerBound:{monthsSinceLaunch:true},
     metricNotes:{
-      robotsDeployed:"Approx. 120 robots in pilots from third-party 2026 deployment tracking; 1X confirms customer-home deployments but does not disclose an exact count.",
+      robotsDeployed:"0 confirmed NEO robots in customer homes counted here. 1X has disclosed limited home R&D testing and planned 2026 customer deliveries, but has not disclosed a verified customer-home delivery count.",
       price:"Also offered at $499/mo."
     },
     sources:[
       {label:"1X — NEO product / customer deliveries",url:"https://www.1x.tech/discover/neo-home-robot"},
-      {label:"1X — customer-home deployment timeline",url:"https://www.1x.tech/about"},
-      {label:"1X deployment estimate — ~120 in pilots",url:"https://presenc.ai/research/humanoid-robot-market-tracker-2026"}
+      {label:"1X — NEO Beta home R&D deployment",url:"https://www.1x.tech/discover/announcement-1x-unveils-neo-beta-a-humanoid-robot-for-the-home"},
+      {label:"1X — NEO factory / planned customer deliveries",url:"https://www.1x.tech/discover/neo-factory"}
     ]
   }
 ];
