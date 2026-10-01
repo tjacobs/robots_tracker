@@ -46,6 +46,57 @@ const companyColors={
   "1X":"#5b8cff"
 };
 
+const estimateReasons={
+  "Weave":{
+    robotsBuilt:"Weave says it has deployed robots nearly every week since launch and reports 2,000+ field hours. ~25 assumes roughly weekly deployments plus engineering / spare units.",
+    robotsDeployed:"Weave says it has deployed robots to homes and businesses nearly every week since launch. ~20 is a conservative estimate from that cadence."
+  },
+  "Sunday":{
+    robotsBuilt:"Sunday describes having built dozens of prototypes. 30 is a conservative numeric interpretation of “dozens,” not a company-disclosed count."
+  },
+  "Almond":{
+    robotsBuilt:"Almond says its first production batch sold out and shipped, with a second batch following. ~15 assumes a small first batch plus early second-batch production.",
+    robotsDeployed:"Almond says the first production batch shipped to customers. ~10 assumes a first batch of roughly ten units."
+  },
+  "Nori":{
+    robotsBuilt:"Nori confirms its first customer robot is deployed and reports substantial early sales, but not units built. ~10 reflects an early production run rather than converting sales directly into shipped robots."
+  },
+  "Matic":{
+    monthsSinceLaunch:"Matic shipped its first customer units in 2024. ~24 months is an approximate elapsed deployment period because the exact start month is not consistently disclosed."
+  },
+  "Innate":{
+    robotsBuilt:"Innate says its first MARS batch sold out and began shipping. ~50 assumes a small early production batch consistent with a founder-edition launch.",
+    robotsDeployed:"Innate says MARS units began shipping to customers. ~40 allows for some built units remaining as demos, spares, or internal systems."
+  },
+  "Feather":{
+    robotsBuilt:"Feather reports more than $1M in revenue and lists the robot at about $30K. That is roughly 33 robot-equivalents of revenue, so we round to ~35 built.",
+    robotsDeployed:"Using the same revenue signal, ~30 deployed allows for a handful of demo, internal, or unsold units among ~35 built.",
+    monthsSinceLaunch:"Feather describes robots already operating with customers across multiple applications. ~12 months approximates the public shipping timeline."
+  },
+  "Syncere":{
+    robotsBuilt:"Syncere reports hundreds of preorders but has not disclosed customer shipment volume. ~10 represents likely prototype / pre-production hardware, not fulfilled preorders."
+  },
+  "Dyna":{
+    robotsBuilt:"Dyna says deployments are scaling toward hundreds of robots by H1 2027. ~75 built is a midpoint estimate that allows for deployed systems plus internal, demo, and spare units.",
+    robotsDeployed:"Dyna publicly describes active customer deployments across multiple industries and a path to hundreds of robots. ~50 is a conservative current-fleet estimate.",
+    monthsSinceLaunch:"Dyna had customer robots operating by 2025. ~13 months approximates elapsed commercial deployment time from those disclosures."
+  },
+  "Flourish":{
+    robotsBuilt:"Flourish has demonstrated working hardware but customer deliveries begin later. ~5 represents likely prototype / pre-production units only."
+  },
+  "Tesla":{
+    robotsBuilt:"Tesla reported Optimus production ramping from relatively low weekly output to several hundred per week in 2026. ~3,000 is an approximate cumulative total from that ramp, not a disclosed fleet count."
+  },
+  "Figure":{
+    robotsDeployed:"Figure confirms commercial deployments including BMW, but does not publish a current external fleet total. ~20 reflects public evidence of deployments being in the tens.",
+    monthsSinceLaunch:"Figure’s BMW deployment began well before the current Figure 03 generation. ~21 months measures company-wide customer deployment time from that earlier commercial program."
+  },
+  "1X":{
+    robotsBuilt:"1X has disclosed factory-scale NEO production activity and earlier EVE production capacity, but no cumulative unit total. ~350 is a company-wide estimate across NEO and EVE.",
+    robotsDeployed:"1X confirms robots in customer environments and homes, while third-party deployment tracking puts pilots around ~120. We use 120 as an estimate, not a company-disclosed count."
+  }
+};
+
 const estimateSources={
   "Weave":{
     robotsBuilt:[{label:"Weave disclosure",url:"https://www.weaverobotics.com/isaac-0"}],
@@ -274,8 +325,12 @@ function detailNoteFor(c,key){
 function estimateLinksFor(c,key){
   if(!c.estimate?.[key])return"";
   const links=estimateSources[c.name]?.[key]||[];
-  if(!links.length)return"";
-  return '<div class="estimate-links">'+links.map(link=>'<a href="'+link.url+'" target="_blank" rel="noreferrer">'+link.label+' ↗</a>').join("")+'</div>';
+  const reason=estimateReasons[c.name]?.[key]||"";
+  if(!links.length&&!reason)return"";
+  return '<div class="estimate-basis">'+
+    (reason?'<div class="estimate-reason">'+reason+'</div>':"")+
+    (links.length?'<div class="estimate-links">'+links.map(link=>'<a href="'+link.url+'" target="_blank" rel="noreferrer">'+link.label+' ↗</a>').join("")+'</div>':"")+
+    '</div>';
 }
 
 function render(){
