@@ -40,7 +40,7 @@ const companyColors={
   "Feather":"#5f6368",
   "Syncere":"#323f35",
   "Dyna":"#45484d",
-  "Flourish":"#8a9064",
+  "Flourish":"#9faa62",
   "Tesla":"#e82127",
   "Figure":"#4b5563",
   "1X":"#5b8cff"
