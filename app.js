@@ -49,7 +49,8 @@ const companyColors={
 const estimateReasons={
   "Weave":{
     robotsBuilt:"Weave says it has deployed robots nearly every week since launch and reports 2,000+ field hours. ~25 assumes roughly weekly deployments plus engineering / spare units.",
-    robotsDeployed:"Weave says it has deployed robots to homes and businesses nearly every week since launch. ~20 is a conservative estimate from that cadence."
+    robotsDeployed:"Weave says it has deployed robots to homes and businesses nearly every week since launch. ~20 is a conservative estimate from that cadence.",
+    monthsSinceLaunch:"Weave launched Isaac 0 customer deployments in February 2026. Seven months is the elapsed time from that launch to the tracker date of September 30, 2026."
   },
   "Sunday":{
     robotsBuilt:"Sunday describes having built dozens of prototypes. 30 is a conservative numeric interpretation of “dozens,” not a company-disclosed count."
@@ -100,7 +101,8 @@ const estimateReasons={
 const estimateSources={
   "Weave":{
     robotsBuilt:[{label:"Weave disclosure",url:"https://www.weaverobotics.com/isaac-0"}],
-    robotsDeployed:[{label:"Weave disclosure",url:"https://www.weaverobotics.com/isaac-0"}]
+    robotsDeployed:[{label:"Weave disclosure",url:"https://www.weaverobotics.com/isaac-0"}],
+    monthsSinceLaunch:[{label:"Weave launch / deployment disclosure",url:"https://www.weaverobotics.com/about"}]
   },
   "Sunday":{
     robotsBuilt:[{label:"Sunday disclosure",url:"https://www.sunday.ai/blog/series-b"}]
@@ -158,7 +160,7 @@ const companies=[
   {
     name:"Weave",productUrl:"https://www.weaverobotics.com/isaac-0",group:"SEMI-HUMANOID",product:"Isaac 0",
     robotsBuilt:25,robotsDeployed:20,monthsSinceLaunch:7,price:3999,funding:500000,valuation:null,
-    estimate:{robotsBuilt:true,robotsDeployed:true},
+    estimate:{robotsBuilt:true,robotsDeployed:true,monthsSinceLaunch:true},
     metricNotes:{price:"Purchase price; other subscription/financing options are offered."},
     sources:[
       {label:"Isaac 0",url:"https://www.weaverobotics.com/isaac-0"},
@@ -362,7 +364,7 @@ function render(animateFrom=null){
   const note=document.querySelector(".metric-note");
   if(note){
     const hasEstimates=companies.some(c=>c.estimate?.[active]);
-    note.textContent=(metricDescriptions[active]||"")+((active==="funding"||active==="robotsBuilt")?"  Bars use log scale.":"")+(hasEstimates?"  * estimated":"");
+    note.textContent=(metricDescriptions[active]||"")+(active==="funding"?"  Bars use log scale.":"")+(active==="robotsBuilt"?"  Scale capped at 100 robots.":"")+(hasEstimates?"  * estimated":"");
   }
   document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.metric===active));
 
@@ -372,9 +374,12 @@ function render(animateFrom=null){
   const min=Math.min(...vals,max);
   const scaledHeight=v=>{
     if(typeof v!=="number"||v<=0)return 0;
-    if((active==="funding"||active==="robotsBuilt")&&max>min){
+    if(active==="funding"&&max>min){
       const lo=Math.log10(min),hi=Math.log10(max);
       return 10+((Math.log10(v)-lo)/(hi-lo))*90;
+    }
+    if(active==="robotsBuilt"){
+      return Math.max(8,Math.min(v,100));
     }
     return Math.max(8,v/max*100);
   };
