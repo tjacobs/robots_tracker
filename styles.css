@@ -38,3 +38,7 @@ h1{margin:5px 0 0;font-size:clamp(50px,6vw,80px);line-height:.9;letter-spacing:-
 @media(max-width:900px){.page{padding:24px 18px 18px}.header{align-items:flex-start}.updated{text-align:right;margin-top:7px}.tabs{grid-template-columns:1fr}.tab{border-right:0;border-bottom:1px solid var(--line)}.tab:last-child{border-bottom:0}.chart-header{flex-direction:column;align-items:flex-start}.legend{justify-content:flex-start}.bars{grid-template-columns:repeat(var(--count),88px);min-height:330px}.company{height:300px}}
 .product-link{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 24px;padding:12px 14px;border:1px solid color-mix(in srgb,var(--company-color) 28%,var(--line));border-radius:10px;background:color-mix(in srgb,var(--company-color) 7%,#fff 93%);color:var(--company-color);font-size:13px;font-weight:750;text-decoration:none}
 .product-link:hover{background:color-mix(in srgb,var(--company-color) 12%,#fff 88%)}
+
+.estimate-links{display:flex;flex-wrap:wrap;gap:6px 12px;margin-top:6px}
+.estimate-links a{color:var(--company-color);font-size:11px;font-weight:700;text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--company-color) 35%,transparent)}
+.estimate-links a:hover{border-bottom-color:var(--company-color)}
