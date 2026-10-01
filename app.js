@@ -369,21 +369,18 @@ function render(animateFrom=null){
   document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.metric===active));
 
   const visibleCompanies=companies.filter(c=>maticVisible||c.name!=="Matic");
-  const vals=visibleCompanies.map(c=>c[active]).filter(v=>typeof v==="number"&&v>0);
-  const max=Math.max(...vals,1);
-  const min=Math.min(...vals,max);
   const scaledHeight=(v,groupRows)=>{
     if(typeof v!=="number"||v<=0)return 0;
-    if(active==="funding"&&max>min){
-      const lo=Math.log10(min),hi=Math.log10(max);
+    const groupVals=groupRows.map(c=>c[active]).filter(x=>typeof x==="number"&&x>0);
+    const groupMax=Math.max(...groupVals,1);
+    const groupMin=Math.min(...groupVals,groupMax);
+
+    if(active==="funding"&&groupMax>groupMin){
+      const lo=Math.log10(groupMin),hi=Math.log10(groupMax);
       return 10+((Math.log10(v)-lo)/(hi-lo))*90;
     }
-    if(active==="robotsBuilt"){
-      const groupVals=groupRows.map(c=>c[active]).filter(x=>typeof x==="number"&&x>0);
-      const groupMax=Math.max(...groupVals,1);
-      return Math.max(8,v/groupMax*100);
-    }
-    return Math.max(8,v/max*100);
+
+    return Math.max(8,v/groupMax*100);
   };
 
   groupsEl.innerHTML=["SEMI-HUMANOID","HUMANOID"].map(group=>{
