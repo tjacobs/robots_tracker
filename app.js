@@ -231,6 +231,7 @@ const companies=[
     robotsBuilt:15,robotsDeployed:10,monthsSinceLaunch:1,price:9499,funding:500000,valuation:null,
     estimate:{robotsBuilt:true,robotsDeployed:true},
     lowerBound:{funding:true},
+    metricNotes:{monthsSinceLaunch:"Innate says MARS Batch 1 began shipping in October 2025. From October 2025 to the tracker date of Sep. 30, 2026 is about 11 months of customer deployment."},
     sources:[
       {label:"Almond",url:"https://www.almond.bot/"},
       {label:"Almond — YC",url:"https://www.ycombinator.com/companies/almond-2"}
@@ -288,7 +289,7 @@ const companies=[
     robotsBuilt:75,robotsDeployed:50,monthsSinceLaunch:0,price:null,funding:143500000,valuation:600000000,
     estimate:{robotsBuilt:true,robotsDeployed:true},
     greaterThan:{valuation:true},
-    metricNotes:{monthsSinceLaunch:"Taku was introduced Sep. 29, 2026. Dyna says its next milestone is taking this brand-new system to real-world customer sites; earlier Dyna robots have been deployed longer."},
+    metricNotes:{monthsSinceLaunch:"Taku was introduced Sep. 29, 2026, one day before this tracker date. Dyna describes taking this brand-new system to real-world customer sites as the next milestone, so we count Taku itself as 0 months deployed. Dyna’s earlier robot generations have been operating with customers longer, but that history is not assigned to Taku."},
     sources:[
       {label:"Dyna — Series A",url:"https://www.dyna.co/news/series-a"},
       {label:"Dyna deployments",url:"https://www.dyna.co/research/scaling-customer-deployments"}
