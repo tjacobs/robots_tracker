@@ -286,10 +286,13 @@ const companies=[
   },
   {
     name:"Dyna",productUrl:"https://www.dyna.co/dyna-2.1",group:"SEMI-HUMANOID",product:"Taku",
-    robotsBuilt:75,robotsDeployed:50,monthsSinceLaunch:0,price:null,funding:143500000,valuation:600000000,
-    estimate:{robotsBuilt:true,robotsDeployed:true},
+    robotsBuilt:75,robotsDeployed:0,monthsSinceLaunch:0,price:null,funding:143500000,valuation:600000000,
+    estimate:{robotsBuilt:true},
     greaterThan:{valuation:true},
-    metricNotes:{monthsSinceLaunch:"Taku was introduced Sep. 29, 2026, one day before this tracker date. Dyna describes taking this brand-new system to real-world customer sites as the next milestone, so we count Taku itself as 0 months deployed. Dyna’s earlier robot generations have been operating with customers longer, but that history is not assigned to Taku."},
+    metricNotes:{
+      robotsDeployed:"Taku itself is not yet counted as deployed with customers. Dyna’s earlier robot generations have customer deployments, but those are excluded here so this row stays product-specific to Taku.",
+      monthsSinceLaunch:"Taku was introduced Sep. 29, 2026, one day before this tracker date. Dyna describes taking this brand-new system to real-world customer sites as the next milestone, so we count Taku itself as 0 months deployed."
+    },
     sources:[
       {label:"Dyna — Series A",url:"https://www.dyna.co/news/series-a"},
       {label:"Dyna deployments",url:"https://www.dyna.co/research/scaling-customer-deployments"}
