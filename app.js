@@ -444,4 +444,7 @@ document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{
   active=b.dataset.metric;
   render(snap);
 });
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"&&selected) closeDrawer();
+});
 render();
