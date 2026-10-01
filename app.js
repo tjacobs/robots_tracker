@@ -340,7 +340,7 @@ const companies=[
 
 const today=new Date("2026-09-30T00:00:00");
 
-let active="robotsBuilt";
+let active="robotsDeployed";
 let selected=null;
 let maticVisible=false;
 const groupsEl=document.querySelector("#groups");
