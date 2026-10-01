@@ -397,7 +397,10 @@ function render(animateFrom=null){
       const v=c[active],st=statusFor(c),height=scaledHeight(v,rows);
       const color=companyColors[c.name]||"#d9dee3";
       const initial=animateFrom&&animateFrom[c.name]!=null?animateFrom[c.name]+"px":height+"%";
-      return '<button class="company" data-company="'+c.name+'" style="--company-color:'+color+'"><div class="value">'+labelFor(c)+'</div><div class="bar-stage"><div class="bar '+st+'" data-target-height="'+height+'" style="height:'+initial+'"></div></div><div class="company-brand"><div class="logo-badge" aria-hidden="true">'+(companyBadges[c.name]||"◆")+'</div><div><div class="company-name">'+c.name+'</div><div class="product-name">'+(c.product||"&nbsp;")+'</div></div></div></button>';
+      const card='<button class="company" data-company="'+c.name+'" style="--company-color:'+color+'"><div class="value">'+labelFor(c)+'</div><div class="bar-stage"><div class="bar '+st+'" data-target-height="'+height+'" style="height:'+initial+'"></div></div><div class="company-brand"><div class="logo-badge" aria-hidden="true">'+(companyBadges[c.name]||"◆")+'</div><div><div class="company-name">'+c.name+'</div><div class="product-name">'+(c.product||"&nbsp;")+'</div></div></div></button>';
+      return c.name==="Matic"&&maticVisible
+        ? '<div class="matic-card-wrap">'+card+'<button class="matic-hide-inline" type="button">hide</button></div>'
+        : card;
     }).join("");
     const toggle=showMaticToggle
       ? '<button class="matic-toggle" type="button" aria-label="Show Matic"><div class="matic-toggle-icon">M</div><div class="matic-toggle-label">SHOW MATIC</div></button>'
@@ -414,7 +417,7 @@ function render(animateFrom=null){
     maticVisible=true;
     render(snap);
   });
-  document.querySelectorAll(".matic-hide").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll(".matic-hide,.matic-hide-inline").forEach(b=>b.onclick=()=>{
     const snap=snapshotBarHeights();
     maticVisible=false;
     render(snap);
