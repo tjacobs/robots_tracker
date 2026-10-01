@@ -364,7 +364,7 @@ function render(animateFrom=null){
   const note=document.querySelector(".metric-note");
   if(note){
     const hasEstimates=companies.some(c=>c.estimate?.[active]);
-    note.textContent=(metricDescriptions[active]||"")+(active==="funding"?"  Bars use log scale.":"")+(active==="robotsBuilt"?"  Scale capped at 100 robots.":"")+(hasEstimates?"  * estimated":"");
+    note.textContent=(metricDescriptions[active]||"")+(active==="funding"?"  Bars use log scale.":"")+(hasEstimates?"  * estimated":"");
   }
   document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.metric===active));
 
@@ -372,14 +372,16 @@ function render(animateFrom=null){
   const vals=visibleCompanies.map(c=>c[active]).filter(v=>typeof v==="number"&&v>0);
   const max=Math.max(...vals,1);
   const min=Math.min(...vals,max);
-  const scaledHeight=v=>{
+  const scaledHeight=(v,groupRows)=>{
     if(typeof v!=="number"||v<=0)return 0;
     if(active==="funding"&&max>min){
       const lo=Math.log10(min),hi=Math.log10(max);
       return 10+((Math.log10(v)-lo)/(hi-lo))*90;
     }
     if(active==="robotsBuilt"){
-      return Math.max(8,Math.min(v,100));
+      const groupVals=groupRows.map(c=>c[active]).filter(x=>typeof x==="number"&&x>0);
+      const groupMax=Math.max(...groupVals,1);
+      return Math.max(8,v/groupMax*100);
     }
     return Math.max(8,v/max*100);
   };
@@ -392,7 +394,7 @@ function render(animateFrom=null){
       ? '<div class="group-heading"><div class="group-label">'+group+'</div><button class="matic-hide" type="button">Hide Matic</button></div>'
       : '<div class="group-label">'+group+'</div>';
     const cards=rows.map(c=>{
-      const v=c[active],st=statusFor(c),height=scaledHeight(v);
+      const v=c[active],st=statusFor(c),height=scaledHeight(v,rows);
       const color=companyColors[c.name]||"#d9dee3";
       const initial=animateFrom&&animateFrom[c.name]!=null?animateFrom[c.name]+"px":height+"%";
       return '<button class="company" data-company="'+c.name+'" style="--company-color:'+color+'"><div class="value">'+labelFor(c)+'</div><div class="bar-stage"><div class="bar '+st+'" data-target-height="'+height+'" style="height:'+initial+'"></div></div><div class="company-brand"><div class="logo-badge" aria-hidden="true">'+(companyBadges[c.name]||"◆")+'</div><div><div class="company-name">'+c.name+'</div><div class="product-name">'+(c.product||"&nbsp;")+'</div></div></div></button>';
