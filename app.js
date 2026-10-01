@@ -160,6 +160,54 @@ const estimateSources={
   }
 };
 
+const metricSources={
+  "Weave":{
+    price:[{label:"Price source",url:"https://www.weaverobotics.com/isaac-0"}],
+    funding:[{label:"Funding source",url:"https://www.caplight.com/company/weaverobots"}]
+  },
+  "Sunday":{
+    funding:[{label:"Funding source",url:"https://www.sunday.ai/blog/series-b"}]
+  },
+  "Almond":{
+    price:[{label:"Price source",url:"https://www.almond.bot/axol"}],
+    funding:[{label:"Funding source",url:"https://www.ycombinator.com/companies/almond-2"}]
+  },
+  "Nori":{
+    price:[{label:"Price source",url:"https://www.ycombinator.com/companies/noril1"}],
+    funding:[{label:"Funding source",url:"https://www.ycombinator.com/companies/noril1"}]
+  },
+  "Matic":{
+    price:[{label:"Price source",url:"https://maticrobots.com/product"}],
+    funding:[{label:"Funding source",url:"https://maticrobots.com/company"}]
+  },
+  "Innate":{
+    price:[{label:"Price source",url:"https://store.innate.bot/products/innate-mars-founders-edition"}],
+    funding:[{label:"Funding source",url:"https://www.innate.bot/"}]
+  },
+  "Feather":{
+    price:[{label:"Price source",url:"https://feather.dev/technology"}],
+    funding:[{label:"Funding source",url:"https://www.investegate.co.uk/announcement/rns/seed-innovations-limited--seed/investee-company-update-feather-robotics-inc-/9792430"}]
+  },
+  "Syncere":{
+    price:[{label:"Price source",url:"https://syncere.com/product"}],
+    funding:[{label:"Funding source",url:"https://speedrun.a16z.com/companies/syncere"}]
+  },
+  "Dyna":{
+    funding:[{label:"Funding source",url:"https://www.dyna.co/news/series-a"}]
+  },
+  "Flourish":{
+    price:[{label:"Price source",url:"https://flourish-robots.com/"}]
+  },
+  "Figure":{
+    funding:[{label:"Funding source",url:"https://forgeglobal.com/figure-ai_stock/"}]
+  },
+  "1X":{
+    price:[{label:"Price source",url:"https://www.1x.tech/discover/neo-home-robot"}],
+    funding:[{label:"Funding source",url:"https://www.altis.vc/research/company/1x"}]
+  }
+};
+
+
 const companies=[
   {
     name:"Weave",productUrl:"https://www.weaverobotics.com/isaac-0",group:"SEMI-HUMANOID",product:"Isaac 0",
@@ -332,10 +380,12 @@ function detailNoteFor(c,key){
   if(c.metricNotes?.[key])notes.push(c.metricNotes[key]);
   return notes.join(" · ");
 }
-function estimateLinksFor(c,key){
-  if(!c.estimate?.[key])return"";
-  const links=estimateSources[c.name]?.[key]||[];
-  const reason=estimateReasons[c.name]?.[key]||"";
+function evidenceFor(c,key){
+  const reason=c.estimate?.[key]?(estimateReasons[c.name]?.[key]||""):"";
+  const links=[
+    ...(c.estimate?.[key]?(estimateSources[c.name]?.[key]||[]):[]),
+    ...(metricSources[c.name]?.[key]||[])
+  ].filter((link,i,arr)=>arr.findIndex(x=>x.url===link.url)===i);
   if(!links.length&&!reason)return"";
   return '<div class="estimate-basis">'+
     (reason?'<div class="estimate-reason">'+reason+'</div>':"")+
@@ -430,7 +480,7 @@ function render(animateFrom=null){
 function renderDrawer(){
   if(!selected){drawerRoot.innerHTML="";return}
   const color=companyColors[selected.name]||"#d9dee3";
-  drawerRoot.innerHTML=`<div class="backdrop"></div><aside class="drawer" style="--company-color:${color}"><button class="drawer-close">×</button><div class="drawer-kicker">${selected.group}</div><h2>${selected.name}</h2><p class="drawer-product">${selected.product||"Product not yet recorded"}</p>${selected.productUrl?`<a class="product-link" href="${selected.productUrl}" target="_blank" rel="noreferrer">View product page <span>↗</span></a>`:""}<div class="detail-grid">${metrics.map(m=>`<div class="detail-row"><span>${m.label}</span><strong>${labelFor(selected,m.key)}</strong><small>${detailNoteFor(selected,m.key)}${estimateLinksFor(selected,m.key)}</small></div>`).join("")}</div><div class="source-block"><div class="source-title">SOURCES</div>${selected.sources?.length?selected.sources.map(s=>`<a href="${s.url}" target="_blank" rel="noreferrer">${s.label}<span>↗</span></a>`).join(""):'<div class="no-source">No verified public source added yet.</div>'}</div></aside>`;
+  drawerRoot.innerHTML=`<div class="backdrop"></div><aside class="drawer" style="--company-color:${color}"><button class="drawer-close">×</button><div class="drawer-kicker">${selected.group}</div><h2>${selected.name}</h2><p class="drawer-product">${selected.product||"Product not yet recorded"}</p>${selected.productUrl?`<a class="product-link" href="${selected.productUrl}" target="_blank" rel="noreferrer">View product page <span>↗</span></a>`:""}<div class="detail-grid">${metrics.map(m=>`<div class="detail-row"><span>${m.label}</span><strong>${labelFor(selected,m.key)}</strong><small>${detailNoteFor(selected,m.key)}${evidenceFor(selected,m.key)}</small></div>`).join("")}</div><div class="source-block"><div class="source-title">SOURCES</div>${selected.sources?.length?selected.sources.map(s=>`<a href="${s.url}" target="_blank" rel="noreferrer">${s.label}<span>↗</span></a>`).join(""):'<div class="no-source">No verified public source added yet.</div>'}</div></aside>`;
   document.querySelector(".drawer-close").onclick=closeDrawer;
   document.querySelector(".backdrop").onclick=closeDrawer;
 }
