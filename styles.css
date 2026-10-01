@@ -10,7 +10,7 @@ button{font:inherit;color:inherit}
 .header{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:22px}
 .eyebrow,.updated,.metric-title,.group-label,.source-title{font-size:11px;letter-spacing:.16em;font-weight:750;color:var(--muted)}
 h1{margin:5px 0 0;font-size:clamp(50px,6vw,80px);line-height:.9;letter-spacing:-.065em}
-.tabs{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:18px}
+.tabs{display:grid;grid-template-columns:repeat(6,1fr);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:18px}
 .tab{border:0;border-right:1px solid var(--line);background:rgba(255,255,255,.72);padding:15px 10px;font-size:11px;font-weight:750;letter-spacing:.07em;cursor:pointer}
 .tab:last-child{border-right:0}.tab:hover{background:#fff}.tab.active{background:#17191d;color:#fff}
 .chart-card{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 12px 40px rgba(20,24,31,.05)}
@@ -24,7 +24,7 @@ h1{margin:5px 0 0;font-size:clamp(50px,6vw,80px);line-height:.9;letter-spacing:-
 .value{font-size:12px;font-weight:700;align-self:end;white-space:nowrap}
 .bar-stage{position:relative;height:100%;display:flex;align-items:flex-end;justify-content:center;border-bottom:1px solid rgba(20,24,31,.12)}
 .bar{width:min(64px,74%);background:linear-gradient(to top,color-mix(in srgb,var(--company-color) 72%,#111 28%),var(--company-color));box-shadow:0 0 26px color-mix(in srgb,var(--company-color) 20%,transparent);border-radius:4px 4px 0 0;transition:height .48s cubic-bezier(.2,.8,.2,1),opacity .2s ease,filter .2s ease}
-.bar.reported{opacity:.52}.bar.unknown,.bar.not-launched,.bar.na{opacity:0}
+.bar.reported{opacity:.52}.bar.estimated{opacity:.64}.bar.unknown,.bar.not-launched,.bar.na{opacity:0}
 .empty{position:absolute;bottom:8px;color:#a1a7ae;font-size:22px}.empty.not-launched{font-size:16px}
 .company-brand{display:flex;align-items:center;justify-content:center;gap:8px;min-width:0;padding-top:2px}.logo-badge{width:28px;height:28px;flex:0 0 28px;border-radius:8px;display:grid;place-items:center;background:var(--company-color);color:#fff;font-size:11px;font-weight:800;letter-spacing:-.02em;box-shadow:0 4px 12px color-mix(in srgb,var(--company-color) 18%,transparent)}.company-name{font-size:13px;font-weight:800;line-height:1.05;color:var(--company-color);transition:filter .2s ease;text-align:left}.product-name{margin-top:3px;font-size:10px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:left;max-width:74px}
 .company:hover{background:color-mix(in srgb,var(--company-color) 9%,#fff 91%);border-color:color-mix(in srgb,var(--company-color) 26%,transparent);transform:translateY(-2px)}.company:hover .company-name{filter:brightness(.9) saturate(1.1)}.company:hover .bar{filter:brightness(1.05) saturate(1.08)}
