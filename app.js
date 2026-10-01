@@ -364,7 +364,7 @@ function render(animateFrom=null){
   const note=document.querySelector(".metric-note");
   if(note){
     const hasEstimates=companies.some(c=>c.estimate?.[active]);
-    note.textContent=(metricDescriptions[active]||"")+(active==="funding"?"  Bars use log scale.":"")+(hasEstimates?"  * estimated":"");
+    note.textContent=(metricDescriptions[active]||"")+(hasEstimates?"  * estimated":"");
   }
   document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.metric===active));
 
@@ -373,13 +373,6 @@ function render(animateFrom=null){
     if(typeof v!=="number"||v<=0)return 0;
     const groupVals=groupRows.map(c=>c[active]).filter(x=>typeof x==="number"&&x>0);
     const groupMax=Math.max(...groupVals,1);
-    const groupMin=Math.min(...groupVals,groupMax);
-
-    if(active==="funding"&&groupMax>groupMin){
-      const lo=Math.log10(groupMin),hi=Math.log10(groupMax);
-      return 10+((Math.log10(v)-lo)/(hi-lo))*90;
-    }
-
     return Math.max(8,v/groupMax*100);
   };
 
