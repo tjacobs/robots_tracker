@@ -368,7 +368,9 @@ function render(animateFrom=null){
   }
   document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.metric===active));
 
-  const visibleCompanies=companies.filter(c=>maticVisible||c.name!=="Matic");
+  const maticAlwaysVisible=active==="price"||active==="funding";
+  const showMatic=maticAlwaysVisible||maticVisible;
+  const visibleCompanies=companies.filter(c=>showMatic||c.name!=="Matic");
   const scaledHeight=(v,groupRows)=>{
     if(typeof v!=="number"||v<=0)return 0;
     const groupVals=groupRows.map(c=>c[active]).filter(x=>typeof x==="number"&&x>0);
@@ -378,9 +380,9 @@ function render(animateFrom=null){
 
   groupsEl.innerHTML=["SEMI-HUMANOID","HUMANOID"].map(group=>{
     const rows=sortedRows(group,visibleCompanies);
-    const showMaticToggle=group==="SEMI-HUMANOID"&&!maticVisible;
+    const showMaticToggle=group==="SEMI-HUMANOID"&&!showMatic;
     const count=rows.length+(showMaticToggle?1:0);
-    const header=group==="SEMI-HUMANOID"&&maticVisible
+    const header=group==="SEMI-HUMANOID"&&showMatic&&!maticAlwaysVisible
       ? '<div class="group-heading"><div class="group-label">'+group+'</div><button class="matic-hide" type="button">Hide Matic</button></div>'
       : '<div class="group-label">'+group+'</div>';
     const cards=rows.map(c=>{
@@ -388,7 +390,7 @@ function render(animateFrom=null){
       const color=companyColors[c.name]||"#d9dee3";
       const initial=animateFrom&&animateFrom[c.name]!=null?animateFrom[c.name]+"px":height+"%";
       const card='<button class="company" data-company="'+c.name+'" style="--company-color:'+color+'"><div class="value">'+labelFor(c)+'</div><div class="bar-stage"><div class="bar '+st+'" data-target-height="'+height+'" style="height:'+initial+'"></div></div><div class="company-brand"><div class="logo-badge" aria-hidden="true">'+(companyBadges[c.name]||"◆")+'</div><div><div class="company-name">'+c.name+'</div><div class="product-name">'+(c.product||"&nbsp;")+'</div></div></div></button>';
-      return c.name==="Matic"&&maticVisible
+      return c.name==="Matic"&&showMatic&&!maticAlwaysVisible
         ? '<div class="matic-card-wrap">'+card+'<button class="matic-hide-inline" type="button">hide</button></div>'
         : card;
     }).join("");
