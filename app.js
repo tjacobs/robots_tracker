@@ -282,15 +282,24 @@ function render(){
   const note=document.querySelector(".metric-note");
   if(note){
     const hasEstimates=companies.some(c=>c.estimate?.[active]);
-    note.textContent=(metricDescriptions[active]||"")+(hasEstimates?"  * estimated":"");
+    note.textContent=(metricDescriptions[active]||"")+(active==="funding"?"  Bars use log scale.":"")+(hasEstimates?"  * estimated":"");
   }
   document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.metric===active));
   const vals=companies.map(c=>c[active]).filter(v=>typeof v==="number"&&v>0);
   const max=Math.max(...vals,1);
+  const min=Math.min(...vals,max);
+  const scaledHeight=v=>{
+    if(typeof v!=="number"||v<=0)return 0;
+    if(active==="funding"&&max>min){
+      const lo=Math.log10(min),hi=Math.log10(max);
+      return 10+((Math.log10(v)-lo)/(hi-lo))*90;
+    }
+    return Math.max(8,v/max*100);
+  };
   groupsEl.innerHTML=["SEMI-HUMANOID","HUMANOID"].map(group=>{
     const rows=companies.filter(c=>c.group===group);
     return `<section class="group"><div class="group-label">${group}</div><div class="bars" style="--count:${rows.length}">${rows.map(c=>{
-      const v=c[active],st=statusFor(c),height=typeof v==="number"&&v>0?Math.max(8,v/max*100):0;
+      const v=c[active],st=statusFor(c),height=scaledHeight(v);
       const color=companyColors[c.name]||"#d9dee3";
       return `<button class="company" data-company="${c.name}" style="--company-color:${color}"><div class="value">${labelFor(c)}</div><div class="bar-stage"><div class="bar ${st}" style="height:${height}%"></div>${""}</div><div class="company-brand"><div class="logo-badge" aria-hidden="true">${companyBadges[c.name]||"◆"}</div><div><div class="company-name">${c.name}</div><div class="product-name">${c.product||"&nbsp;"}</div></div></div></button>`;
     }).join("")}</div></section>`;
