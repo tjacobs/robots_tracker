@@ -393,7 +393,7 @@ function render(animateFrom=null){
       return '<button class="company" data-company="'+c.name+'" style="--company-color:'+color+'"><div class="value">'+labelFor(c)+'</div><div class="bar-stage"><div class="bar '+st+'" data-target-height="'+height+'" style="height:'+initial+'"></div></div><div class="company-brand"><div class="logo-badge" aria-hidden="true">'+(companyBadges[c.name]||"◆")+'</div><div><div class="company-name">'+c.name+'</div><div class="product-name">'+(c.product||"&nbsp;")+'</div></div></div></button>';
     }).join("");
     const toggle=showMaticToggle
-      ? '<button class="matic-toggle" type="button" aria-label="Show Matic"><div class="matic-toggle-icon">M</div><div class="matic-toggle-label">SHOW MATIC</div><div class="matic-toggle-sub">13,000+ robots</div></button>'
+      ? '<button class="matic-toggle" type="button" aria-label="Show Matic"><div class="matic-toggle-icon">M</div><div class="matic-toggle-label">SHOW MATIC</div></button>'
       : "";
     return '<section class="group">'+header+'<div class="bars" style="--count:'+count+'">'+cards+toggle+'</div></section>';
   }).join("");
