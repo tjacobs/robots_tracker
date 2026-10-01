@@ -46,6 +46,63 @@ const companyColors={
   "1X":"#5b8cff"
 };
 
+const estimateSources={
+  "Weave":{
+    robotsBuilt:[{label:"Weave disclosure",url:"https://www.weaverobotics.com/isaac-0"}],
+    robotsDeployed:[{label:"Weave disclosure",url:"https://www.weaverobotics.com/isaac-0"}]
+  },
+  "Sunday":{
+    robotsBuilt:[{label:"Sunday disclosure",url:"https://www.sunday.ai/blog/series-b"}]
+  },
+  "Almond":{
+    robotsBuilt:[{label:"Almond disclosure",url:"https://www.almond.bot/"}],
+    robotsDeployed:[{label:"Almond disclosure",url:"https://www.almond.bot/"}]
+  },
+  "Nori":{
+    robotsBuilt:[{label:"Nori / YC disclosure",url:"https://www.ycombinator.com/companies/noril1"}]
+  },
+  "Matic":{
+    monthsSinceLaunch:[{label:"Matic disclosure",url:"https://maticrobots.com/blog/twice-the-intelligence-still-nothing-leaves-your-home"}]
+  },
+  "Innate":{
+    robotsBuilt:[{label:"Innate shipping disclosure",url:"https://store.innate.bot/products/innate-mars-founders-edition"}],
+    robotsDeployed:[{label:"Innate shipping disclosure",url:"https://store.innate.bot/products/innate-mars-founders-edition"}]
+  },
+  "Feather":{
+    robotsBuilt:[{label:"Feather disclosure",url:"https://feather.dev/"}],
+    robotsDeployed:[{label:"Feather disclosure",url:"https://feather.dev/"}],
+    monthsSinceLaunch:[{label:"Feather disclosure",url:"https://feather.dev/"}]
+  },
+  "Syncere":{
+    robotsBuilt:[{label:"Syncere product disclosure",url:"https://syncere.com/product-legacy"}]
+  },
+  "Dyna":{
+    robotsBuilt:[{label:"Dyna deployment disclosure",url:"https://www.dyna.co/research/scaling-customer-deployments"}],
+    robotsDeployed:[{label:"Dyna deployment disclosure",url:"https://www.dyna.co/research/scaling-customer-deployments"}],
+    monthsSinceLaunch:[{label:"Dyna deployment disclosure",url:"https://www.dyna.co/research/scaling-customer-deployments"}]
+  },
+  "Flourish":{
+    robotsBuilt:[{label:"Flourish disclosure",url:"https://flourish-robots.com/"}]
+  },
+  "Tesla":{
+    robotsBuilt:[{label:"Tesla Optimus production disclosure",url:"https://ir.tesla.com/_flysystem/s3/sec/000162828026049213/tsla-20260722-gen.pdf"}]
+  },
+  "Figure":{
+    robotsDeployed:[{label:"Figure BMW deployment disclosure",url:"https://www.figure.ai/news/f-03-at-bmw"}],
+    monthsSinceLaunch:[{label:"Figure BMW deployment disclosure",url:"https://www.figure.ai/news/production-at-bmw"}]
+  },
+  "1X":{
+    robotsBuilt:[
+      {label:"1X factory disclosure",url:"https://www.1x.tech/discover/neo-factory"},
+      {label:"1X production disclosure",url:"https://www.1x.tech/discover/neos-hands"}
+    ],
+    robotsDeployed:[
+      {label:"1X customer-home disclosure",url:"https://www.1x.tech/about"},
+      {label:"Estimate basis (~120)",url:"https://presenc.ai/research/humanoid-robot-market-tracker-2026"}
+    ]
+  }
+};
+
 const companies=[
   {
     name:"Weave",productUrl:"https://www.weaverobotics.com/isaac-0",group:"SEMI-HUMANOID",product:"Isaac 0",
@@ -214,6 +271,12 @@ function detailNoteFor(c,key){
   if(c.metricNotes?.[key])notes.push(c.metricNotes[key]);
   return notes.join(" · ");
 }
+function estimateLinksFor(c,key){
+  if(!c.estimate?.[key])return"";
+  const links=estimateSources[c.name]?.[key]||[];
+  if(!links.length)return"";
+  return '<div class="estimate-links">'+links.map(link=>'<a href="'+link.url+'" target="_blank" rel="noreferrer">'+link.label+' ↗</a>').join("")+'</div>';
+}
 
 function render(){
   const note=document.querySelector(".metric-note");
@@ -238,7 +301,7 @@ function render(){
 function renderDrawer(){
   if(!selected){drawerRoot.innerHTML="";return}
   const color=companyColors[selected.name]||"#d9dee3";
-  drawerRoot.innerHTML=`<div class="backdrop"></div><aside class="drawer" style="--company-color:${color}"><button class="drawer-close">×</button><div class="drawer-kicker">${selected.group}</div><h2>${selected.name}</h2><p class="drawer-product">${selected.product||"Product not yet recorded"}</p>${selected.productUrl?`<a class="product-link" href="${selected.productUrl}" target="_blank" rel="noreferrer">View product page <span>↗</span></a>`:""}<div class="detail-grid">${metrics.map(m=>`<div class="detail-row"><span>${m.label}</span><strong>${labelFor(selected,m.key)}</strong><small>${detailNoteFor(selected,m.key)}</small></div>`).join("")}</div><div class="source-block"><div class="source-title">SOURCES</div>${selected.sources?.length?selected.sources.map(s=>`<a href="${s.url}" target="_blank" rel="noreferrer">${s.label}<span>↗</span></a>`).join(""):'<div class="no-source">No verified public source added yet.</div>'}</div></aside>`;
+  drawerRoot.innerHTML=`<div class="backdrop"></div><aside class="drawer" style="--company-color:${color}"><button class="drawer-close">×</button><div class="drawer-kicker">${selected.group}</div><h2>${selected.name}</h2><p class="drawer-product">${selected.product||"Product not yet recorded"}</p>${selected.productUrl?`<a class="product-link" href="${selected.productUrl}" target="_blank" rel="noreferrer">View product page <span>↗</span></a>`:""}<div class="detail-grid">${metrics.map(m=>`<div class="detail-row"><span>${m.label}</span><strong>${labelFor(selected,m.key)}</strong><small>${detailNoteFor(selected,m.key)}${estimateLinksFor(selected,m.key)}</small></div>`).join("")}</div><div class="source-block"><div class="source-title">SOURCES</div>${selected.sources?.length?selected.sources.map(s=>`<a href="${s.url}" target="_blank" rel="noreferrer">${s.label}<span>↗</span></a>`).join(""):'<div class="no-source">No verified public source added yet.</div>'}</div></aside>`;
   document.querySelector(".drawer-close").onclick=closeDrawer;
   document.querySelector(".backdrop").onclick=closeDrawer;
 }
