@@ -283,6 +283,7 @@ const today=new Date("2026-09-30T00:00:00");
 
 let active="robotsBuilt";
 let selected=null;
+let maticVisible=false;
 const groupsEl=document.querySelector("#groups");
 const drawerRoot=document.querySelector("#drawerRoot");
 
@@ -305,7 +306,10 @@ function labelFor(c,key=active){
   if(v==null)return"";
   let out;
   if(key==="funding") out="$"+(v/1e6).toLocaleString(undefined,{maximumFractionDigits:1})+"M";
-  else out=m.type==="money"?money(v):v.toLocaleString();
+  else if(key==="price"){
+    const k=v/1000;
+    out="$"+k.toLocaleString(undefined,{maximumFractionDigits:k<1?3:2})+"K";
+  } else out=m.type==="money"?money(v):v.toLocaleString();
   if(c.greaterThan?.[key])out=">"+out;
   if(c.lowerBound?.[key])out+="+";
   if(c.estimate?.[key])out+="*";
@@ -333,14 +337,37 @@ function estimateLinksFor(c,key){
     '</div>';
 }
 
-function render(){
+function snapshotBarHeights(){
+  const snap={};
+  document.querySelectorAll(".company[data-company] .bar").forEach(bar=>{
+    const company=bar.closest(".company")?.dataset.company;
+    if(company)snap[company]=bar.getBoundingClientRect().height;
+  });
+  return snap;
+}
+
+function sortedRows(group,visibleCompanies){
+  return visibleCompanies
+    .filter(c=>c.group===group)
+    .sort((a,b)=>{
+      if(a.name==="Matic")return 1;
+      if(b.name==="Matic")return -1;
+      const av=typeof a[active]==="number"?a[active]:-Infinity;
+      const bv=typeof b[active]==="number"?b[active]:-Infinity;
+      return (bv-av)||a.name.localeCompare(b.name);
+    });
+}
+
+function render(animateFrom=null){
   const note=document.querySelector(".metric-note");
   if(note){
     const hasEstimates=companies.some(c=>c.estimate?.[active]);
     note.textContent=(metricDescriptions[active]||"")+(active==="funding"?"  Bars use log scale.":"")+(hasEstimates?"  * estimated":"");
   }
   document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.metric===active));
-  const vals=companies.map(c=>c[active]).filter(v=>typeof v==="number"&&v>0);
+
+  const visibleCompanies=companies.filter(c=>maticVisible||c.name!=="Matic");
+  const vals=visibleCompanies.map(c=>c[active]).filter(v=>typeof v==="number"&&v>0);
   const max=Math.max(...vals,1);
   const min=Math.min(...vals,max);
   const scaledHeight=v=>{
@@ -351,16 +378,48 @@ function render(){
     }
     return Math.max(8,v/max*100);
   };
+
   groupsEl.innerHTML=["SEMI-HUMANOID","HUMANOID"].map(group=>{
-    const rows=companies.filter(c=>c.group===group);
-    return `<section class="group"><div class="group-label">${group}</div><div class="bars" style="--count:${rows.length}">${rows.map(c=>{
+    const rows=sortedRows(group,visibleCompanies);
+    const showMaticToggle=group==="SEMI-HUMANOID"&&!maticVisible;
+    const count=rows.length+(showMaticToggle?1:0);
+    const header=group==="SEMI-HUMANOID"&&maticVisible
+      ? '<div class="group-heading"><div class="group-label">'+group+'</div><button class="matic-hide" type="button">Hide Matic</button></div>'
+      : '<div class="group-label">'+group+'</div>';
+    const cards=rows.map(c=>{
       const v=c[active],st=statusFor(c),height=scaledHeight(v);
       const color=companyColors[c.name]||"#d9dee3";
-      return `<button class="company" data-company="${c.name}" style="--company-color:${color}"><div class="value">${labelFor(c)}</div><div class="bar-stage"><div class="bar ${st}" style="height:${height}%"></div>${""}</div><div class="company-brand"><div class="logo-badge" aria-hidden="true">${companyBadges[c.name]||"◆"}</div><div><div class="company-name">${c.name}</div><div class="product-name">${c.product||"&nbsp;"}</div></div></div></button>`;
-    }).join("")}</div></section>`;
+      const initial=animateFrom&&animateFrom[c.name]!=null?animateFrom[c.name]+"px":height+"%";
+      return '<button class="company" data-company="'+c.name+'" style="--company-color:'+color+'"><div class="value">'+labelFor(c)+'</div><div class="bar-stage"><div class="bar '+st+'" data-target-height="'+height+'" style="height:'+initial+'"></div></div><div class="company-brand"><div class="logo-badge" aria-hidden="true">'+(companyBadges[c.name]||"◆")+'</div><div><div class="company-name">'+c.name+'</div><div class="product-name">'+(c.product||"&nbsp;")+'</div></div></div></button>';
+    }).join("");
+    const toggle=showMaticToggle
+      ? '<button class="matic-toggle" type="button" aria-label="Show Matic"><div class="matic-toggle-icon">M</div><div class="matic-toggle-label">SHOW MATIC</div><div class="matic-toggle-sub">13,000+ robots</div></button>'
+      : "";
+    return '<section class="group">'+header+'<div class="bars" style="--count:'+count+'">'+cards+toggle+'</div></section>';
   }).join("");
 
-  document.querySelectorAll(".company").forEach(b=>b.onclick=()=>{selected=companies.find(c=>c.name===b.dataset.company);renderDrawer()});
+  document.querySelectorAll(".company").forEach(b=>b.onclick=()=>{
+    selected=companies.find(c=>c.name===b.dataset.company);
+    renderDrawer();
+  });
+  document.querySelectorAll(".matic-toggle").forEach(b=>b.onclick=()=>{
+    const snap=snapshotBarHeights();
+    maticVisible=true;
+    render(snap);
+  });
+  document.querySelectorAll(".matic-hide").forEach(b=>b.onclick=()=>{
+    const snap=snapshotBarHeights();
+    maticVisible=false;
+    render(snap);
+  });
+
+  if(animateFrom){
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      document.querySelectorAll(".bar[data-target-height]").forEach(bar=>{
+        bar.style.height=bar.dataset.targetHeight+"%";
+      });
+    }));
+  }
 }
 function renderDrawer(){
   if(!selected){drawerRoot.innerHTML="";return}
@@ -370,5 +429,9 @@ function renderDrawer(){
   document.querySelector(".backdrop").onclick=closeDrawer;
 }
 function closeDrawer(){selected=null;renderDrawer()}
-document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{active=b.dataset.metric;render()});
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{
+  const snap=snapshotBarHeights();
+  active=b.dataset.metric;
+  render(snap);
+});
 render();
