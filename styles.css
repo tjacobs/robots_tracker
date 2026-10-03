@@ -63,3 +63,8 @@ h1{margin:5px 0 0;font-size:clamp(50px,6vw,80px);line-height:.9;letter-spacing:-
 .matic-hide-inline{position:absolute;top:7px;right:7px;z-index:2;border:0;background:rgba(255,255,255,.86);color:#667078;border-radius:7px;padding:4px 6px;font-size:9px;font-weight:750;letter-spacing:.04em;cursor:pointer;line-height:1}
 .matic-hide-inline:hover{background:#fff;color:#17191d}
 @media(max-width:900px){.matic-card-wrap{height:300px}}
+
+
+.change-badge{display:inline-block;margin-left:6px;padding:3px 6px;border-radius:999px;background:#17191d;color:#fff;font-size:8px;font-weight:850;letter-spacing:.08em;line-height:1;vertical-align:middle;white-space:nowrap}
+.value .change-badge{display:block;width:max-content;margin:4px 0 0;padding:3px 5px;font-size:7px}
+.detail-row strong .change-badge{transform:translateY(-1px)}
