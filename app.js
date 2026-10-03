@@ -1,6 +1,6 @@
 const metrics=[
-  {key:"robotsBuilt",label:"ROBOTS BUILT",type:"count"},
   {key:"robotsDeployed",label:"ROBOTS DEPLOYED",type:"count"},
+  {key:"robotsBuilt",label:"ROBOTS BUILT",type:"count"},
   {key:"monthsSinceLaunch",label:"MONTHS DEPLOYED",type:"count"},
   {key:"price",label:"PRICE",type:"money"},
   {key:"funding",label:"FUNDING",type:"money"}
