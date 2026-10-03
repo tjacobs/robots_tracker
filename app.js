@@ -228,7 +228,7 @@ const companies=[
     robotsBuilt:15,robotsDeployed:10,monthsSinceLaunch:1,price:8999,funding:500000,valuation:null,
     estimate:{robotsBuilt:true,robotsDeployed:true},
     lowerBound:{funding:true},
-    metricNotes:{price:"Axol’s current product configurator lists the base robot from $8,999."},
+    metricNotes:{price:"PRICE DROP: Axol’s base price fell from $9,499 to $8,999 — a $500 reduction."},
     sources:[
       {label:"Almond",url:"https://www.almond.bot/"},
       {label:"Almond — YC",url:"https://www.ycombinator.com/companies/almond-2"}
@@ -376,6 +376,11 @@ function labelFor(c,key=active){
   if(c.estimate?.[key])out+="*";
   return out;
 }
+function changeBadgeFor(c,key){
+  return c.name==="Almond"&&key==="price"
+    ? '<span class="change-badge">PRICE DROP</span>'
+    : "";
+}
 function detailNoteFor(c,key){
   const notes=[];
   if(c.estimate?.[key])notes.push("Estimated from public disclosures");
@@ -450,7 +455,7 @@ function render(animateFrom=null){
       const v=c[active],st=statusFor(c),height=scaledHeight(v,rows);
       const color=companyColors[c.name]||"#d9dee3";
       const initial=animateFrom&&animateFrom[c.name]!=null?animateFrom[c.name]+"px":height+"%";
-      const card='<button class="company" data-company="'+c.name+'" style="--company-color:'+color+'"><div class="value">'+labelFor(c)+'</div><div class="bar-stage"><div class="bar '+st+'" data-target-height="'+height+'" style="height:'+initial+'"></div></div><div class="company-brand"><div class="logo-badge" aria-hidden="true">'+(companyBadges[c.name]||"◆")+'</div><div><div class="company-name">'+c.name+'</div><div class="product-name">'+(c.product||"&nbsp;")+'</div></div></div></button>';
+      const card='<button class="company" data-company="'+c.name+'" style="--company-color:'+color+'"><div class="value">'+labelFor(c)+changeBadgeFor(c,active)+'</div><div class="bar-stage"><div class="bar '+st+'" data-target-height="'+height+'" style="height:'+initial+'"></div></div><div class="company-brand"><div class="logo-badge" aria-hidden="true">'+(companyBadges[c.name]||"◆")+'</div><div><div class="company-name">'+c.name+'</div><div class="product-name">'+(c.product||"&nbsp;")+'</div></div></div></button>';
       return c.name==="Matic"&&showMatic&&!maticAlwaysVisible
         ? '<div class="matic-card-wrap">'+card+'<button class="matic-hide-inline" type="button">hide</button></div>'
         : card;
@@ -487,7 +492,7 @@ function render(animateFrom=null){
 function renderDrawer(){
   if(!selected){drawerRoot.innerHTML="";return}
   const color=companyColors[selected.name]||"#d9dee3";
-  drawerRoot.innerHTML=`<div class="backdrop"></div><aside class="drawer" style="--company-color:${color}"><button class="drawer-close">×</button><div class="drawer-kicker">${selected.group}</div><h2>${selected.name}</h2><p class="drawer-product">${selected.product||"Product not yet recorded"}</p>${selected.productUrl?`<a class="product-link" href="${selected.productUrl}" target="_blank" rel="noreferrer">View product page <span>↗</span></a>`:""}<div class="detail-grid">${metrics.map(m=>`<div class="detail-row"><span>${m.label}</span><strong>${labelFor(selected,m.key)}</strong><small>${detailNoteFor(selected,m.key)}${evidenceFor(selected,m.key)}</small></div>`).join("")}</div><div class="source-block"><div class="source-title">SOURCES</div>${selected.sources?.length?selected.sources.map(s=>`<a href="${s.url}" target="_blank" rel="noreferrer">${s.label}<span>↗</span></a>`).join(""):'<div class="no-source">No verified public source added yet.</div>'}</div></aside>`;
+  drawerRoot.innerHTML=`<div class="backdrop"></div><aside class="drawer" style="--company-color:${color}"><button class="drawer-close">×</button><div class="drawer-kicker">${selected.group}</div><h2>${selected.name}</h2><p class="drawer-product">${selected.product||"Product not yet recorded"}</p>${selected.productUrl?`<a class="product-link" href="${selected.productUrl}" target="_blank" rel="noreferrer">View product page <span>↗</span></a>`:""}<div class="detail-grid">${metrics.map(m=>`<div class="detail-row"><span>${m.label}</span><strong>${labelFor(selected,m.key)}${changeBadgeFor(selected,m.key)}</strong><small>${detailNoteFor(selected,m.key)}${evidenceFor(selected,m.key)}</small></div>`).join("")}</div><div class="source-block"><div class="source-title">SOURCES</div>${selected.sources?.length?selected.sources.map(s=>`<a href="${s.url}" target="_blank" rel="noreferrer">${s.label}<span>↗</span></a>`).join(""):'<div class="no-source">No verified public source added yet.</div>'}</div></aside>`;
   document.querySelector(".drawer-close").onclick=closeDrawer;
   document.querySelector(".backdrop").onclick=closeDrawer;
 }
