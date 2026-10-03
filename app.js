@@ -290,7 +290,7 @@ const companies=[
     metricNotes:{
       robotsBuilt:"Dyna has not disclosed how many Taku units have been built. Earlier Dyna robots are excluded so this row stays product-specific to Taku.",
       robotsDeployed:"Taku itself is not yet counted as deployed with customers. Dyna’s earlier robot generations have customer deployments, but those are excluded here so this row stays product-specific to Taku.",
-      monthsSinceLaunch:"Taku was introduced Sep. 29, 2026, one day before this tracker date. Dyna describes taking this brand-new system to real-world customer sites as the next milestone, so we count Taku itself as 0 months deployed."
+      monthsSinceLaunch:"Taku was introduced Sep. 29, 2026, three days before this tracker date. Dyna describes taking this brand-new system to real-world customer sites as the next milestone, so we count Taku itself as 0 months deployed."
     },
     sources:[
       {label:"Dyna — Series A",url:"https://www.dyna.co/news/series-a"},
@@ -325,7 +325,7 @@ const companies=[
   {
     name:"1X",productUrl:"https://www.1x.tech/discover/neo-home-robot",group:"HUMANOID",product:"NEO",
     robotsBuilt:null,robotsDeployed:0,monthsSinceLaunch:0,price:20000,funding:136500000,valuation:820000000,
-    estimate:{robotsBuilt:true},
+    estimate:{},
     metricNotes:{
       robotsBuilt:"1X has announced NEO production capacity and internal production activity but has not disclosed a cumulative NEO unit count, so no built total is shown.",
       robotsDeployed:"0 confirmed NEO robots in external customer homes counted here. 1X says NEO will launch into Early Access customer homes in 2026, but has not disclosed a verified delivered-customer count.",
