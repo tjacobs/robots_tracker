@@ -50,7 +50,7 @@ const estimateReasons={
   "Weave":{
     robotsBuilt:"Weave says it has deployed robots nearly every week since launch and reports 2,000+ field hours. ~25 assumes roughly weekly deployments plus engineering / spare units.",
     robotsDeployed:"Weave says it has deployed robots to homes and businesses nearly every week since launch. ~20 is a conservative estimate from that cadence.",
-    monthsSinceLaunch:"Weave launched Isaac 0 customer deployments in February 2026. Seven months is the elapsed time from that launch to the tracker date of September 30, 2026."
+    monthsSinceLaunch:"Weave says Isaac 0 began shipping to San Francisco Bay Area residents in February 2026. About eight months have elapsed from that launch to the tracker date of October 2, 2026."
   },
   "Sunday":{
     robotsBuilt:"Sunday describes having built dozens of prototypes. 30 is a conservative numeric interpretation of “dozens,” not a company-disclosed count."
@@ -72,28 +72,23 @@ const estimateReasons={
   "Feather":{
     robotsBuilt:"Feather reports more than $1M in revenue and lists the robot at about $30K. That is roughly 33 robot-equivalents of revenue, so we round to ~35 built.",
     robotsDeployed:"Using the same revenue signal, ~30 deployed allows for a handful of demo, internal, or unsold units among ~35 built.",
-    monthsSinceLaunch:"Feather describes robots already operating with customers across multiple applications. ~12 months approximates the public shipping timeline."
+    monthsSinceLaunch:"Feather says its robots have been working in the field across manufacturing, food service and other applications for the last year; its September 2026 funding announcement also says it has been selling robots to customers for over a year. ~12 months is therefore a conservative rounded deployment age."
   },
   "Syncere":{
     robotsBuilt:"Syncere reports hundreds of preorders but has not disclosed customer shipment volume. ~10 represents likely prototype / pre-production hardware, not fulfilled preorders."
   },
-  "Dyna":{
-    robotsBuilt:"Dyna says deployments are scaling toward hundreds of robots by H1 2027. ~75 built is a midpoint estimate that allows for deployed systems plus internal, demo, and spare units.",
-    robotsDeployed:"Dyna has not disclosed its current customer fleet count. ~50 is our estimate from its active deployments across restaurants, hotels, laundromats, logistics and data centers, including the Din Tai Fung rollout, together with Dyna’s statement that its deployed fleet is expected to reach hundreds by H1 2027. A reasonable current range is roughly 30–70 robots."
-  },
+  "Dyna":{},
   "Flourish":{
     robotsBuilt:"Flourish has demonstrated working hardware but customer deliveries begin later. ~5 represents likely prototype / pre-production units only."
   },
   "Tesla":{
-    robotsBuilt:"Tesla reported Optimus production ramping from relatively low weekly output to several hundred per week in 2026. ~3,000 is an approximate cumulative total from that ramp, not a disclosed fleet count."
+    robotsBuilt:"Recent reporting says Tesla ramped Optimus from a few dozen units per week in Q2 to several hundred per week by August 2026. ~3,000 remains a rough cumulative estimate from that ramp; Tesla has not disclosed a cumulative built total."
   },
   "Figure":{
     robotsDeployed:"Figure confirms commercial deployments including BMW, but does not publish a current external fleet total. ~20 reflects public evidence of deployments being in the tens.",
-    monthsSinceLaunch:"Figure’s BMW deployment began well before the current Figure 03 generation. ~21 months measures company-wide customer deployment time from that earlier commercial program."
+    monthsSinceLaunch:"Figure 03 arrived at BMW Group Plant Spartanburg on June 30, 2026. About three months have elapsed to the tracker date of October 2, 2026; earlier Figure 02 deployments are excluded."
   },
-  "1X":{
-    robotsBuilt:"1X has disclosed factory-scale NEO production activity and earlier EVE production capacity, but no cumulative unit total. ~350 is a company-wide estimate across NEO and EVE."
-  }
+  "1X":{}
 };
 
 const estimateSources={
@@ -122,13 +117,15 @@ const estimateSources={
   "Feather":{
     robotsBuilt:[{label:"Feather disclosure",url:"https://feather.dev/"}],
     robotsDeployed:[{label:"Feather disclosure",url:"https://feather.dev/"}],
-    monthsSinceLaunch:[{label:"Feather disclosure",url:"https://feather.dev/"}]
+    monthsSinceLaunch:[
+      {label:"Feather — robots working in the field for the last year",url:"https://feather.dev/"},
+      {label:"Feather — September 2026 company update",url:"https://www.investegate.co.uk/index.php/announcement/rns/seed-innovations-limited--seed/investee-company-update-feather-robotics-inc-/9792430"}
+    ]
   },
   "Syncere":{
     robotsBuilt:[{label:"Syncere product disclosure",url:"https://syncere.com/product-legacy"}]
   },
   "Dyna":{
-    robotsBuilt:[{label:"Dyna deployment disclosure",url:"https://www.dyna.co/research/scaling-customer-deployments"}],
     robotsDeployed:[
       {label:"Dyna — scaling customer deployments / Din Tai Fung rollout",url:"https://www.dyna.co/research/scaling-customer-deployments"},
       {label:"PR Newswire — Dyna 2.1 launch and customer deployments",url:"https://www.prnewswire.com/news-releases/dyna-robotics-launches-dyna-2-1-physical-agent-a-semi-humanoid-robot-that-completes-full-workflows-such-as-a-commercial-laundry-shift-302892411.html"},
@@ -140,18 +137,16 @@ const estimateSources={
     robotsBuilt:[{label:"Flourish disclosure",url:"https://flourish-robots.com/"}]
   },
   "Tesla":{
-    robotsBuilt:[{label:"Tesla Optimus production disclosure",url:"https://ir.tesla.com/_flysystem/s3/sec/000162828026049213/tsla-20260722-gen.pdf"}]
+    robotsBuilt:[
+      {label:"Tesla Q2 filing — Optimus line installation",url:"https://ir.tesla.com/_flysystem/s3/sec/000162828026049213/tsla-20260722-gen.pdf"},
+      {label:"September production-rate reporting",url:"https://electrek.co/2026/09/25/tesla-optimus-production-ramp-hands-ai-generalization-problems/"}
+    ]
   },
   "Figure":{
     robotsDeployed:[{label:"Figure BMW deployment disclosure",url:"https://www.figure.ai/news/f-03-at-bmw"}],
-    monthsSinceLaunch:[{label:"Figure BMW deployment disclosure",url:"https://www.figure.ai/news/production-at-bmw"}]
+    monthsSinceLaunch:[{label:"Figure 03 arrives at BMW — Jun. 30, 2026",url:"https://www.figure.ai/news/f-03-at-bmw"}]
   },
-  "1X":{
-    robotsBuilt:[
-      {label:"1X factory disclosure",url:"https://www.1x.tech/discover/neo-factory"},
-      {label:"1X production disclosure",url:"https://www.1x.tech/discover/neos-hands"}
-    ]
-  }
+  "1X":{}
 };
 
 const metricSources={
@@ -189,12 +184,13 @@ const metricSources={
   },
   "Dyna":{
     monthsSinceLaunch:[{label:"Taku launch / deployment status",url:"https://www.dyna.co/dyna-2.1"}],
-    funding:[{label:"Funding source",url:"https://www.dyna.co/news/series-a"}]
+    funding:[{label:"Funding source",url:"https://www.caplight.com/company/dyna-robotics"}]
   },
   "Flourish":{
     price:[{label:"Price source",url:"https://flourish-robots.com/"}]
   },
   "Figure":{
+    robotsBuilt:[{label:"1,000th Figure 03 production milestone",url:"https://korthosrobotics.com/ecosystem/product/figure-03/operations"}],
     funding:[{label:"Funding source",url:"https://forgeglobal.com/figure-ai_stock/"}]
   },
   "1X":{
@@ -202,7 +198,9 @@ const metricSources={
       {label:"1X — NEO Beta home R&D deployment",url:"https://www.1x.tech/discover/announcement-1x-unveils-neo-beta-a-humanoid-robot-for-the-home"},
       {label:"1X — NEO factory / planned customer deliveries",url:"https://www.1x.tech/discover/neo-factory"}
     ],
-    price:[{label:"Price source",url:"https://www.1x.tech/discover/neo-home-robot"}],
+    robotsBuilt:[{label:"1X NEO factory / production status",url:"https://www.1x.tech/discover/neo-factory"}],
+    monthsSinceLaunch:[{label:"1X NEO rollout timeline",url:"https://www.1x.tech/about"}],
+    price:[{label:"Price source",url:"https://www.1x.tech/order"}],
     funding:[{label:"Funding source",url:"https://www.altis.vc/research/company/1x"}]
   }
 };
@@ -211,7 +209,7 @@ const metricSources={
 const companies=[
   {
     name:"Weave",productUrl:"https://www.weaverobotics.com/isaac-0",group:"SEMI-HUMANOID",product:"Isaac 0",
-    robotsBuilt:25,robotsDeployed:20,monthsSinceLaunch:7,price:3999,funding:500000,valuation:null,
+    robotsBuilt:25,robotsDeployed:20,monthsSinceLaunch:8,price:3999,funding:500000,valuation:null,
     estimate:{robotsBuilt:true,robotsDeployed:true,monthsSinceLaunch:true},
     metricNotes:{price:"Purchase price; other subscription/financing options are offered."},
     sources:[
@@ -227,10 +225,10 @@ const companies=[
   },
   {
     name:"Almond",productUrl:"https://www.almond.bot/axol",group:"SEMI-HUMANOID",product:"Axol",
-    robotsBuilt:15,robotsDeployed:10,monthsSinceLaunch:1,price:9499,funding:500000,valuation:null,
+    robotsBuilt:15,robotsDeployed:10,monthsSinceLaunch:1,price:8999,funding:500000,valuation:null,
     estimate:{robotsBuilt:true,robotsDeployed:true},
     lowerBound:{funding:true},
-    metricNotes:{monthsSinceLaunch:"Innate says MARS Batch 1 began shipping in October 2025. From October 2025 to the tracker date of Sep. 30, 2026 is about 11 months of customer deployment."},
+    metricNotes:{price:"Axol’s current product configurator lists the base robot from $8,999."},
     sources:[
       {label:"Almond",url:"https://www.almond.bot/"},
       {label:"Almond — YC",url:"https://www.ycombinator.com/companies/almond-2"}
@@ -255,9 +253,10 @@ const companies=[
   },
   {
     name:"Innate",productUrl:"https://www.innate.bot/",group:"SEMI-HUMANOID",product:"MARS",
-    robotsBuilt:50,robotsDeployed:40,monthsSinceLaunch:11,price:995,funding:500000,valuation:null,
+    robotsBuilt:50,robotsDeployed:40,monthsSinceLaunch:12,price:995,funding:500000,valuation:null,
     estimate:{robotsBuilt:true,robotsDeployed:true},
     lowerBound:{funding:true},
+    metricNotes:{monthsSinceLaunch:"Innate says MARS Batch 1 began shipping in October 2025. That is about 12 months of customer deployment as of October 2, 2026."},
     sources:[
       {label:"Innate",url:"https://www.innate.bot/"},
       {label:"MARS store",url:"https://store.innate.bot/products/innate-mars-founders-edition"}
@@ -285,10 +284,11 @@ const companies=[
   },
   {
     name:"Dyna",productUrl:"https://www.dyna.co/dyna-2.1",group:"SEMI-HUMANOID",product:"Taku",
-    robotsBuilt:75,robotsDeployed:0,monthsSinceLaunch:0,price:null,funding:143500000,valuation:600000000,
-    estimate:{robotsBuilt:true},
+    robotsBuilt:null,robotsDeployed:0,monthsSinceLaunch:0,price:null,funding:143500000,valuation:600000000,
+    estimate:{},
     greaterThan:{valuation:true},
     metricNotes:{
+      robotsBuilt:"Dyna has not disclosed how many Taku units have been built. Earlier Dyna robots are excluded so this row stays product-specific to Taku.",
       robotsDeployed:"Taku itself is not yet counted as deployed with customers. Dyna’s earlier robot generations have customer deployments, but those are excluded here so this row stays product-specific to Taku.",
       monthsSinceLaunch:"Taku was introduced Sep. 29, 2026, one day before this tracker date. Dyna describes taking this brand-new system to real-world customer sites as the next milestone, so we count Taku itself as 0 months deployed."
     },
@@ -312,22 +312,24 @@ const companies=[
   },
   {
     name:"Figure",productUrl:"https://www.figure.ai/figure",group:"HUMANOID",product:"Figure 03",
-    robotsBuilt:1000,robotsDeployed:20,monthsSinceLaunch:21,price:null,funding:5250000000,valuation:42500000000,
+    robotsBuilt:1000,robotsDeployed:20,monthsSinceLaunch:3,price:null,funding:5250000000,valuation:42500000000,
     estimate:{robotsDeployed:true,monthsSinceLaunch:true},
     lowerBound:{robotsBuilt:true},
     status:{price:"na"},
     sources:[
-      {label:"Figure 03 production",url:"https://www.figure.ai/news/ramping-figure-03-production"},
+      {label:"Figure 03 — 1,000-unit production milestone",url:"https://korthosrobotics.com/ecosystem/product/figure-03/operations"},
+      {label:"Figure 03 production ramp",url:"https://www.figure.ai/news/ramping-figure-03-production"},
       {label:"Figure",url:"https://www.figure.ai/"}
     ]
   },
   {
     name:"1X",productUrl:"https://www.1x.tech/discover/neo-home-robot",group:"HUMANOID",product:"NEO",
-    robotsBuilt:350,robotsDeployed:0,monthsSinceLaunch:48,price:20000,funding:136500000,valuation:820000000,
+    robotsBuilt:null,robotsDeployed:0,monthsSinceLaunch:0,price:20000,funding:136500000,valuation:820000000,
     estimate:{robotsBuilt:true},
-    lowerBound:{monthsSinceLaunch:true},
     metricNotes:{
-      robotsDeployed:"0 confirmed NEO robots in customer homes counted here. 1X has disclosed limited home R&D testing and planned 2026 customer deliveries, but has not disclosed a verified customer-home delivery count.",
+      robotsBuilt:"1X has announced NEO production capacity and internal production activity but has not disclosed a cumulative NEO unit count, so no built total is shown.",
+      robotsDeployed:"0 confirmed NEO robots in external customer homes counted here. 1X says NEO will launch into Early Access customer homes in 2026, but has not disclosed a verified delivered-customer count.",
+      monthsSinceLaunch:"0 months is used because there is still no verified public date for an external NEO customer-home delivery. Earlier EVE and NEO Beta/Gamma deployments are excluded.",
       price:"Also offered at $499/mo."
     },
     sources:[
@@ -338,7 +340,7 @@ const companies=[
   }
 ];
 
-const today=new Date("2026-09-30T00:00:00");
+const today=new Date("2026-10-02T00:00:00");
 
 let active="robotsDeployed";
 let selected=null;
