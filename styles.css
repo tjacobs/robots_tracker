@@ -41,10 +41,11 @@ h1{margin:5px 0 0;font-size:clamp(50px,6vw,80px);line-height:.9;letter-spacing:-
   .eyebrow{white-space:nowrap;font-size:9px;letter-spacing:.12em}
   .updated{white-space:nowrap;text-align:right;margin-top:3px;font-size:9px;letter-spacing:.10em}
   h1{font-size:clamp(44px,15vw,58px)}
-  .tabs{display:flex;overflow-x:auto;scrollbar-width:none;margin-bottom:12px}
-  .tabs::-webkit-scrollbar{display:none}
-  .tab{flex:0 0 auto;min-width:118px;border-right:1px solid var(--line);border-bottom:0;padding:12px 9px;font-size:9px;white-space:nowrap}
-  .tab:last-child{border-right:0}
+  .tabs{display:grid;grid-template-columns:repeat(6,1fr);overflow:hidden;margin-bottom:12px}
+  .tab{min-width:0;grid-column:span 2;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:11px 5px;font-size:8.5px;letter-spacing:.045em;white-space:nowrap}
+  .tab:nth-child(3){border-right:0}
+  .tab:nth-child(4),.tab:nth-child(5){grid-column:span 3;border-bottom:0}
+  .tab:nth-child(5){border-right:0}
   .chart-header{padding:14px 14px 12px}
   .metric-note{font-size:11px;line-height:1.35}
   .group{padding:14px 10px 16px}
@@ -99,7 +100,7 @@ h1{margin:5px 0 0;font-size:clamp(50px,6vw,80px);line-height:.9;letter-spacing:-
   .eyebrow{font-size:8px;letter-spacing:.10em}
   .updated{font-size:8px;letter-spacing:.08em}
   h1{font-size:46px}
-  .tab{min-width:108px;padding:11px 8px;font-size:8.5px}
+  .tab{min-width:0;padding:10px 3px;font-size:7.8px;letter-spacing:.035em}
   .chart-card{border-radius:14px}
   .group{padding-left:8px;padding-right:8px}
   .bars{grid-template-columns:repeat(var(--count),68px);gap:5px}
