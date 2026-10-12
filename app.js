@@ -289,7 +289,7 @@ const companies=[
     ]
   },
   {
-    name:"Sunday",image:"https://www.sunday.ai/_next/image?q=90&url=https%3A%2F%2Fimage.mux.com%2FxLLkokRSG7wrmPVmYfSE3Hz2TwlKI83Ohf8vHejgI4o%2Fthumbnail.webp%3Ftime%3D0&w=3840",imageFit:"cover",productUrl:"https://www.sunday.ai/",group:"SEMI-HUMANOID",product:"Memo",
+    name:"Sunday",image:"https://bclj1gvgmsjtdkc5.public.blob.vercel-storage.com/robots/sunday-robotics-memo-1768475636236.png",imageFit:"contain",productUrl:"https://www.sunday.ai/",group:"SEMI-HUMANOID",product:"Memo",
     robotsBuilt:30,robotsDeployed:0,monthsSinceLaunch:0,price:null,funding:200000000,valuation:1150000000,
     estimate:{robotsBuilt:true},
     sources:[{label:"Sunday — Series B",url:"https://www.sunday.ai/blog/series-b"}]
@@ -404,7 +404,7 @@ const companies=[
     ]
   },
   {
-    name:"Innate",image:"https://www.innate.bot/videos/posters/hero.webp",imageFit:"cover",productUrl:"https://www.innate.bot/",group:"COMPACT ROBOTS",product:"MARS",
+    name:"Innate",image:"https://store.innate.bot/cdn/shop/files/isometric.png?v=1756916647",imageFit:"contain",productUrl:"https://www.innate.bot/",group:"COMPACT ROBOTS",product:"MARS",
     robotsBuilt:50,robotsDeployed:40,monthsSinceLaunch:12,price:995,funding:500000,valuation:null,
     estimate:{robotsBuilt:true,robotsDeployed:true},
     lowerBound:{funding:true},
@@ -415,7 +415,7 @@ const companies=[
     ]
   },
   {
-    name:"Feather",image:"https://feather.dev/video/posters/introducing-feather.jpg",imageFit:"cover",productUrl:"https://feather.dev/technology",group:"SEMI-HUMANOID",product:"Feather",
+    name:"Feather",image:"https://framerusercontent.com/images/Qp7z38dGNF6GAP9w3hvEDaEc98.png",imageFit:"contain",productUrl:"https://feather.dev/technology",group:"SEMI-HUMANOID",product:"Feather",
     robotsBuilt:35,robotsDeployed:30,monthsSinceLaunch:12,price:29990,funding:7600000,valuation:null,
     estimate:{robotsBuilt:true,robotsDeployed:true,monthsSinceLaunch:true},
     metricNotes:{price:"Promotional listed price; regular price has been listed higher."},
