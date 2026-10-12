@@ -26,7 +26,7 @@ h1{margin:5px 0 0;font-size:clamp(50px,6vw,80px);line-height:.9;letter-spacing:-
 .bar{width:min(64px,74%);background:linear-gradient(to top,color-mix(in srgb,var(--company-color) 72%,#111 28%),var(--company-color));box-shadow:0 0 26px color-mix(in srgb,var(--company-color) 20%,transparent);border-radius:4px 4px 0 0;transition:height .68s cubic-bezier(.2,.8,.2,1),opacity .2s ease,filter .2s ease}
 .bar.reported{opacity:.52}.bar.estimated{opacity:.64}.bar.unknown,.bar.not-launched,.bar.na{opacity:0}
 .empty{position:absolute;bottom:8px;color:#a1a7ae;font-size:22px}.empty.not-launched{font-size:16px}
-.company-brand{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:2px;min-width:0;padding-top:2px}.company-name{font-size:12px;font-weight:800;line-height:1.05;color:var(--company-color);transition:filter .2s ease;text-align:center;white-space:nowrap}.product-name{font-size:9px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center;max-width:76px}.chart-product-image{display:block;width:42px;height:42px;margin-top:4px;object-fit:contain;object-position:center;border-radius:7px}
+.company-brand{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:2px;min-width:0;padding-top:2px}.company-name{font-size:12px;font-weight:800;line-height:1.05;color:var(--company-color);transition:filter .2s ease;text-align:center;white-space:nowrap}.product-name{font-size:9px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center;max-width:76px}.chart-product-image{display:block;width:100%;height:54px;margin-top:4px;object-fit:contain;object-position:center;border-radius:7px}
 .company:hover{background:color-mix(in srgb,var(--company-color) 9%,#fff 91%);border-color:color-mix(in srgb,var(--company-color) 26%,transparent);transform:translateY(-2px)}.company:hover .company-name{filter:brightness(.9) saturate(1.1)}.company:hover .bar{filter:brightness(1.05) saturate(1.08)}
 .backdrop{position:fixed;inset:0;background:rgba(22,25,29,.28);backdrop-filter:blur(4px);z-index:5}
 .drawer{position:fixed;top:0;right:0;bottom:0;width:min(470px,94vw);padding:38px 34px;overflow:auto;background:#fff;border-left:1px solid var(--line);z-index:6;box-shadow:-30px 0 80px rgba(20,24,31,.18)}
@@ -57,7 +57,7 @@ h1{margin:5px 0 0;font-size:clamp(50px,6vw,80px);line-height:.9;letter-spacing:-
   .company-brand{gap:1px;padding-top:1px}
   .company-name{font-size:10px;line-height:1;text-align:center;white-space:nowrap}
   .product-name{font-size:8px;max-width:64px;text-align:center}
-  .chart-product-image{width:34px;height:34px;margin-top:3px;border-radius:6px}
+  .chart-product-image{width:100%;height:46px;margin-top:3px;border-radius:6px}
 }
 .product-link{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 24px;padding:12px 14px;border:1px solid color-mix(in srgb,var(--company-color) 28%,var(--line));border-radius:10px;background:color-mix(in srgb,var(--company-color) 7%,#fff 93%);color:var(--company-color);font-size:13px;font-weight:750;text-decoration:none}
 .product-link:hover{background:color-mix(in srgb,var(--company-color) 12%,#fff 88%)}
