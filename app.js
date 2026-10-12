@@ -306,7 +306,7 @@ const companies=[
     ]
   },
   {
-    name:"Nori",image:"https://www.norirobotics.com/_next/image?q=75&url=%2Fimages%2Fworkshop.2d100e21.jpg&w=3840",imageFit:"cover",productUrl:"https://www.ycombinator.com/companies/noril1",group:"SEMI-HUMANOID",product:"Nori",
+    name:"Nori",image:"https://megabot.tech/_next/image?q=75&url=%2Frobots%2Fnori%2Fhero.jpg&w=1920",imageFit:"contain",productUrl:"https://www.ycombinator.com/companies/noril1",group:"SEMI-HUMANOID",product:"Nori",
     robotsBuilt:10,robotsDeployed:1,monthsSinceLaunch:1,price:1688,funding:500000,valuation:null,
     estimate:{robotsBuilt:true},
     sources:[{label:"Nori — YC",url:"https://www.ycombinator.com/companies/noril1"}]
