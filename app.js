@@ -591,7 +591,7 @@ function render(animateFrom=null){
     return Math.max(8,v/groupMax*100);
   };
 
-  groupsEl.innerHTML=["COMPACT ROBOTS","SEMI-HUMANOID","HUMANOID"].map(group=>{
+  groupsEl.innerHTML=["SEMI-HUMANOID","HUMANOID","COMPACT ROBOTS"].map(group=>{
     const rows=sortedRows(group,visibleCompanies);
     const count=rows.length;
     const header='<div class="group-label">'+group+'</div>';
