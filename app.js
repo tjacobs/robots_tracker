@@ -312,7 +312,7 @@ const companies=[
     sources:[{label:"Nori — YC",url:"https://www.ycombinator.com/companies/noril1"}]
   },
   {
-    name:"OS3",productUrl:"https://os3robotics.com/",group:"SEMI-HUMANOID",product:"HALE 1.0",
+    name:"OS3",image:"https://os3robotics.com/assets/hardware/robot-front-cutout.webp?dpl=dpl_CeMN68mmfoJPYVpSAKxx4GgsCijN",imageFit:"contain",productUrl:"https://os3robotics.com/",group:"SEMI-HUMANOID",product:"HALE 1.0",
     robotsBuilt:1,robotsDeployed:1,monthsSinceLaunch:3,price:14995,funding:500000,valuation:null,
     estimate:{monthsSinceLaunch:true},
     lowerBound:{robotsBuilt:true,robotsDeployed:true,funding:true},
@@ -599,7 +599,8 @@ function render(animateFrom=null){
       const v=c[active],st=statusFor(c),height=scaledHeight(v,rows);
       const color=companyColors[c.name]||"#d9dee3";
       const initial=animateFrom&&animateFrom[c.name]!=null?animateFrom[c.name]+"px":height+"%";
-      const card='<button class="company" data-company="'+c.name+'" style="--company-color:'+color+'"><div class="value">'+labelFor(c)+changeBadgeFor(c,active)+'</div><div class="bar-stage"><div class="bar '+st+'" data-target-height="'+height+'" style="height:'+initial+'"></div></div><div class="company-brand"><div class="logo-badge" aria-hidden="true">'+(companyBadges[c.name]||"◆")+'</div><div><div class="company-name">'+(c.shortName||c.name)+'</div><div class="product-name">'+(c.product||"&nbsp;")+'</div></div></div></button>';
+      const chartImage=c.image?'<img class="chart-product-image" src="'+c.image+'" alt="" loading="lazy" onerror="this.remove()">':"";
+      const card='<button class="company" data-company="'+c.name+'" style="--company-color:'+color+'"><div class="value">'+labelFor(c)+changeBadgeFor(c,active)+'</div><div class="bar-stage"><div class="bar '+st+'" data-target-height="'+height+'" style="height:'+initial+'"></div></div><div class="company-brand"><div class="company-name">'+(c.shortName||c.name)+'</div><div class="product-name">'+(c.product||"&nbsp;")+'</div>'+chartImage+'</div></button>';
       return card;
     }).join("");
     return '<section class="group">'+header+'<div class="bars" style="--count:'+count+'">'+cards+'</div></section>';
