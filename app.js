@@ -598,8 +598,8 @@ function render(animateFrom=null){
       const v=c[active],st=statusFor(c),height=scaledHeight(v,rows);
       const color=companyColors[c.name]||"#d9dee3";
       const initial=animateFrom&&animateFrom[c.name]!=null?animateFrom[c.name]+"px":height+"%";
-      const chartImage=c.image?'<img class="chart-product-image" src="'+c.image+'" alt="" loading="lazy" onerror="this.remove()">':"";
-      const card='<button class="company" data-company="'+c.name+'" style="--company-color:'+color+'"><div class="value">'+labelFor(c)+changeBadgeFor(c,active)+'</div><div class="bar-stage"><div class="bar '+st+'" data-target-height="'+height+'" style="height:'+initial+'"></div></div><div class="company-brand"><div class="company-name">'+(c.shortName||c.name)+'</div><div class="product-name">'+(c.product||"&nbsp;")+'</div>'+chartImage+'</div></button>';
+      const chartImage=c.image?'<div class="product-strip"><img class="chart-product-image" src="'+c.image+'" alt="" loading="lazy" onerror="this.closest(\'.product-strip\').remove()"></div>':"";
+      const card='<button class="company" data-company="'+c.name+'" style="--company-color:'+color+'"><div class="value">'+labelFor(c)+changeBadgeFor(c,active)+'</div><div class="bar-stage"><div class="bar '+st+'" data-target-height="'+height+'" style="height:'+initial+'"></div></div><div class="company-brand"><div class="company-name">'+(c.shortName||c.name)+'</div><div class="product-name">'+(c.product||"&nbsp;")+'</div></div>'+chartImage+'</button>';
       return card;
     }).join("");
     const estimateNote=rows.some(c=>c.estimate?.[active])?'<div class="group-estimate-note">* estimated</div>':"";
