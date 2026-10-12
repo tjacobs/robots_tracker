@@ -295,7 +295,7 @@ const companies=[
     sources:[{label:"Sunday — Series B",url:"https://www.sunday.ai/blog/series-b"}]
   },
   {
-    name:"Almond",image:"https://www.almond.bot/render/axol_front.png",imageFit:"contain",productUrl:"https://www.almond.bot/axol",group:"SEMI-HUMANOID",product:"Axol",
+    name:"Almond",image:"https://www.almond.bot/render/axol_mount_mobile_kit.png",imageFit:"contain",productUrl:"https://www.almond.bot/axol",group:"SEMI-HUMANOID",product:"Axol",
     robotsBuilt:15,robotsDeployed:10,monthsSinceLaunch:1,price:8999,funding:500000,valuation:null,
     estimate:{robotsBuilt:true,robotsDeployed:true},
     lowerBound:{funding:true},
