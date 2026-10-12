@@ -578,8 +578,7 @@ function sortedRows(group,visibleCompanies){
 function render(animateFrom=null){
   const note=document.querySelector(".metric-note");
   if(note){
-    const hasEstimates=companies.some(c=>c.estimate?.[active]);
-    note.textContent=(metricDescriptions[active]||"")+(hasEstimates?"  * estimated":"");
+    note.textContent=metricDescriptions[active]||"";
   }
   document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.metric===active));
 
@@ -603,7 +602,8 @@ function render(animateFrom=null){
       const card='<button class="company" data-company="'+c.name+'" style="--company-color:'+color+'"><div class="value">'+labelFor(c)+changeBadgeFor(c,active)+'</div><div class="bar-stage"><div class="bar '+st+'" data-target-height="'+height+'" style="height:'+initial+'"></div></div><div class="company-brand"><div class="company-name">'+(c.shortName||c.name)+'</div><div class="product-name">'+(c.product||"&nbsp;")+'</div>'+chartImage+'</div></button>';
       return card;
     }).join("");
-    return '<section class="group">'+header+'<div class="bars" style="--count:'+count+'">'+cards+'</div></section>';
+    const estimateNote=rows.some(c=>c.estimate?.[active])?'<div class="group-estimate-note">* estimated</div>':"";
+    return '<section class="group">'+header+'<div class="bars" style="--count:'+count+'">'+cards+'</div>'+estimateNote+'</section>';
   }).join("");
 
   document.querySelectorAll(".company").forEach(b=>b.onclick=()=>{
