@@ -241,7 +241,7 @@ const companies=[
     sources:[{label:"Nori — YC",url:"https://www.ycombinator.com/companies/noril1"}]
   },
   {
-    name:"Matic",image:"https://maticrobots.com/_next/image?q=75&url=%2F_next%2Fstatic%2Fmedia%2Fhero-view-quarter.84f6f448.webp&w=3840",imageFit:"contain",productUrl:"https://maticrobots.com/product",group:"SEMI-HUMANOID",product:"Matic",
+    name:"Matic",image:"https://maticrobots.com/_next/image?q=75&url=%2F_next%2Fstatic%2Fmedia%2Fhero-view-quarter.84f6f448.webp&w=3840",imageFit:"contain",productUrl:"https://maticrobots.com/product",group:"ROBOTS",product:"Matic",
     robotsBuilt:13000,robotsDeployed:13000,monthsSinceLaunch:24,price:1495,funding:115000000,valuation:645000000,
     estimate:{monthsSinceLaunch:true},
     lowerBound:{robotsBuilt:true,robotsDeployed:true},
@@ -252,7 +252,7 @@ const companies=[
     ]
   },
   {
-    name:"Innate",image:"https://www.innate.bot/videos/posters/hero.webp",imageFit:"cover",productUrl:"https://www.innate.bot/",group:"SEMI-HUMANOID",product:"MARS",
+    name:"Innate",image:"https://www.innate.bot/videos/posters/hero.webp",imageFit:"cover",productUrl:"https://www.innate.bot/",group:"ROBOTS",product:"MARS",
     robotsBuilt:50,robotsDeployed:40,monthsSinceLaunch:12,price:995,funding:500000,valuation:null,
     estimate:{robotsBuilt:true,robotsDeployed:true},
     lowerBound:{funding:true},
@@ -444,11 +444,11 @@ function render(animateFrom=null){
     return Math.max(8,v/groupMax*100);
   };
 
-  groupsEl.innerHTML=["SEMI-HUMANOID","HUMANOID"].map(group=>{
+  groupsEl.innerHTML=["ROBOTS","SEMI-HUMANOID","HUMANOID"].map(group=>{
     const rows=sortedRows(group,visibleCompanies);
-    const showMaticToggle=group==="SEMI-HUMANOID"&&!showMatic;
+    const showMaticToggle=group==="ROBOTS"&&!showMatic;
     const count=rows.length+(showMaticToggle?1:0);
-    const header=group==="SEMI-HUMANOID"&&showMatic&&!maticAlwaysVisible
+    const header=group==="ROBOTS"&&showMatic&&!maticAlwaysVisible
       ? '<div class="group-heading"><div class="group-label">'+group+'</div><button class="matic-hide" type="button">Hide Matic</button></div>'
       : '<div class="group-label">'+group+'</div>';
     const cards=rows.map(c=>{
