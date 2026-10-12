@@ -58,20 +58,16 @@ const companyColors={
 
 const estimateReasons={
   "Weave":{
-    robotsBuilt:"Weave says it has deployed robots nearly every week since launch and reports 2,000+ field hours. ~25 assumes roughly weekly deployments plus engineering / spare units.",
-    robotsDeployed:"Weave says it has deployed robots to homes and businesses nearly every week since launch. ~20 is a conservative estimate from that cadence.",
-    monthsSinceLaunch:"Weave says Isaac 0 began shipping to San Francisco Bay Area residents in February 2026. About eight months have elapsed from that launch to the tracker date of October 2, 2026."
+    robotsBuilt:"Isaac 0 began shipping in February 2026. Weave now says it has deployed robots to homes and businesses nearly every week since launch and reports 2,000+ field hours. ~30 built is a conservative estimate that allows for roughly ~25 customer units plus internal, demo and spare hardware.",
+    robotsDeployed:"Isaac 0 began shipping in February 2026, about 35 weeks before this tracker date. Weave says deployments have occurred nearly every week since launch. ~25 deployed intentionally discounts that cadence rather than assuming one new customer unit every week.",
+    monthsSinceLaunch:"Weave says Isaac 0 began shipping to San Francisco Bay Area residents in February 2026. About eight months have elapsed from that launch to October 12, 2026."
   },
-  "Sunday":{
-    robotsBuilt:"Sunday describes having built dozens of prototypes. 30 is a conservative numeric interpretation of “dozens,” not a company-disclosed count."
-  },
+  "Sunday":{},
   "Almond":{
-    robotsBuilt:"Almond says its first production batch sold out and shipped, with a second batch following. ~15 assumes a small first batch plus early second-batch production.",
-    robotsDeployed:"Almond says the first production batch shipped to customers. ~10 assumes a first batch of roughly ten units."
+    robotsBuilt:"Almond says every unit in its first production batch shipped and that a week later its second batch was already 50% sold. The company does not disclose batch size; ~15 remains a rough small-batch production estimate, not a disclosed count.",
+    robotsDeployed:"Almond says its first production batch sold out and shipped to every customer. The company does not disclose how many units were in that batch; ~10 is a rough estimate of that first customer batch."
   },
-  "Nori":{
-    robotsBuilt:"Nori confirms its first customer robot is deployed and reports substantial early sales, but not units built. ~10 reflects an early production run rather than converting sales directly into shipped robots."
-  },
+  "Nori":{},
   "OS3":{
     monthsSinceLaunch:"OS3 demonstrated HALE 1.0 publicly at YC Launch Live in July 2026 and now says the robot is deployed in hospitality. ~3 months uses that July public milestone because the exact first customer deployment date is not disclosed."
   },
@@ -84,7 +80,6 @@ const estimateReasons={
     monthsSinceLaunch:"Eden’s public delivery window has started, but without a confirmed external customer delivery date we keep months deployed at 0*."
   },
   "Hello Robot":{
-    monthsSinceLaunch:"Stretch 4 was announced in May 2026 and was shipping by June. ~4 months measures the Stretch 4 generation from customer availability to the Oct. 12 tracker date.",
     funding:"An A3/Automate industry profile reports Hello Robot has raised about $7.7M total. We mark the total as approximate because the company does not publish a complete funding history."
   },
   "Matic":{
@@ -95,43 +90,43 @@ const estimateReasons={
     robotsDeployed:"Innate says MARS units began shipping to customers. ~40 allows for some built units remaining as demos, spares, or internal systems."
   },
   "Feather":{
-    robotsBuilt:"Feather reports more than $1M in revenue and lists the robot at about $30K. That is roughly 33 robot-equivalents of revenue, so we round to ~35 built.",
-    robotsDeployed:"Using the same revenue signal, ~30 deployed allows for a handful of demo, internal, or unsold units among ~35 built.",
-    monthsSinceLaunch:"Feather says its robots have been working in the field across manufacturing, food service and other applications for the last year; its September 2026 funding announcement also says it has been selling robots to customers for over a year. ~12 months is therefore a conservative rounded deployment age."
+    robotsBuilt:"TechCrunch reports Feather has surpassed $1M in revenue while selling the roughly $30K platform in small quantities. Dividing revenue by headline hardware price gives about 33 robot-equivalents; ~35 built is a rough proxy and may overstate or understate actual units if revenue includes different configurations or services.",
+    robotsDeployed:"TechCrunch confirms Feather robots are already working as restaurant cooks and cleaning science labs, but gives no fleet count. ~30 uses the >$1M revenue signal at a ~$30K unit price and allows for some internal/demo units; it should be treated as a rough estimate.",
+    monthsSinceLaunch:"TechCrunch says Feather spent roughly the last year field-testing robots and already has robots working in customer environments; the September 2026 funding announcement says the company fulfilled its first order in nine months. ~12 months is a rounded field-deployment age, not a disclosed launch date."
   },
-  "Syncere":{
-    robotsBuilt:"Syncere reports hundreds of preorders but has not disclosed customer shipment volume. ~10 represents likely prototype / pre-production hardware, not fulfilled preorders."
-  },
+  "Syncere":{},
   "Dyna":{},
-  "Flourish":{
-    robotsBuilt:"Flourish has demonstrated working hardware but customer deliveries begin later. ~5 represents likely prototype / pre-production units only."
-  },
+  "Flourish":{},
   "Tesla":{
-    robotsBuilt:"Recent reporting says Tesla ramped Optimus from a few dozen units per week in Q2 to several hundred per week by August 2026. ~3,000 remains a rough cumulative estimate from that ramp; Tesla has not disclosed a cumulative built total."
+    robotsBuilt:"The Information reports Tesla ramped Optimus from a few dozen units per week in Q2 to several hundred per week by August 2026. ~3,000 is a rough cumulative estimate from that ramp through early October; Tesla has not disclosed a cumulative built total."
   },
   "Figure":{
-    robotsDeployed:"Figure confirms commercial deployments including BMW, but does not publish a current external fleet total. ~20 reflects public evidence of deployments being in the tens.",
-    monthsSinceLaunch:"Figure 03 arrived at BMW Group Plant Spartanburg on June 30, 2026. About three months have elapsed to the tracker date of October 2, 2026; earlier Figure 02 deployments are excluded."
+    monthsSinceLaunch:"Figure 03 arrived at BMW Group Plant Spartanburg on June 30, 2026. About three months have elapsed to October 12, 2026; earlier Figure 02 deployments are excluded."
   },
   "1X":{}
 };
 
 const estimateSources={
   "Weave":{
-    robotsBuilt:[{label:"Weave disclosure",url:"https://www.weaverobotics.com/isaac-0"}],
-    robotsDeployed:[{label:"Weave disclosure",url:"https://www.weaverobotics.com/isaac-0"}],
-    monthsSinceLaunch:[{label:"Weave launch / deployment disclosure",url:"https://www.weaverobotics.com/about"}]
+    robotsBuilt:[
+      {label:"Weave — nearly weekly deployments",url:"https://www.weaverobotics.com/about"},
+      {label:"Weave — 2,000+ field hours",url:"https://www.weaverobotics.com/isaac-0"}
+    ],
+    robotsDeployed:[
+      {label:"Weave — deployed nearly every week since launch",url:"https://www.weaverobotics.com/about"},
+      {label:"Weave — already in real homes and businesses",url:"https://www.weaverobotics.com/isaac-0"}
+    ],
+    monthsSinceLaunch:[{label:"Weave — February 2026 shipping start",url:"https://www.weaverobotics.com/stories/isaac-0-announcement"}]
   },
-  "Sunday":{
-    robotsBuilt:[{label:"Sunday disclosure",url:"https://www.sunday.ai/blog/series-b"}]
-  },
+  "Sunday":{},
   "Almond":{
-    robotsBuilt:[{label:"Almond disclosure",url:"https://www.almond.bot/"}],
-    robotsDeployed:[{label:"Almond disclosure",url:"https://www.almond.bot/"}]
+    robotsBuilt:[
+      {label:"Almond — first batch shipped",url:"https://www.linkedin.com/company/almondbot"},
+      {label:"Almond founder — second batch 50% sold",url:"https://www.linkedin.com/posts/saba-khalilnaji_a-week-after-this-post-our-second-batch-activity-7488294175562452993-wro8"}
+    ],
+    robotsDeployed:[{label:"Almond — first batch shipped to every customer",url:"https://www.linkedin.com/company/almondbot"}]
   },
-  "Nori":{
-    robotsBuilt:[{label:"Nori / YC disclosure",url:"https://www.ycombinator.com/companies/noril1"}]
-  },
+  "Nori":{},
   "OS3":{
     monthsSinceLaunch:[
       {label:"OS3 — deployed in hospitality today",url:"https://os3robotics.com/"},
@@ -147,10 +142,6 @@ const estimateSources={
     monthsSinceLaunch:[{label:"Eden I — Sep–Nov 2026 delivery window",url:"https://edenrobotics.ai/eden-1"}]
   },
   "Hello Robot":{
-    monthsSinceLaunch:[
-      {label:"Hello Robot — Stretch 4 launch",url:"https://forum.hello-robot.com/c/announce/6"},
-      {label:"Hello Robot — Stretch 4 available now",url:"https://hello-robot.com/purchase/"}
-    ],
     funding:[{label:"A3 / Automate — about $7.7M raised",url:"https://www.automate.org/robotics/industry-insights/hello-robot-is-banking-on-building-trust-with-its-home-robot/boa"}]
   },
   "Matic":{
@@ -161,16 +152,17 @@ const estimateSources={
     robotsDeployed:[{label:"Innate shipping disclosure",url:"https://store.innate.bot/products/innate-mars-founders-edition"}]
   },
   "Feather":{
-    robotsBuilt:[{label:"Feather disclosure",url:"https://feather.dev/"}],
-    robotsDeployed:[{label:"Feather disclosure",url:"https://feather.dev/"}],
+    robotsBuilt:[
+      {label:"TechCrunch — >$1M revenue, ~$30K robot",url:"https://techcrunch.com/2026/09/24/meet-feather-the-startup-building-the-android-of-robotics-for-developers/"},
+      {label:"Feather — $7.6M pre-seed / first order",url:"https://www.investegate.co.uk/index.php/announcement/rns/seed-innovations-limited--seed/investee-company-update-feather-robotics-inc-/9792430"}
+    ],
+    robotsDeployed:[{label:"TechCrunch — robots working in restaurants and science labs",url:"https://techcrunch.com/2026/09/24/meet-feather-the-startup-building-the-android-of-robotics-for-developers/"}],
     monthsSinceLaunch:[
-      {label:"Feather — robots working in the field for the last year",url:"https://feather.dev/"},
-      {label:"Feather — September 2026 company update",url:"https://www.investegate.co.uk/index.php/announcement/rns/seed-innovations-limited--seed/investee-company-update-feather-robotics-inc-/9792430"}
+      {label:"TechCrunch — roughly a year of field testing",url:"https://techcrunch.com/2026/09/24/meet-feather-the-startup-building-the-android-of-robotics-for-developers/"},
+      {label:"Feather — first order and customer revenue",url:"https://www.investegate.co.uk/index.php/announcement/rns/seed-innovations-limited--seed/investee-company-update-feather-robotics-inc-/9792430"}
     ]
   },
-  "Syncere":{
-    robotsBuilt:[{label:"Syncere product disclosure",url:"https://syncere.com/product-legacy"}]
-  },
+  "Syncere":{},
   "Dyna":{
     robotsDeployed:[
       {label:"Dyna — scaling customer deployments / Din Tai Fung rollout",url:"https://www.dyna.co/research/scaling-customer-deployments"},
@@ -179,9 +171,7 @@ const estimateSources={
     ],
     monthsSinceLaunch:[{label:"Taku launch / deployment status",url:"https://www.dyna.co/dyna-2.1"}]
   },
-  "Flourish":{
-    robotsBuilt:[{label:"Flourish disclosure",url:"https://flourish-robots.com/"}]
-  },
+  "Flourish":{},
   "Tesla":{
     robotsBuilt:[
       {label:"Tesla Q2 filing — Optimus line installation",url:"https://ir.tesla.com/_flysystem/s3/sec/000162828026049213/tsla-20260722-gen.pdf"},
@@ -189,7 +179,6 @@ const estimateSources={
     ]
   },
   "Figure":{
-    robotsDeployed:[{label:"Figure BMW deployment disclosure",url:"https://www.figure.ai/news/f-03-at-bmw"}],
     monthsSinceLaunch:[{label:"Figure 03 arrives at BMW — Jun. 30, 2026",url:"https://www.figure.ai/news/f-03-at-bmw"}]
   },
   "1X":{}
@@ -201,6 +190,9 @@ const metricSources={
     funding:[{label:"Funding source",url:"https://www.caplight.com/company/weaverobots"}]
   },
   "Sunday":{
+    robotsBuilt:[{label:"Sunday launch — dozens of prototypes",url:"https://www.techmeme.com/251120/p30"}],
+    robotsDeployed:[{label:"Sunday — beta deployment starts late 2026",url:"https://www.sunday.ai/blog/series-b"}],
+    monthsSinceLaunch:[{label:"Sunday — beta launching late 2026",url:"https://www.sunday.ai/"}],
     funding:[{label:"Funding source",url:"https://www.sunday.ai/blog/series-b"}]
   },
   "Almond":{
@@ -208,7 +200,10 @@ const metricSources={
     funding:[{label:"Funding source",url:"https://www.ycombinator.com/companies/almond-2"}]
   },
   "Nori":{
-    price:[{label:"Price source",url:"https://www.ycombinator.com/companies/noril1"}],
+    robotsBuilt:[{label:"Nori / YC — first robot deployed",url:"https://www.ycombinator.com/companies/noril1"}],
+    robotsDeployed:[{label:"Nori / YC — first robot deployed",url:"https://www.ycombinator.com/companies/noril1"}],
+    monthsSinceLaunch:[{label:"Nori / YC — first deployment after launch",url:"https://www.ycombinator.com/companies/noril1"}],
+    price:[{label:"Price source",url:"https://www.norirobotics.com/"}],
     funding:[{label:"Funding source",url:"https://www.ycombinator.com/companies/noril1"}]
   },
   "OS3":{
@@ -226,15 +221,19 @@ const metricSources={
     funding:[{label:"YC / robotics funding tracker",url:"https://data.robo2u.com/funding"}]
   },
   "Hello Robot":{
-    robotsBuilt:[{label:"Hello Robot — Stretch 4 available now",url:"https://hello-robot.com/purchase/"}],
-    robotsDeployed:[{label:"TechCrunch — Stretch in real homes and customer environments",url:"https://techcrunch.com/2026/06/04/is-silicon-valley-ready-to-put-robots-in-peoples-homes-hello-robot-is/"}],
+    robotsBuilt:[{label:"Hello Robot — Stretch 4 ready to ship",url:"https://hello-robot.com/purchase/"}],
+    robotsDeployed:[{label:"Hello Robot — Stretch 4 availability",url:"https://hello-robot.com/purchase/"}],
+    monthsSinceLaunch:[{label:"Hello Robot — Stretch 4 launch / availability",url:"https://hello-robot.com/stretch-4/"}],
     price:[{label:"Hello Robot — Stretch 4 price",url:"https://hello-robot.com/purchase/"}]
   },
   "Kovari":{
-    robotsBuilt:[{label:"Kovari — robots and fleet field-readiness role",url:"https://www.linkedin.com/jobs/view/fabrication-technician-at-kovari-4459725868"}],
-    robotsDeployed:[{label:"Kovari — deployed units in customer environments",url:"https://www.linkedin.com/jobs/view/fabrication-technician-at-kovari-4459725868"}],
-    monthsSinceLaunch:[{label:"Kovari — public evidence of live deployments",url:"https://www.linkedin.com/jobs/view/fabrication-technician-at-kovari-4459725868"}],
-    funding:[{label:"Kovari — over $6M raised",url:"https://www.linkedin.com/jobs/view/robot-operator-at-kovari-4402180653"}]
+    robotsBuilt:[{label:"Kovari — fleet field readiness",url:"https://www.linkedin.com/jobs/view/fabrication-technician-at-kovari-4459725868"}],
+    robotsDeployed:[
+      {label:"Kovari — deployed units in customer environments",url:"https://www.linkedin.com/jobs/view/fabrication-technician-at-kovari-4459725868"},
+      {label:"Kovari — operators running robots across customer sites",url:"https://builtin.com/job/robot-operations-manager/11387960"}
+    ],
+    monthsSinceLaunch:[{label:"Kovari — live customer-site deployments",url:"https://builtin.com/job/robot-operations-manager/11387960"}],
+    funding:[{label:"Kovari — over $6M raised",url:"https://builtin.com/job/robot-operations-manager/11387960"}]
   },
   "Matic":{
     price:[{label:"Price source",url:"https://maticrobots.com/product"}],
@@ -250,6 +249,12 @@ const metricSources={
     funding:[{label:"Funding source",url:"https://www.investegate.co.uk/announcement/rns/seed-innovations-limited--seed/investee-company-update-feather-robotics-inc-/9792430"}]
   },
   "Syncere":{
+    robotsBuilt:[{label:"Syncere — working Lume product / preorder page",url:"https://syncere.com/product"}],
+    robotsDeployed:[
+      {label:"Syncere — Batch 2 now shipping Spring 2027",url:"https://syncere.com/product"},
+      {label:"Washington Post — 1,000+ orders are orders, not deployments",url:"https://www.washingtonpost.com/opinions/interactive/2026/06/08/this-ai-robot-promises-fold-your-laundry-would-you-buy-it/"}
+    ],
+    monthsSinceLaunch:[{label:"Syncere — current shipping schedule",url:"https://syncere.com/product"}],
     price:[{label:"Price source",url:"https://syncere.com/product"}],
     funding:[{label:"Funding source",url:"https://speedrun.a16z.com/companies/syncere"}]
   },
@@ -258,10 +263,20 @@ const metricSources={
     funding:[{label:"Funding source",url:"https://www.caplight.com/company/dyna-robotics"}]
   },
   "Flourish":{
-    price:[{label:"Price source",url:"https://flourish-robots.com/"}]
+    robotsBuilt:[{label:"Flourish 1 launch / working product",url:"https://www.prnewswire.com/news-releases/flourish-robots-launches-flourish-1--a-3-555-home-robot-built-to-give-people-their-potential-back-302891638.html"}],
+    robotsDeployed:[{label:"Flourish — deliveries begin December 2026",url:"https://www.prnewswire.com/news-releases/flourish-robots-launches-flourish-1--a-3-555-home-robot-built-to-give-people-their-potential-back-302891638.html"}],
+    monthsSinceLaunch:[{label:"Flourish — deliveries begin December 2026",url:"https://www.prnewswire.com/news-releases/flourish-robots-launches-flourish-1--a-3-555-home-robot-built-to-give-people-their-potential-back-302891638.html"}],
+    price:[{label:"Price source",url:"https://www.prnewswire.com/news-releases/flourish-robots-launches-flourish-1--a-3-555-home-robot-built-to-give-people-their-potential-back-302891638.html"}]
   },
   "Figure":{
-    robotsBuilt:[{label:"1,000th Figure 03 production milestone",url:"https://korthosrobotics.com/ecosystem/product/figure-03/operations"}],
+    robotsBuilt:[
+      {label:"Figure — 350+ Figure 03 units by Apr. 29",url:"https://www.figure.ai/news/ramping-figure-03-production"},
+      {label:"1,000th Figure 03 production milestone",url:"https://korthosrobotics.com/ecosystem/product/figure-03/operations"}
+    ],
+    robotsDeployed:[
+      {label:"Figure 03 at BMW — confirmed external site",url:"https://www.figure.ai/news/f-03-at-bmw"},
+      {label:"Figure / Catalyst commercial deployment agreement",url:"https://www.figure.ai/news/figure-signs-agreement-with-catalyst-brands"}
+    ],
     funding:[{label:"Funding source",url:"https://forgeglobal.com/figure-ai_stock/"}]
   },
   "1X":{
@@ -280,7 +295,7 @@ const metricSources={
 const companies=[
   {
     name:"Weave",image:"https://www.weaverobotics.com/_next/image?q=75&url=%2Fimages%2Fproducts%2Fspecs.webp&w=3840",imageFit:"contain",productUrl:"https://www.weaverobotics.com/isaac-0",group:"SEMI-HUMANOID",product:"Isaac 0",
-    robotsBuilt:25,robotsDeployed:20,monthsSinceLaunch:8,price:3999,funding:500000,valuation:null,
+    robotsBuilt:30,robotsDeployed:25,monthsSinceLaunch:8,price:3999,funding:500000,valuation:null,
     estimate:{robotsBuilt:true,robotsDeployed:true,monthsSinceLaunch:true},
     metricNotes:{price:"Purchase price; other subscription/financing options are offered."},
     sources:[
@@ -290,9 +305,15 @@ const companies=[
   },
   {
     name:"Sunday",image:"https://bclj1gvgmsjtdkc5.public.blob.vercel-storage.com/robots/sunday-robotics-memo-1768475636236.png",imageFit:"contain",productUrl:"https://www.sunday.ai/",group:"SEMI-HUMANOID",product:"Memo",
-    robotsBuilt:30,robotsDeployed:0,monthsSinceLaunch:0,price:null,funding:200000000,valuation:1150000000,
-    estimate:{robotsBuilt:true},
-    sources:[{label:"Sunday — Series B",url:"https://www.sunday.ai/blog/series-b"}]
+    robotsBuilt:24,robotsDeployed:0,monthsSinceLaunch:0,price:null,funding:200000000,valuation:1150000000,
+    estimate:{},
+    lowerBound:{robotsBuilt:true},
+    metricNotes:{
+      robotsBuilt:"Sunday’s November 2025 launch said it had built “dozens of prototypes.” 24+ is the literal minimum implied by dozens; no newer exact build count is public.",
+      robotsDeployed:"Sunday says public deployment begins with its Founding Family beta in late 2026. No confirmed customer-home Memo deployment is counted yet.",
+      monthsSinceLaunch:"0 until a public customer-home beta deployment is confirmed."
+    },
+    sources:[{label:"Sunday — Series B / beta rollout",url:"https://www.sunday.ai/blog/series-b"},{label:"Sunday — current Memo status",url:"https://www.sunday.ai/"}]
   },
   {
     name:"Almond",image:"https://www.almond.bot/render/axol_mount_mobile_kit.png",imageFit:"contain",productUrl:"https://www.almond.bot/axol",group:"SEMI-HUMANOID",product:"Axol",
@@ -307,9 +328,15 @@ const companies=[
   },
   {
     name:"Nori",image:"https://megabot.tech/_next/image?q=75&url=%2Frobots%2Fnori%2Fhero.jpg&w=1920",imageFit:"contain",productUrl:"https://www.ycombinator.com/companies/noril1",group:"SEMI-HUMANOID",product:"Nori",
-    robotsBuilt:10,robotsDeployed:1,monthsSinceLaunch:1,price:1688,funding:500000,valuation:null,
-    estimate:{robotsBuilt:true},
-    sources:[{label:"Nori — YC",url:"https://www.ycombinator.com/companies/noril1"}]
+    robotsBuilt:1,robotsDeployed:1,monthsSinceLaunch:1,price:1688,funding:500000,valuation:null,
+    estimate:{},
+    lowerBound:{robotsBuilt:true},
+    metricNotes:{
+      robotsBuilt:"Nori confirms its first robot has been deployed but does not disclose total units built. $440K+ in sales is not treated as shipped units, so 1+ is the defensible build lower bound.",
+      robotsDeployed:"YC says Nori has deployed its first robot. Nori’s own site says broader shipments are Fall 2026.",
+      monthsSinceLaunch:"Approximately one month since the first publicly disclosed customer deployment."
+    },
+    sources:[{label:"Nori — YC",url:"https://www.ycombinator.com/companies/noril1"},{label:"Nori A3 — shipping status",url:"https://www.norirobotics.com/"}]
   },
   {
     name:"OS3",image:"https://os3robotics.com/assets/hardware/robot-front-cutout.webp?dpl=dpl_CeMN68mmfoJPYVpSAKxx4GgsCijN",imageFit:"contain",productUrl:"https://os3robotics.com/",group:"SEMI-HUMANOID",product:"HALE 1.0",
@@ -360,12 +387,13 @@ const companies=[
   },
   {
     name:"Hello Robot",shortName:"Hello",image:"https://images.squarespace-cdn.com/content/v1/65789f5bc31b3c64091939a3/31563aa0-c09d-46a1-a2d1-b0193528775e/STRETCH%2B3%2BKEYSHOT%2B2024%2BFULL%2B02%2B%281%29.png?format=2500w",imageFit:"contain",productUrl:"https://hello-robot.com/",group:"SEMI-HUMANOID",product:"Stretch 4",
-    robotsBuilt:1,robotsDeployed:1,monthsSinceLaunch:4,price:29950,funding:7700000,valuation:null,
-    estimate:{monthsSinceLaunch:true,funding:true},
-    lowerBound:{robotsBuilt:true,robotsDeployed:true},
+    robotsBuilt:1,robotsDeployed:null,monthsSinceLaunch:null,price:29950,funding:7700000,valuation:null,
+    estimate:{funding:true},
+    lowerBound:{robotsBuilt:true},
     metricNotes:{
-      robotsBuilt:"Stretch 4 is shipping now and the first production run sold out, but Hello Robot has not disclosed the unit count; 1+ is a conservative public lower bound.",
-      robotsDeployed:"Stretch robots are operating in homes, care settings, research labs and enterprise pilots; a Stretch 4 fleet count is not disclosed, so 1+ is the minimum shown.",
+      robotsBuilt:"Stretch 4 is available and ready to ship, but Hello Robot has not disclosed a Stretch 4 production total; 1+ is the minimum.",
+      robotsDeployed:"Hello Robot documents real-world Stretch deployments, but current public material does not isolate how many are the new Stretch 4 generation, so this product-specific count is left blank.",
+      monthsSinceLaunch:"Stretch 4 was introduced in 2026, but without a confirmed first external Stretch 4 delivery date we leave product-specific deployment age blank.",
       price:"Current Stretch 4 list price; optional accessories are extra."
     },
     sources:[
@@ -408,7 +436,7 @@ const companies=[
     robotsBuilt:50,robotsDeployed:40,monthsSinceLaunch:12,price:995,funding:500000,valuation:null,
     estimate:{robotsBuilt:true,robotsDeployed:true},
     lowerBound:{funding:true},
-    metricNotes:{monthsSinceLaunch:"Innate says MARS Batch 1 began shipping in October 2025. That is about 12 months of customer deployment as of October 2, 2026."},
+    metricNotes:{monthsSinceLaunch:"Innate says MARS Batch 1 began shipping in October 2025. That is about 12 months of customer deployment as of October 12, 2026."},
     sources:[
       {label:"Innate",url:"https://www.innate.bot/"},
       {label:"MARS store",url:"https://store.innate.bot/products/innate-mars-founders-edition"}
@@ -426,9 +454,14 @@ const companies=[
   },
   {
     name:"Syncere",image:"https://framerusercontent.com/images/Z9Ez2R9njNEhAxXYLoBUCQQbns.jpeg?height=4128&width=6192",imageFit:"cover",productUrl:"https://syncere.com/product",group:"SEMI-HUMANOID",product:"Lume",
-    robotsBuilt:10,robotsDeployed:0,monthsSinceLaunch:0,price:1999,funding:500000,valuation:null,
-    estimate:{robotsBuilt:true},
-    lowerBound:{funding:true},
+    robotsBuilt:1,robotsDeployed:0,monthsSinceLaunch:0,price:1999,funding:500000,valuation:null,
+    estimate:{},
+    lowerBound:{robotsBuilt:true,funding:true},
+    metricNotes:{
+      robotsBuilt:"Syncere has demonstrated working Lume hardware, but does not disclose a production count. 1+ is the minimum rather than guessing from preorder volume.",
+      robotsDeployed:"0 confirmed customer deployments. Syncere has reported 1,000+ orders, but orders are not counted as deployments and its current product page lists Batch 2 shipping in Spring 2027.",
+      monthsSinceLaunch:"0 because no customer shipment has been publicly confirmed."
+    },
     sources:[
       {label:"Lume",url:"https://syncere.com/product"},
       {label:"Syncere — a16z Speedrun",url:"https://speedrun.a16z.com/companies/syncere"}
@@ -442,7 +475,7 @@ const companies=[
     metricNotes:{
       robotsBuilt:"Dyna has not disclosed how many Taku units have been built. Earlier Dyna robots are excluded so this row stays product-specific to Taku.",
       robotsDeployed:"Taku itself is not yet counted as deployed with customers. Dyna’s earlier robot generations have customer deployments, but those are excluded here so this row stays product-specific to Taku.",
-      monthsSinceLaunch:"Taku was introduced Sep. 29, 2026, three days before this tracker date. Dyna describes taking this brand-new system to real-world customer sites as the next milestone, so we count Taku itself as 0 months deployed."
+      monthsSinceLaunch:"Taku was introduced Sep. 29, 2026, 13 days before this tracker date. Dyna shows the new platform completing full workflows, but has not disclosed a confirmed external Taku customer deployment, so we still count Taku itself as 0 months deployed."
     },
     sources:[
       {label:"Dyna — Series A",url:"https://www.dyna.co/news/series-a"},
@@ -451,9 +484,15 @@ const companies=[
   },
   {
     name:"Flourish",image:"https://framerusercontent.com/images/Nvi7PcAMMXmYlGZT5t4q5O0jvY.jpg?height=6464&width=4320",imageFit:"cover",productUrl:"https://flourish-robots.com/",group:"SEMI-HUMANOID",product:"Flourish 1",
-    robotsBuilt:5,robotsDeployed:0,monthsSinceLaunch:0,price:3555,funding:null,valuation:null,
-    estimate:{robotsBuilt:true},
-    sources:[{label:"Flourish Robots",url:"https://flourish-robots.com/"}]
+    robotsBuilt:1,robotsDeployed:0,monthsSinceLaunch:0,price:3555,funding:null,valuation:null,
+    estimate:{},
+    lowerBound:{robotsBuilt:true},
+    metricNotes:{
+      robotsBuilt:"Flourish has demonstrated a working Flourish 1 but has not disclosed how many units are built; 1+ is the minimum.",
+      robotsDeployed:"0 customer deployments: the first 50-unit preorder batch was announced September 29 with deliveries beginning in December 2026.",
+      monthsSinceLaunch:"0 until customer deliveries begin."
+    },
+    sources:[{label:"Flourish 1 launch / December delivery schedule",url:"https://www.prnewswire.com/news-releases/flourish-robots-launches-flourish-1--a-3-555-home-robot-built-to-give-people-their-potential-back-302891638.html"}]
   },
   {
     name:"Tesla",image:"https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto%2Cq_auto/Tesla-Bot-AI.jpg",imageFit:"cover",productUrl:"https://www.tesla.com/AI",group:"HUMANOID",product:"Optimus",
@@ -464,9 +503,14 @@ const companies=[
   },
   {
     name:"Figure",image:"https://images.ctfassets.net/qx5k8y1u9drj/6rREWE2DjWe7W3AFbZYSyH/21889f6a8f17464410b45c9ae12b718a/human-form-module-figure-3-image-v3.png?fm=webp&q=70&w=3840",imageFit:"contain",productUrl:"https://www.figure.ai/figure",group:"HUMANOID",product:"Figure 03",
-    robotsBuilt:1000,robotsDeployed:20,monthsSinceLaunch:3,price:null,funding:5250000000,valuation:42500000000,
-    estimate:{robotsDeployed:true,monthsSinceLaunch:true},
-    lowerBound:{robotsBuilt:true},
+    robotsBuilt:1000,robotsDeployed:1,monthsSinceLaunch:3,price:null,funding:5250000000,valuation:42500000000,
+    estimate:{monthsSinceLaunch:true},
+    lowerBound:{robotsBuilt:true,robotsDeployed:true},
+    metricNotes:{
+      robotsDeployed:"Figure confirms Figure 03 at BMW and a commercial deployment agreement with Catalyst Brands, but does not disclose a current external unit count. 1+ is therefore the defensible lower bound instead of estimating a fleet size.",
+      robotsBuilt:"Figure officially reported 350+ Figure 03 units by April; CEO Brett Adcock later announced the 1,000th Figure 03 manufactured in July.",
+      monthsSinceLaunch:"Figure 03 arrived at BMW on June 30, 2026; this rounded month count excludes earlier Figure 02 deployments."
+    },
     status:{price:"na"},
     sources:[
       {label:"Figure 03 — 1,000-unit production milestone",url:"https://korthosrobotics.com/ecosystem/product/figure-03/operations"},
