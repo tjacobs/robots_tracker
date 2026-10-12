@@ -104,3 +104,12 @@ h1{margin:5px 0 0;font-size:clamp(50px,6vw,80px);line-height:.9;letter-spacing:-
   .drawer{padding:30px 20px}
   .drawer-product-image{height:190px;border-radius:12px}
 }
+
+.group-estimate-note{margin-top:7px;font-size:9px;line-height:1;color:var(--muted);letter-spacing:.03em}
+.group:first-child{padding-bottom:10px}
+.group:first-child + .group{padding-top:12px}
+@media(max-width:900px){
+  .group:first-child{padding-bottom:8px}
+  .group:first-child + .group{padding-top:10px}
+  .group-estimate-note{margin-top:6px;font-size:8px}
+}
