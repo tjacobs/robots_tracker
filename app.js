@@ -175,7 +175,8 @@ const estimateSources={
   "Tesla":{
     robotsBuilt:[
       {label:"Tesla Q2 filing — Optimus line installation",url:"https://ir.tesla.com/_flysystem/s3/sec/000162828026049213/tsla-20260722-gen.pdf"},
-      {label:"September production-rate reporting",url:"https://electrek.co/2026/09/25/tesla-optimus-production-ramp-hands-ai-generalization-problems/"}
+      {label:"The Information — production ramp reporting",url:"https://www.theinformation.com/articles/teslas-optimus-hits-snags-hands-suppliers-scale-up-begins"},
+      {label:"Electrek — summary of production-rate reporting",url:"https://electrek.co/2026/09/25/tesla-optimus-production-ramp-hands-ai-generalization-problems/"}
     ]
   },
   "Figure":{
