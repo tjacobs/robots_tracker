@@ -19,6 +19,11 @@ const companyBadges={
   "Sunday":"S",
   "Almond":"A",
   "Nori":"N",
+  "OS3":"O",
+  "Maven":"M",
+  "Eden":"E",
+  "Hello Robot":"H",
+  "Kovari":"K",
   "Matic":"M",
   "Innate":"I",
   "Feather":"F",
@@ -35,6 +40,11 @@ const companyColors={
   "Sunday":"#d04a3a",
   "Almond":"#d7df72",
   "Nori":"#95bf4a",
+  "OS3":"#7b7168",
+  "Maven":"#9aa62d",
+  "Eden":"#879a82",
+  "Hello Robot":"#6f7f86",
+  "Kovari":"#60656a",
   "Matic":"#006859",
   "Innate":"#4700f5",
   "Feather":"#5f6368",
@@ -61,6 +71,21 @@ const estimateReasons={
   },
   "Nori":{
     robotsBuilt:"Nori confirms its first customer robot is deployed and reports substantial early sales, but not units built. ~10 reflects an early production run rather than converting sales directly into shipped robots."
+  },
+  "OS3":{
+    monthsSinceLaunch:"OS3 demonstrated HALE 1.0 publicly at YC Launch Live in July 2026 and now says the robot is deployed in hospitality. ~3 months uses that July public milestone because the exact first customer deployment date is not disclosed."
+  },
+  "Maven":{
+    robotsBuilt:"TechCrunch reports Maven has as many as eight robots working 16-hour shifts at customer sites. ~8 built uses that public operating-fleet figure; Maven has not disclosed total units built.",
+    robotsDeployed:"TechCrunch reports Maven has as many as eight robots working 16-hour shifts at 99%+ uptime. We use ~8 because the wording is an upper-end current deployment figure, not an exact fleet count."
+  },
+  "Eden":{
+    robotsDeployed:"Eden says Eden I deliveries start Sep–Nov 2026, but we found no confirmed external customer delivery count as of Oct. 12. We therefore show 0* rather than assuming a scheduled delivery has occurred.",
+    monthsSinceLaunch:"Eden’s public delivery window has started, but without a confirmed external customer delivery date we keep months deployed at 0*."
+  },
+  "Hello Robot":{
+    monthsSinceLaunch:"Stretch 4 was announced in May 2026 and was shipping by June. ~4 months measures the Stretch 4 generation from customer availability to the Oct. 12 tracker date.",
+    funding:"An A3/Automate industry profile reports Hello Robot has raised about $7.7M total. We mark the total as approximate because the company does not publish a complete funding history."
   },
   "Matic":{
     monthsSinceLaunch:"Matic shipped its first customer units in 2024. ~24 months is an approximate elapsed deployment period because the exact start month is not consistently disclosed."
@@ -106,6 +131,27 @@ const estimateSources={
   },
   "Nori":{
     robotsBuilt:[{label:"Nori / YC disclosure",url:"https://www.ycombinator.com/companies/noril1"}]
+  },
+  "OS3":{
+    monthsSinceLaunch:[
+      {label:"OS3 — deployed in hospitality today",url:"https://os3robotics.com/"},
+      {label:"YC — HALE 1.0 launch",url:"https://www.ycombinator.com/companies/os3"}
+    ]
+  },
+  "Maven":{
+    robotsBuilt:[{label:"TechCrunch — Maven operating fleet",url:"https://techcrunch.com/2026/09/10/maven-robotics-wants-to-steal-your-robot-deployment-deal/"}],
+    robotsDeployed:[{label:"TechCrunch — up to 8 robots working customer shifts",url:"https://techcrunch.com/2026/09/10/maven-robotics-wants-to-steal-your-robot-deployment-deal/"}]
+  },
+  "Eden":{
+    robotsDeployed:[{label:"Eden I — Sep–Nov 2026 delivery window",url:"https://edenrobotics.ai/eden-1"}],
+    monthsSinceLaunch:[{label:"Eden I — Sep–Nov 2026 delivery window",url:"https://edenrobotics.ai/eden-1"}]
+  },
+  "Hello Robot":{
+    monthsSinceLaunch:[
+      {label:"Hello Robot — Stretch 4 launch",url:"https://forum.hello-robot.com/c/announce/6"},
+      {label:"Hello Robot — Stretch 4 available now",url:"https://hello-robot.com/purchase/"}
+    ],
+    funding:[{label:"A3 / Automate — about $7.7M raised",url:"https://www.automate.org/robotics/industry-insights/hello-robot-is-banking-on-building-trust-with-its-home-robot/boa"}]
   },
   "Matic":{
     monthsSinceLaunch:[{label:"Matic disclosure",url:"https://maticrobots.com/blog/twice-the-intelligence-still-nothing-leaves-your-home"}]
@@ -164,6 +210,31 @@ const metricSources={
   "Nori":{
     price:[{label:"Price source",url:"https://www.ycombinator.com/companies/noril1"}],
     funding:[{label:"Funding source",url:"https://www.ycombinator.com/companies/noril1"}]
+  },
+  "OS3":{
+    robotsBuilt:[{label:"OS3 — HALE hardware",url:"https://os3robotics.com/tech/"}],
+    robotsDeployed:[{label:"OS3 — deployed in hospitality today",url:"https://os3robotics.com/"}],
+    price:[{label:"OS3 — developer unit pricing",url:"https://os3robotics.com/partner/"}],
+    funding:[{label:"YC S26 funding tracker",url:"https://data.robo2u.com/funding"}]
+  },
+  "Maven":{
+    funding:[{label:"Forge — Maven total funding",url:"https://forgeglobal.com/maven-robotics_stock/"}]
+  },
+  "Eden":{
+    robotsBuilt:[{label:"Eden — first Eden I operational May 23",url:"https://edenrobotics.ai/about/our-story"}],
+    price:[{label:"Eden I — $10/hour RaaS",url:"https://edenrobotics.ai/eden-1"}],
+    funding:[{label:"YC / robotics funding tracker",url:"https://data.robo2u.com/funding"}]
+  },
+  "Hello Robot":{
+    robotsBuilt:[{label:"Hello Robot — Stretch 4 available now",url:"https://hello-robot.com/purchase/"}],
+    robotsDeployed:[{label:"TechCrunch — Stretch in real homes and customer environments",url:"https://techcrunch.com/2026/06/04/is-silicon-valley-ready-to-put-robots-in-peoples-homes-hello-robot-is/"}],
+    price:[{label:"Hello Robot — Stretch 4 price",url:"https://hello-robot.com/purchase/"}]
+  },
+  "Kovari":{
+    robotsBuilt:[{label:"Kovari — robots and fleet field-readiness role",url:"https://www.linkedin.com/jobs/view/fabrication-technician-at-kovari-4459725868"}],
+    robotsDeployed:[{label:"Kovari — deployed units in customer environments",url:"https://www.linkedin.com/jobs/view/fabrication-technician-at-kovari-4459725868"}],
+    monthsSinceLaunch:[{label:"Kovari — public evidence of live deployments",url:"https://www.linkedin.com/jobs/view/fabrication-technician-at-kovari-4459725868"}],
+    funding:[{label:"Kovari — over $6M raised",url:"https://www.linkedin.com/jobs/view/robot-operator-at-kovari-4402180653"}]
   },
   "Matic":{
     price:[{label:"Price source",url:"https://maticrobots.com/product"}],
@@ -241,7 +312,88 @@ const companies=[
     sources:[{label:"Nori — YC",url:"https://www.ycombinator.com/companies/noril1"}]
   },
   {
-    name:"Matic",image:"https://maticrobots.com/_next/image?q=75&url=%2F_next%2Fstatic%2Fmedia%2Fhero-view-quarter.84f6f448.webp&w=3840",imageFit:"contain",productUrl:"https://maticrobots.com/product",group:"ROBOTS",product:"Matic",
+    name:"OS3",productUrl:"https://os3robotics.com/",group:"SEMI-HUMANOID",product:"HALE 1.0",
+    robotsBuilt:1,robotsDeployed:1,monthsSinceLaunch:3,price:14995,funding:500000,valuation:null,
+    estimate:{monthsSinceLaunch:true},
+    lowerBound:{robotsBuilt:true,robotsDeployed:true,funding:true},
+    metricNotes:{
+      robotsBuilt:"OS3 publicly shows working HALE 1.0 hardware but does not disclose a total built count; 1+ is the minimum.",
+      robotsDeployed:"OS3 says HALE 1.0 is deployed in hospitality today but does not disclose the fleet count; 1+ is the minimum.",
+      price:"Developer purchase price. OS3 also lists $1,800/month developer leasing and hospitality deployments from $2.50/hour.",
+      funding:"YC S26 investment is the disclosed minimum; additional funding has not been publicly sized."
+    },
+    sources:[
+      {label:"OS3 — HALE 1.0",url:"https://os3robotics.com/"},
+      {label:"OS3 — technical platform",url:"https://os3robotics.com/tech/"},
+      {label:"OS3 — Y Combinator",url:"https://www.ycombinator.com/companies/os3"}
+    ]
+  },
+  {
+    name:"Maven",image:"https://ml.globenewswire.com/Resource/Download/5276f26c-4a60-4049-8a6d-486a55ec0e9c",imageFit:"cover",productUrl:"https://www.mavenrobotics.ai/",group:"SEMI-HUMANOID",product:"Gen 3",
+    robotsBuilt:8,robotsDeployed:8,monthsSinceLaunch:null,price:null,funding:118200000,valuation:null,
+    estimate:{robotsBuilt:true,robotsDeployed:true},
+    metricNotes:{
+      monthsSinceLaunch:"Maven began working with its first major customer in 2024, but public reporting does not establish when robots first went live, so deployment age is left blank.",
+      price:"No public robot purchase price found."
+    },
+    sources:[
+      {label:"TechCrunch — Maven deployments",url:"https://techcrunch.com/2026/09/10/maven-robotics-wants-to-steal-your-robot-deployment-deal/"},
+      {label:"Maven — $100M Series A announcement",url:"https://www.globenewswire.com/news-release/2026/09/10/3359782/0/en/maven-robotics-raises-100m-series-a-for-the-world-s-first-general-purpose-robotics-system-for-industrial-work.html"},
+      {label:"Forge — funding history",url:"https://forgeglobal.com/maven-robotics_stock/"}
+    ]
+  },
+  {
+    name:"Eden",image:"https://edenrobotics.ai/assets/images/eden-1-1.png",imageFit:"contain",productUrl:"https://edenrobotics.ai/eden-1",group:"SEMI-HUMANOID",product:"Eden I",
+    robotsBuilt:1,robotsDeployed:0,monthsSinceLaunch:0,price:null,funding:500000,valuation:null,
+    estimate:{robotsDeployed:true,monthsSinceLaunch:true},
+    lowerBound:{robotsBuilt:true,funding:true},
+    metricNotes:{
+      robotsBuilt:"Eden says the first Eden I was fully designed, manufactured and operational on May 23, 2026; no total built count is disclosed.",
+      price:"Eden I is offered as robotics-as-a-service at $10/hour rather than a listed purchase price.",
+      funding:"YC-backed; $0.5M is the tracked disclosed minimum."
+    },
+    sources:[
+      {label:"Eden I product / delivery window",url:"https://edenrobotics.ai/eden-1"},
+      {label:"Eden — development timeline",url:"https://edenrobotics.ai/about/our-story"},
+      {label:"Eden — Y Combinator",url:"https://www.ycombinator.com/companies/eden-robotics"}
+    ]
+  },
+  {
+    name:"Hello Robot",shortName:"Hello",image:"https://images.squarespace-cdn.com/content/v1/65789f5bc31b3c64091939a3/31563aa0-c09d-46a1-a2d1-b0193528775e/STRETCH%2B3%2BKEYSHOT%2B2024%2BFULL%2B02%2B%281%29.png?format=2500w",imageFit:"contain",productUrl:"https://hello-robot.com/",group:"SEMI-HUMANOID",product:"Stretch 4",
+    robotsBuilt:1,robotsDeployed:1,monthsSinceLaunch:4,price:29950,funding:7700000,valuation:null,
+    estimate:{monthsSinceLaunch:true,funding:true},
+    lowerBound:{robotsBuilt:true,robotsDeployed:true},
+    metricNotes:{
+      robotsBuilt:"Stretch 4 is shipping now and the first production run sold out, but Hello Robot has not disclosed the unit count; 1+ is a conservative public lower bound.",
+      robotsDeployed:"Stretch robots are operating in homes, care settings, research labs and enterprise pilots; a Stretch 4 fleet count is not disclosed, so 1+ is the minimum shown.",
+      price:"Current Stretch 4 list price; optional accessories are extra."
+    },
+    sources:[
+      {label:"Hello Robot — Stretch 4",url:"https://hello-robot.com/"},
+      {label:"Hello Robot — purchase / availability",url:"https://hello-robot.com/purchase/"},
+      {label:"TechCrunch — real-world Stretch deployments",url:"https://techcrunch.com/2026/06/04/is-silicon-valley-ready-to-put-robots-in-peoples-homes-hello-robot-is/"},
+      {label:"A3 / Automate — funding profile",url:"https://www.automate.org/robotics/industry-insights/hello-robot-is-banking-on-building-trust-with-its-home-robot/boa"}
+    ]
+  },
+  {
+    name:"Kovari",image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHihnptKTG0XmuMcLcgsoRLhFT0DsWQTj2q5I0FTuqX8rlmMPIE-YdCCE&s=10",imageFit:"cover",productUrl:"https://www.instagram.com/p/Dcgf3gZmwvc/",group:"SEMI-HUMANOID",product:"Kovari Robot",
+    robotsBuilt:1,robotsDeployed:1,monthsSinceLaunch:1,price:null,funding:6000000,valuation:null,
+    lowerBound:{robotsBuilt:true,robotsDeployed:true,monthsSinceLaunch:true,funding:true},
+    metricNotes:{
+      robotsBuilt:"Kovari describes a robot fleet and field-ready units but does not disclose how many robots it has built; 1+ is the minimum.",
+      robotsDeployed:"Kovari’s current hiring materials explicitly refer to deployed units in customer environments and live deployments; exact fleet size is not public.",
+      monthsSinceLaunch:"Public evidence shows live customer deployments by September 2026. The actual deployment start may be earlier, so 1+ month is a conservative lower bound.",
+      funding:"Kovari says it has raised over $6M since inception."
+    },
+    sources:[
+      {label:"Kovari",url:"https://kovari.com/"},
+      {label:"Kovari — robot post",url:"https://www.instagram.com/p/Dcgf3gZmwvc/"},
+      {label:"Kovari — deployed-unit / field-readiness role",url:"https://www.linkedin.com/jobs/view/fabrication-technician-at-kovari-4459725868"},
+      {label:"Kovari — $6M+ funding disclosure",url:"https://www.linkedin.com/jobs/view/robot-operator-at-kovari-4402180653"}
+    ]
+  },
+  {
+    name:"Matic",image:"https://maticrobots.com/_next/image?q=75&url=%2F_next%2Fstatic%2Fmedia%2Fhero-view-quarter.84f6f448.webp&w=3840",imageFit:"contain",productUrl:"https://maticrobots.com/product",group:"COMPACT ROBOTS",product:"Matic",
     robotsBuilt:13000,robotsDeployed:13000,monthsSinceLaunch:24,price:1495,funding:115000000,valuation:645000000,
     estimate:{monthsSinceLaunch:true},
     lowerBound:{robotsBuilt:true,robotsDeployed:true},
@@ -252,7 +404,7 @@ const companies=[
     ]
   },
   {
-    name:"Innate",image:"https://www.innate.bot/videos/posters/hero.webp",imageFit:"cover",productUrl:"https://www.innate.bot/",group:"ROBOTS",product:"MARS",
+    name:"Innate",image:"https://www.innate.bot/videos/posters/hero.webp",imageFit:"cover",productUrl:"https://www.innate.bot/",group:"COMPACT ROBOTS",product:"MARS",
     robotsBuilt:50,robotsDeployed:40,monthsSinceLaunch:12,price:995,funding:500000,valuation:null,
     estimate:{robotsBuilt:true,robotsDeployed:true},
     lowerBound:{funding:true},
@@ -340,7 +492,7 @@ const companies=[
   }
 ];
 
-const today=new Date("2026-10-02T00:00:00");
+const today=new Date("2026-10-12T00:00:00");
 
 let active="robotsDeployed";
 let selected=null;
@@ -439,7 +591,7 @@ function render(animateFrom=null){
     return Math.max(8,v/groupMax*100);
   };
 
-  groupsEl.innerHTML=["ROBOTS","SEMI-HUMANOID","HUMANOID"].map(group=>{
+  groupsEl.innerHTML=["COMPACT ROBOTS","SEMI-HUMANOID","HUMANOID"].map(group=>{
     const rows=sortedRows(group,visibleCompanies);
     const count=rows.length;
     const header='<div class="group-label">'+group+'</div>';
@@ -447,7 +599,7 @@ function render(animateFrom=null){
       const v=c[active],st=statusFor(c),height=scaledHeight(v,rows);
       const color=companyColors[c.name]||"#d9dee3";
       const initial=animateFrom&&animateFrom[c.name]!=null?animateFrom[c.name]+"px":height+"%";
-      const card='<button class="company" data-company="'+c.name+'" style="--company-color:'+color+'"><div class="value">'+labelFor(c)+changeBadgeFor(c,active)+'</div><div class="bar-stage"><div class="bar '+st+'" data-target-height="'+height+'" style="height:'+initial+'"></div></div><div class="company-brand"><div class="logo-badge" aria-hidden="true">'+(companyBadges[c.name]||"◆")+'</div><div><div class="company-name">'+c.name+'</div><div class="product-name">'+(c.product||"&nbsp;")+'</div></div></div></button>';
+      const card='<button class="company" data-company="'+c.name+'" style="--company-color:'+color+'"><div class="value">'+labelFor(c)+changeBadgeFor(c,active)+'</div><div class="bar-stage"><div class="bar '+st+'" data-target-height="'+height+'" style="height:'+initial+'"></div></div><div class="company-brand"><div class="logo-badge" aria-hidden="true">'+(companyBadges[c.name]||"◆")+'</div><div><div class="company-name">'+(c.shortName||c.name)+'</div><div class="product-name">'+(c.product||"&nbsp;")+'</div></div></div></button>';
       return card;
     }).join("");
     return '<section class="group">'+header+'<div class="bars" style="--count:'+count+'">'+cards+'</div></section>';
