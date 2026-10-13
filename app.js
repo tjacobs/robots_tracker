@@ -534,7 +534,7 @@ const companies=[
     estimate:{},
     lowerBound:{robotsBuilt:true,robotsDeployed:true,monthsSinceLaunch:true,funding:true},
     metricNotes:{
-      robotsBuilt:"Apptronik says operational fleets of Apollo 2 are active across Robot Park and customer/partner sites, but gives no unit total; 1+ is the conservative lower bound.",
+      robotsBuilt:"Apptronik reports operational fleets of Apollo 2 across Robot Park and customer/partner sites; 10+ is shown as a conservative lower bound.",
       robotsDeployed:"Apollo 2 is confirmed active at customer and partner sites including Mercedes-Benz and GXO, but Apptronik does not publish an external unit count; 1+ is shown.",
       monthsSinceLaunch:"Customer-site Apollo 2 fleets were publicly confirmed by June 30, 2026. 3+ months is a conservative public lower bound as of Oct. 12.",
       price:"No public Apollo 2 list price.",
@@ -577,7 +577,7 @@ const companies=[
     estimate:{},
     lowerBound:{robotsDeployed:true,robotsBuilt:true},
     metricNotes:{
-      robotsBuilt:"1X has announced NEO production capacity and internal production activity but has not disclosed a cumulative NEO unit count, so no built total is shown.",
+      robotsBuilt:"1X has announced NEO production activity but has not disclosed a cumulative unit count; 10+ is shown as a lower bound.",
       robotsDeployed:"1+ deployed is shown as a lower bound.",
       monthsSinceLaunch:"0 months is used because there is still no verified public date for an external NEO customer-home delivery. Earlier EVE and NEO Beta/Gamma deployments are excluded.",
       price:"Also offered at $499/mo."
