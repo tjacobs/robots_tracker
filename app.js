@@ -521,7 +521,7 @@ const companies=[
     ]
   },
   {
-    name:"Syncere",image:"https://speedrun-prod-media.s3.amazonaws.com/companies/b719373f-f133-45c8-8009-96b12aecd599/media-gallery/53930f40-1350-4414-89f6-f9ce68b4aa2d.jpeg",imageFit:"cover",productUrl:"https://syncere.com/product",group:"HOME SEMI-HUMANOIDS",product:"Lume",
+    name:"Syncere",image:"https://framerusercontent.com/images/9dhrgnMaV3tJyJoLNIIGd3SvFJ4.png?height=2407&width=2995",imageFit:"cover",productUrl:"https://syncere.com/product",group:"HOME SEMI-HUMANOIDS",product:"Lume",
     robotsBuilt:1,robotsDeployed:0,monthsSinceLaunch:0,price:1999,funding:500000,valuation:null,
     estimate:{},
     lowerBound:{robotsBuilt:true,funding:true},
