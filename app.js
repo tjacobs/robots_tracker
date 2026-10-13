@@ -422,7 +422,7 @@ const companies=[
     ]
   },
   {
-    name:"Genesis AI",image:"https://www.datocms-assets.com/199265/1781540929-genesis_fullbody_b_fhd_16x9.jpg?auto=format&h=1080&q=75&w=1920",imageFit:"contain",productUrl:"https://www.genesis.ai/",group:"FACTORY SEMI-HUMANOIDS",product:"Eno",
+    name:"Genesis AI",image:"https://www.datocms-assets.com/199265/1781540929-genesis_fullbody_b_fhd_16x9.jpg?auto=format&h=1080&q=75&w=1920",imageFit:"contain",productUrl:"https://www.genesis.ai/",group:"HOME SEMI-HUMANOIDS",product:"Eno",
     robotsBuilt:1,robotsDeployed:0,monthsSinceLaunch:0,price:null,funding:105000000,valuation:null,
     estimate:{},
     lowerBound:{robotsBuilt:true},
