@@ -25,6 +25,7 @@ const companyBadges={
   "Genesis AI":"G",
   "Hello Robot":"H",
   "Kovari":"K",
+  "7X Robotics":"7X",
   "Matic":"M",
   "Innate":"I",
   "Feather":"F",
@@ -48,6 +49,7 @@ const companyColors={
   "Genesis AI":"#6f747a",
   "Hello Robot":"#6f7f86",
   "Kovari":"#60656a",
+  "7X Robotics":"#3b6f8f",
   "Matic":"#006859",
   "Innate":"#4700f5",
   "Feather":"#5f6368",
@@ -91,6 +93,9 @@ const estimateReasons={
   },
   "Hello Robot":{
     funding:"An A3/Automate industry profile reports Hello Robot has raised about $7.7M total. We mark the total as approximate because the company does not publish a complete funding history."
+  },
+  "7X Robotics":{
+    monthsSinceLaunch:"7X shows a verified buyer from December 2025. ~10 months uses that earliest customer evidence through October 12, 2026."
   },
   "Matic":{
     monthsSinceLaunch:"Matic shipped its first customer units in 2024. ~24 months is an approximate elapsed deployment period because the exact start month is not consistently disclosed."
@@ -251,6 +256,12 @@ const metricSources={
     ],
     monthsSinceLaunch:[{label:"Kovari — live customer-site deployments",url:"https://builtin.com/job/robot-operations-manager/11387960"}],
     funding:[{label:"Kovari — over $6M raised",url:"https://builtin.com/job/robot-operations-manager/11387960"}]
+  },
+  "7X Robotics":{
+    robotsBuilt:[{label:"7X Robotics — 12 units sold",url:"https://7xr.tech/"}],
+    robotsDeployed:[{label:"7X Robotics — 12 units sold",url:"https://7xr.tech/"}],
+    monthsSinceLaunch:[{label:"7X Robotics — verified customer evidence",url:"https://7xr.tech/"}],
+    price:[{label:"7X Robotics — ALF-1 price",url:"https://7xr.tech/"}]
   },
   "Matic":{
     price:[{label:"Price source",url:"https://maticrobots.com/product"}],
@@ -452,6 +463,21 @@ const companies=[
       {label:"Kovari — robot post",url:"https://www.instagram.com/p/Dcgf3gZmwvc/"},
       {label:"Kovari — deployed-unit / field-readiness role",url:"https://www.linkedin.com/jobs/view/fabrication-technician-at-kovari-4459725868"},
       {label:"Kovari — $6M+ funding disclosure",url:"https://www.linkedin.com/jobs/view/robot-operator-at-kovari-4402180653"}
+    ]
+  },
+  {
+    name:"7X Robotics",productUrl:"https://7xr.tech/",group:"COMPACT ROBOTS",product:"ALF-1",
+    robotsBuilt:12,robotsDeployed:12,monthsSinceLaunch:10,price:1499,funding:null,valuation:null,
+    estimate:{monthsSinceLaunch:true},
+    lowerBound:{robotsBuilt:true},
+    metricNotes:{
+      robotsBuilt:"7X reports 12 ALF-1 units sold. 12+ built is used because sold customer units establish a minimum, while internal/demo units may exist in addition.",
+      robotsDeployed:"7X reports 12 units sold; the tracker counts those 12 customer units here.",
+      monthsSinceLaunch:"7X shows a verified buyer from December 2025; about 10 months have elapsed through October 12, 2026.",
+      price:"Current listed ALF-1 price is $1,499, reduced from $1,999."
+    },
+    sources:[
+      {label:"7X Robotics — ALF-1 / 12 units sold / price",url:"https://7xr.tech/"}
     ]
   },
   {
