@@ -551,7 +551,7 @@ const companies=[
     robotsBuilt:3000,robotsDeployed:1,monthsSinceLaunch:0,price:null,funding:null,valuation:null,
     estimate:{robotsBuilt:true},
     lowerBound:{robotsDeployed:true},
-    status:{price:"na",funding:"na",valuation:"na"},
+    status:{funding:"na",valuation:"na"},
     sources:[{label:"Tesla AI / Optimus",url:"https://www.tesla.com/AI"}]
   },
   {
@@ -564,7 +564,7 @@ const companies=[
       robotsBuilt:"Figure officially reported 350+ Figure 03 units by April; CEO Brett Adcock later announced the 1,000th Figure 03 manufactured in July.",
       monthsSinceLaunch:"Figure 03 arrived at BMW on June 30, 2026; this rounded month count excludes earlier Figure 02 deployments."
     },
-    status:{price:"na"},
+    status:{},
     sources:[
       {label:"Figure 03 — 1,000-unit production milestone",url:"https://korthosrobotics.com/ecosystem/product/figure-03/operations"},
       {label:"Figure 03 production ramp",url:"https://www.figure.ai/news/ramping-figure-03-production"},
