@@ -530,7 +530,7 @@ const companies=[
   },
   {
     name:"Apptronik",productUrl:"https://apptronik.com/apollo/apollo-2",group:"HUMANOID",product:"Apollo 2",
-    robotsBuilt:1,robotsDeployed:1,monthsSinceLaunch:3,price:null,funding:935000000,valuation:null,
+    robotsBuilt:10,robotsDeployed:1,monthsSinceLaunch:3,price:null,funding:935000000,valuation:null,
     estimate:{},
     lowerBound:{robotsBuilt:true,robotsDeployed:true,monthsSinceLaunch:true,funding:true},
     metricNotes:{
@@ -573,9 +573,9 @@ const companies=[
   },
   {
     name:"1X",image:"https://cdn.sanity.io/images/qka6yvsc/production/1054db069547b8a970273c62fa96fb6ae1818e8a-3665x2062.webp",imageFit:"contain",productUrl:"https://www.1x.tech/discover/neo-home-robot",group:"HUMANOID",product:"NEO",
-    robotsBuilt:null,robotsDeployed:1,monthsSinceLaunch:0,price:20000,funding:136500000,valuation:820000000,
+    robotsBuilt:10,robotsDeployed:1,monthsSinceLaunch:0,price:20000,funding:136500000,valuation:820000000,
     estimate:{},
-    lowerBound:{robotsDeployed:true},
+    lowerBound:{robotsDeployed:true,robotsBuilt:true},
     metricNotes:{
       robotsBuilt:"1X has announced NEO production capacity and internal production activity but has not disclosed a cumulative NEO unit count, so no built total is shown.",
       robotsDeployed:"1+ deployed is shown as a lower bound.",
