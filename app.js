@@ -25,7 +25,7 @@ const companyBadges={
   "Genesis AI":"G",
   "Hello Robot":"H",
   "Kovari":"K",
-  "Bracket Bot":"B",
+  "Bracket":"B",
   "7X":"7X",
   "Pantograph":"P",
   "Matic":"M",
@@ -53,7 +53,7 @@ const companyColors={
   "Genesis AI":"#6f747a",
   "Hello Robot":"#6f7f86",
   "Kovari":"#60656a",
-  "Bracket Bot":"#6f7c86",
+  "Bracket":"#6f7c86",
   "7X":"#3b6f8f",
   "Pantograph":"#606b86",
   "Matic":"#006859",
@@ -277,7 +277,7 @@ const metricSources={
     monthsSinceLaunch:[{label:"7X — verified customer evidence",url:"https://7xr.tech/"}],
     price:[{label:"7X — ALF-1 price",url:"https://7xr.tech/"}]
   },
-  "Bracket Bot":{
+  "Bracket":{
     robotsBuilt:[{label:"Bracket Bot hackathon — 40 teams, one robot each",url:"https://luma.com/cisohvoj"}],
     robotsDeployed:[{label:"Bracket Bot hackathon — 10 winning teams took robots home",url:"https://luma.com/cisohvoj"}],
     monthsSinceLaunch:[{label:"Hack the North 2025 — Bracket Bot used externally",url:"https://devpost.com/software/jedi-clanker"}],
@@ -596,7 +596,7 @@ const companies=[
     sources:[{label:"Flourish 1 launch / December delivery schedule",url:"https://www.prnewswire.com/news-releases/flourish-robots-launches-flourish-1--a-3-555-home-robot-built-to-give-people-their-potential-back-302891638.html"}]
   },
   {
-    name:"Bracket Bot",image:"https://framerusercontent.com/images/AuLtYk95Q0vgmq9Lop5o76RjXQk.png?height=3840&scale-down-to=4096&width=5158",imageFit:"contain",productUrl:"https://bracketbot.com/",group:"FACTORY SEMI-HUMANOIDS",product:"Bracket Bot",
+    name:"Bracket",image:"https://framerusercontent.com/images/AuLtYk95Q0vgmq9Lop5o76RjXQk.png?height=3840&scale-down-to=4096&width=5158",imageFit:"contain",productUrl:"https://bracketbot.com/",group:"FACTORY SEMI-HUMANOIDS",product:"Bracket Bot",
     robotsBuilt:40,robotsDeployed:10,monthsSinceLaunch:13,price:2000,funding:null,valuation:null,
     estimate:{},
     lowerBound:{robotsBuilt:true,robotsDeployed:true,monthsSinceLaunch:true},
