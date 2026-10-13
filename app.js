@@ -466,7 +466,7 @@ const companies=[
     ]
   },
   {
-    name:"7X Robotics",productUrl:"https://7xr.tech/",group:"COMPACT ROBOTS",product:"ALF-1",
+    name:"7X Robotics",image:"https://7xr.tech/images/robot-hero.jpg",imageFit:"contain",productUrl:"https://7xr.tech/",group:"SEMI-HUMANOID",product:"ALF-1",
     robotsBuilt:12,robotsDeployed:12,monthsSinceLaunch:10,price:1499,funding:null,valuation:null,
     estimate:{monthsSinceLaunch:true},
     lowerBound:{robotsBuilt:true},
