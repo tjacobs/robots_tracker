@@ -29,9 +29,9 @@ The tracker is designed to make incomplete robotics-company data easier to compa
 
 **COMPACT ROBOTS:** Matic, Innate
 
-**SEMI-HUMANOID:** Weave, Sunday, Almond, Nori, OS3, Maven, Eden, Hello Robot, Kovari, Feather, Syncere, Dyna, Flourish
+**SEMI-HUMANOID:** Weave, Sunday, Almond, Nori, OS3, Maven, Eden, Genesis AI, Hello Robot, Kovari, Feather, Syncere, Dyna, Flourish
 
-**HUMANOID:** Tesla, Figure, 1X
+**HUMANOID:** Apptronik, Tesla, Figure, 1X
 
 ## Robot / product names
 
@@ -42,6 +42,7 @@ The tracker is designed to make incomplete robotics-company data easier to compa
 - OS3 — HALE 1.0
 - Maven — Gen 3
 - Eden — Eden I
+- Genesis AI — Eno
 - Hello Robot — Stretch 4
 - Kovari — Kovari Robot
 - Matic — Matic
@@ -50,6 +51,7 @@ The tracker is designed to make incomplete robotics-company data easier to compa
 - Syncere — Lume
 - Dyna — Taku
 - Flourish — Flourish 1
+- Apptronik — Apollo 2
 - Tesla — Optimus
 - Figure — Figure 03
 - 1X — NEO
