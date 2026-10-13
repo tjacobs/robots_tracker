@@ -34,6 +34,7 @@ const companyBadges={
   "Dyna":"D",
   "Flourish":"F",
   "Apptronik":"A",
+  "Boston Dynamics":"BD",
   "Tesla":"T",
   "Figure":"F",
   "1X":"1X"
@@ -59,6 +60,7 @@ const companyColors={
   "Dyna":"#45484d",
   "Flourish":"#9faa62",
   "Apptronik":"#7a858f",
+  "Boston Dynamics":"#315b78",
   "Tesla":"#e82127",
   "Figure":"#4b5563",
   "1X":"#5b8cff"
@@ -595,6 +597,23 @@ const companies=[
       {label:"Apptronik — Apollo 2 / Robot Park deployments",url:"https://apptronik.com/news-collection/welcome-to-robot-park-where-apptroniks-apollo-goes-to-work"},
       {label:"Apptronik — Apollo 2",url:"https://apptronik.com/apollo/apollo-2"},
       {label:"Apptronik — $935M+ Series A",url:"https://apptronik.com/news-collection/apptronik-closes-over-935-million-series-a"}
+    ]
+  },
+  {
+    name:"Boston Dynamics",shortName:"Boston",image:"https://bostondynamics.com/wp-content/uploads/2025/12/atlas-battery-walk-real-collage-768x1245-1.png",imageFit:"contain",productUrl:"https://bostondynamics.com/products/atlas/",group:"HUMANOID",product:"Atlas",
+    robotsBuilt:2,robotsDeployed:2,monthsSinceLaunch:1,price:null,funding:null,valuation:null,
+    estimate:{monthsSinceLaunch:true},
+    lowerBound:{robotsBuilt:true,robotsDeployed:true},
+    metricNotes:{
+      robotsBuilt:"Boston Dynamics says Atlas robots are now in training at Hyundai RMAC and that product-version manufacturing began in 2026. The exact production count is not public, so 2+ is the literal minimum supported by the plural disclosure.",
+      robotsDeployed:"Boston Dynamics says Atlas robots are now training inside Hyundai Motor Group’s RMAC in Georgia. The exact count is undisclosed, so 2+ is the conservative minimum.",
+      monthsSinceLaunch:"RMAC opened September 21, 2026 with Atlas robots already training there; this is rounded to about one month as of October 13.",
+      price:"No public Atlas purchase price has been announced."
+    },
+    sources:[
+      {label:"Boston Dynamics — Atlas",url:"https://bostondynamics.com/products/atlas/"},
+      {label:"Boston Dynamics — RMAC Atlas deployment",url:"https://bostondynamics.com/news/boston-dynamics-opens-robotics-metaplant-application-center-to-train-humanoid-robots-for-manufacturing-tasks/"},
+      {label:"Boston Dynamics — production Atlas launch",url:"https://bostondynamics.com/blog/boston-dynamics-unveils-new-atlas-robot-to-revolutionize-industry/"}
     ]
   },
   {
