@@ -520,7 +520,7 @@ const companies=[
     ]
   },
   {
-    name:"1X",image:"https://cdn.sanity.io/images/qka6yvsc/production/78d7c85dcd2a55f98df6f6050622c5216a01cd47-1100x655.jpg?w=2440&q=100&fit=max&auto=format",imageFit:"cover",productUrl:"https://www.1x.tech/discover/neo-home-robot",group:"HUMANOID",product:"NEO",
+    name:"1X",image:"https://cdn.sanity.io/images/qka6yvsc/production/1054db069547b8a970273c62fa96fb6ae1818e8a-3665x2062.webp",imageFit:"contain",productUrl:"https://www.1x.tech/discover/neo-home-robot",group:"HUMANOID",product:"NEO",
     robotsBuilt:null,robotsDeployed:0,monthsSinceLaunch:0,price:20000,funding:136500000,valuation:820000000,
     estimate:{},
     metricNotes:{
