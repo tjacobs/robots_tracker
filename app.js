@@ -35,6 +35,7 @@ const companyBadges={
   "Flourish":"F",
   "Apptronik":"A",
   "Boston Dynamics":"BD",
+  "Menlo Research":"M",
   "Tesla":"T",
   "Figure":"F",
   "1X":"1X"
@@ -61,6 +62,7 @@ const companyColors={
   "Flourish":"#9faa62",
   "Apptronik":"#7a858f",
   "Boston Dynamics":"#315b78",
+  "Menlo Research":"#e46c21",
   "Tesla":"#e82127",
   "Figure":"#4b5563",
   "1X":"#5b8cff"
@@ -211,6 +213,12 @@ const estimateSources={
 };
 
 const metricSources={
+  "Menlo Research":{
+    robotsBuilt:[{label:"Menlo Research — multiple Asimov robots",url:"https://menlo.ai/research/zero-shot-sim2real-asimov"}],
+    robotsDeployed:[{label:"Menlo Research — shipping Asimov to customers",url:"https://menlo.ai/handbook/about"}],
+    monthsSinceLaunch:[{label:"Menlo Asimov 1 — shipment timing",url:"https://www.humanoidrobots.systems/menlo/asimov"}],
+    price:[{label:"Menlo Research — $20,000 Asimov 1 kit",url:"https://menlo.ai/order"}]
+  },
   "Weave":{
     price:[{label:"Price source",url:"https://www.weaverobotics.com/isaac-0"}],
     funding:[{label:"Funding source",url:"https://www.caplight.com/company/weaverobots"}]
@@ -597,6 +605,25 @@ const companies=[
       {label:"Apptronik — Apollo 2 / Robot Park deployments",url:"https://apptronik.com/news-collection/welcome-to-robot-park-where-apptroniks-apollo-goes-to-work"},
       {label:"Apptronik — Apollo 2",url:"https://apptronik.com/apollo/apollo-2"},
       {label:"Apptronik — $935M+ Series A",url:"https://apptronik.com/news-collection/apptronik-closes-over-935-million-series-a"}
+    ]
+  },
+  {
+    name:"Menlo Research",shortName:"Menlo",image:"https://docs.menlo.ai/_next/static/media/asimov-v1.41b1c69b.jpeg",imageFit:"contain",productUrl:"https://menlo.ai/asimov-1",group:"HUMANOID",product:"Asimov 1",
+    robotsBuilt:2,robotsDeployed:1,monthsSinceLaunch:1,price:20000,funding:null,valuation:null,
+    estimate:{},
+    lowerBound:{robotsBuilt:true,robotsDeployed:true,monthsSinceLaunch:true},
+    metricNotes:{
+      robotsBuilt:"Menlo documents locomotion policies running on multiple physical units of Asimov 1. Exact total production is not disclosed; 2+ reflects the minimum implied by multiple units.",
+      robotsDeployed:"Menlo says it now ships Asimov to customers worldwide, but no exact shipped-unit count is public. 1+ denotes a conservative lower bound.",
+      monthsSinceLaunch:"Asimov 1 deliveries have been reported since late summer 2026. 1+ months conservatively counts customer availability by September 2026.",
+      price:"Official $20,000 unassembled DIY kit price. The $499 order charge is a deposit, not the robot price."
+    },
+    sources:[
+      {label:"Menlo Research — Asimov 1",url:"https://menlo.ai/asimov-1"},
+      {label:"Menlo Research — official price",url:"https://menlo.ai/order"},
+      {label:"Menlo Research — shipping to customers",url:"https://menlo.ai/handbook/about"},
+      {label:"Menlo Research — multiple physical units",url:"https://menlo.ai/research/zero-shot-sim2real-asimov"},
+      {label:"Menlo Research — official robot image and documentation",url:"https://docs.menlo.ai/asimov/1/overview"}
     ]
   },
   {
