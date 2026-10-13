@@ -547,7 +547,7 @@ const companies=[
     ]
   },
   {
-    name:"Tesla",image:"https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Tesla-Bot-AI.jpg",imageFit:"contain",productUrl:"https://www.tesla.com/AI",group:"HUMANOID",product:"Optimus",
+    name:"Tesla",image:"assets/tesla-optimus-white.webp",imageFit:"contain",productUrl:"https://www.tesla.com/AI",group:"HUMANOID",product:"Optimus",
     robotsBuilt:3000,robotsDeployed:1,monthsSinceLaunch:0,price:null,funding:null,valuation:null,
     estimate:{robotsBuilt:true},
     lowerBound:{robotsDeployed:true},
