@@ -521,7 +521,7 @@ const companies=[
     ]
   },
   {
-    name:"Syncere",image:"https://speedrun.a16z.com/_next/image?q=75&url=https%3A%2F%2Fspeedrun-prod-media.s3.amazonaws.com%2Fcompanies%2Fb719373f-f133-45c8-8009-96b12aecd599%2Fmedia-gallery%2F53930f40-1350-4414-89f6-f9ce68b4aa2d.jpeg&w=3840",imageFit:"cover",productUrl:"https://syncere.com/product",group:"HOME SEMI-HUMANOIDS",product:"Lume",
+    name:"Syncere",image:"https://speedrun-prod-media.s3.amazonaws.com/companies/b719373f-f133-45c8-8009-96b12aecd599/media-gallery/53930f40-1350-4414-89f6-f9ce68b4aa2d.jpeg",imageFit:"cover",productUrl:"https://syncere.com/product",group:"HOME SEMI-HUMANOIDS",product:"Lume",
     robotsBuilt:1,robotsDeployed:0,monthsSinceLaunch:0,price:1999,funding:500000,valuation:null,
     estimate:{},
     lowerBound:{robotsBuilt:true,funding:true},
@@ -737,11 +737,13 @@ function render(animateFrom=null){
   document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.metric===active));
 
   const visibleCompanies=companies;
-  const scaledHeight=(v,groupRows)=>{
+  const scaledHeight=(v,groupRows,group)=>{
     if(typeof v!=="number"||v<=0)return 0;
     const groupVals=groupRows.map(c=>c[active]).filter(x=>typeof x==="number"&&x>0);
-    const groupMax=Math.max(...groupVals,1);
-    return Math.max(8,v/groupMax*100);
+    const humanoidDeployed=group==="HUMANOID"&&active==="robotsDeployed";
+    const groupMax=humanoidDeployed?Math.max(...groupVals,100):Math.max(...groupVals,1);
+    const minHeight=humanoidDeployed?1:8;
+    return Math.max(minHeight,v/groupMax*100);
   };
 
   groupsEl.innerHTML=["HOME SEMI-HUMANOIDS","FACTORY SEMI-HUMANOIDS","HUMANOID","COMPACT ROBOTS"].map(group=>{
@@ -749,7 +751,7 @@ function render(animateFrom=null){
     const count=rows.length;
     const header='<div class="group-label">'+group+'</div>';
     const cards=rows.map(c=>{
-      const v=c[active],st=statusFor(c),height=scaledHeight(v,rows);
+      const v=c[active],st=statusFor(c),height=scaledHeight(v,rows,group);
       const color=companyColors[c.name]||"#d9dee3";
       const initial=animateFrom&&animateFrom[c.name]!=null?animateFrom[c.name]+"px":height+"%";
       const chartImage=c.image?'<div class="product-strip"><img class="chart-product-image" src="'+c.image+'" alt="" loading="lazy" onerror="this.closest(\'.product-strip\').remove()"></div>':"";
