@@ -529,7 +529,7 @@ const companies=[
     sources:[{label:"Flourish 1 launch / December delivery schedule",url:"https://www.prnewswire.com/news-releases/flourish-robots-launches-flourish-1--a-3-555-home-robot-built-to-give-people-their-potential-back-302891638.html"}]
   },
   {
-    name:"Apptronik",productUrl:"https://apptronik.com/apollo/apollo-2",group:"HUMANOID",product:"Apollo 2",
+    name:"Apptronik",image:"https://z7xgmkppvtftrfj0.public.blob.vercel-storage.com/imageAssets/apptronik-apollo/apptronik-apollo-portrait-frame-3421470532ca.jpg",imageFit:"contain",productUrl:"https://apptronik.com/apollo/apollo-2",group:"HUMANOID",product:"Apollo 2",
     robotsBuilt:10,robotsDeployed:1,monthsSinceLaunch:3,price:null,funding:935000000,valuation:null,
     estimate:{},
     lowerBound:{robotsBuilt:true,robotsDeployed:true,monthsSinceLaunch:true,funding:true},
@@ -547,7 +547,7 @@ const companies=[
     ]
   },
   {
-    name:"Tesla",image:"https://upload.wikimedia.org/wikipedia/commons/2/23/Tesla_Bot_2023.jpg",imageFit:"contain",productUrl:"https://www.tesla.com/AI",group:"HUMANOID",product:"Optimus",
+    name:"Tesla",image:"https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Tesla-Bot-AI.jpg",imageFit:"contain",productUrl:"https://www.tesla.com/AI",group:"HUMANOID",product:"Optimus",
     robotsBuilt:3000,robotsDeployed:1,monthsSinceLaunch:0,price:null,funding:null,valuation:null,
     estimate:{robotsBuilt:true},
     lowerBound:{robotsDeployed:true},
