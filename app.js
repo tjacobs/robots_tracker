@@ -363,10 +363,10 @@ const companies=[
   },
   {
     name:"Almond",image:"https://www.almond.bot/render/axol_mount_mobile_kit.png",imageFit:"contain",productUrl:"https://www.almond.bot/axol",group:"FACTORY SEMI-HUMANOIDS",product:"Axol",
-    robotsBuilt:15,robotsDeployed:10,monthsSinceLaunch:1,price:8999,funding:500000,valuation:null,
-    estimate:{robotsBuilt:true,robotsDeployed:true},
-    lowerBound:{funding:true},
-    metricNotes:{price:"PRICE DROP: Axol’s base price fell from $9,499 to $8,999 — a $500 reduction."},
+    robotsBuilt:40,robotsDeployed:40,monthsSinceLaunch:1,price:8999,funding:500000,valuation:null,
+    estimate:{},
+    lowerBound:{robotsBuilt:true,robotsDeployed:true,funding:true},
+    metricNotes:{robotsBuilt:"40+ built, based on the latest reported count supplied for this tracker; independent public corroboration is pending.",robotsDeployed:"40+ deployed, based on the latest reported count supplied for this tracker; independent public corroboration is pending.",price:"PRICE DROP: Axol’s base price fell from $9,499 to $8,999 — a $500 reduction."},
     sources:[
       {label:"Almond",url:"https://www.almond.bot/"},
       {label:"Almond — YC",url:"https://www.ycombinator.com/companies/almond-2"}
@@ -590,7 +590,7 @@ const companies=[
     ]
   },
   {
-    name:"Apptronik",image:"https://z7xgmkppvtftrfj0.public.blob.vercel-storage.com/imageAssets/apptronik-apollo/apptronik-apollo-portrait-frame-3421470532ca.jpg",imageFit:"contain",productUrl:"https://apptronik.com/apollo/apollo-2",group:"HUMANOID",product:"Apollo 2",
+    name:"Apptronik",image:"https://www.automate.org/userAssets/a3/contents/industry-insights/image/Apollo%202%20Wave.jpg",imageFit:"contain",productUrl:"https://apptronik.com/apollo/apollo-2",group:"HUMANOID",product:"Apollo 2",
     robotsBuilt:10,robotsDeployed:1,monthsSinceLaunch:3,price:null,funding:935000000,valuation:null,
     estimate:{},
     lowerBound:{robotsBuilt:true,robotsDeployed:true,monthsSinceLaunch:true,funding:true},
@@ -627,7 +627,7 @@ const companies=[
     ]
   },
   {
-    name:"Boston Dynamics",shortName:"Boston",image:"https://bostondynamics.com/wp-content/uploads/2025/12/atlas-battery-walk-real-collage-768x1245-1.png",imageFit:"contain",productUrl:"https://bostondynamics.com/products/atlas/",group:"HUMANOID",product:"Atlas",
+    name:"Boston Dynamics",shortName:"Boston",image:"https://cdn.prod.website-files.com/67e2a642c1cc92a3140c2707/695e2d8a00aac96f8493b4d4_Atlas_Hero.webp",imageFit:"contain",productUrl:"https://bostondynamics.com/products/atlas/",group:"HUMANOID",product:"Atlas",
     robotsBuilt:2,robotsDeployed:2,monthsSinceLaunch:1,price:null,funding:null,valuation:null,
     estimate:{monthsSinceLaunch:true},
     lowerBound:{robotsBuilt:true,robotsDeployed:true},
@@ -652,7 +652,7 @@ const companies=[
     sources:[{label:"Tesla AI / Optimus",url:"https://www.tesla.com/AI"}]
   },
   {
-    name:"Figure",image:"https://images.ctfassets.net/qx5k8y1u9drj/6rREWE2DjWe7W3AFbZYSyH/21889f6a8f17464410b45c9ae12b718a/human-form-module-figure-3-image-v3.png?fm=webp&q=70&w=3840",imageFit:"contain",productUrl:"https://www.figure.ai/figure",group:"HUMANOID",product:"Figure 03",
+    name:"Figure",image:"https://lookingglassxr.com/wp-content/uploads/2025/12/Figure-AI-Figure-03-Looking-Glass-XR.jpg",imageFit:"contain",productUrl:"https://www.figure.ai/figure",group:"HUMANOID",product:"Figure 03",
     robotsBuilt:1000,robotsDeployed:1,monthsSinceLaunch:3,price:null,funding:5250000000,valuation:42500000000,
     estimate:{monthsSinceLaunch:true},
     lowerBound:{robotsBuilt:true,robotsDeployed:true},
