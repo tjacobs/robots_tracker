@@ -25,6 +25,7 @@ const companyBadges={
   "Genesis AI":"G",
   "Hello Robot":"H",
   "Kovari":"K",
+  "Bracket Bot":"B",
   "7X Robotics":"7X",
   "Matic":"M",
   "Innate":"I",
@@ -49,6 +50,7 @@ const companyColors={
   "Genesis AI":"#6f747a",
   "Hello Robot":"#6f7f86",
   "Kovari":"#60656a",
+  "Bracket Bot":"#6f7c86",
   "7X Robotics":"#3b6f8f",
   "Matic":"#006859",
   "Innate":"#4700f5",
@@ -262,6 +264,12 @@ const metricSources={
     robotsDeployed:[{label:"7X Robotics — 12 units sold",url:"https://7xr.tech/"}],
     monthsSinceLaunch:[{label:"7X Robotics — verified customer evidence",url:"https://7xr.tech/"}],
     price:[{label:"7X Robotics — ALF-1 price",url:"https://7xr.tech/"}]
+  },
+  "Bracket Bot":{
+    robotsBuilt:[{label:"Bracket Bot hackathon — 40 teams, one robot each",url:"https://luma.com/cisohvoj"}],
+    robotsDeployed:[{label:"Bracket Bot hackathon — 10 winning teams took robots home",url:"https://luma.com/cisohvoj"}],
+    monthsSinceLaunch:[{label:"Hack the North 2025 — Bracket Bot used externally",url:"https://devpost.com/software/jedi-clanker"}],
+    price:[{label:"Bracket Bot — $2,000 general-purpose robot",url:"https://www.bracket.bot/"}]
   },
   "Matic":{
     price:[{label:"Price source",url:"https://maticrobots.com/product"}],
@@ -553,6 +561,23 @@ const companies=[
       monthsSinceLaunch:"0 until customer deliveries begin."
     },
     sources:[{label:"Flourish 1 launch / December delivery schedule",url:"https://www.prnewswire.com/news-releases/flourish-robots-launches-flourish-1--a-3-555-home-robot-built-to-give-people-their-potential-back-302891638.html"}]
+  },
+  {
+    name:"Bracket Bot",image:"https://framerusercontent.com/images/AuLtYk95Q0vgmq9Lop5o76RjXQk.png?height=3840&scale-down-to=4096&width=5158",imageFit:"contain",productUrl:"https://bracketbot.com/",group:"FACTORY SEMI-HUMANOIDS",product:"Bracket Bot",
+    robotsBuilt:40,robotsDeployed:10,monthsSinceLaunch:13,price:2000,funding:null,valuation:null,
+    estimate:{},
+    lowerBound:{robotsBuilt:true,robotsDeployed:true,monthsSinceLaunch:true},
+    metricNotes:{
+      robotsBuilt:"Bracket Bot’s 2026 hackathon provided one robot to each of 40 teams, establishing a 40+ public build lower bound.",
+      robotsDeployed:"At least 10 external units are confirmed because all members of 10 winning hackathon teams were offered robots to take home. Temporary hackathon loan units are not counted as deployments.",
+      monthsSinceLaunch:"Bracket Bot hardware was already being used by external developers at Hack the North in September 2025, so 13+ months is a conservative public lower bound as of October 2026.",
+      price:"Bracket Bot has advertised its current general-purpose robot at about $2,000."
+    },
+    sources:[
+      {label:"Bracket Bot",url:"https://bracketbot.com/"},
+      {label:"Bracket Bot hackathon — 40 team robots / take-home prizes",url:"https://luma.com/cisohvoj"},
+      {label:"Hack the North 2025 Bracket Bot project",url:"https://devpost.com/software/jedi-clanker"}
+    ]
   },
   {
     name:"Apptronik",image:"https://z7xgmkppvtftrfj0.public.blob.vercel-storage.com/imageAssets/apptronik-apollo/apptronik-apollo-portrait-frame-3421470532ca.jpg",imageFit:"contain",productUrl:"https://apptronik.com/apollo/apollo-2",group:"HUMANOID",product:"Apollo 2",
