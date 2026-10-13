@@ -115,3 +115,8 @@ h1{margin:0;font-size:clamp(50px,6vw,80px);line-height:.9;letter-spacing:-.065em
   .group:first-child + .group{padding-top:13px}
   .group-estimate-note{margin-top:3px;font-size:8px}
 }
+
+/* Long company name: keep Pantograph readable without overflowing narrow cards. */
+.company[data-company="Pantograph"] .company-name{font-size:14px}
+@media(max-width:900px){.company[data-company="Pantograph"] .company-name{font-size:10.5px}}
+@media(max-width:480px){.company[data-company="Pantograph"] .company-name{font-size:9.5px}}
