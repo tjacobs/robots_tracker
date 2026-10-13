@@ -11,7 +11,36 @@ const metricDescriptions={
   "robotsDeployed":"Number of robots with customers.",
   "monthsSinceLaunch":"Number of months since launching robots to customers.",
   "price":"Current listed purchase price.",
-  "funding":"Amount of funding raised so far."
+  "funding":"Amount of funding raised so far.",
+  "location":"Headquarters city for each robotics company. Select a robot to view the source."
+};
+
+const headquarters={
+  "Weave":{city:"San Francisco",region:"CA",source:"https://www.weaverobotics.com/isaac-0"},
+  "Sunday":{city:"Redwood City",region:"CA",source:"https://www.linkedin.com/company/sundayrobotics"},
+  "Almond":{city:"San Francisco",region:"CA",source:"https://www.linkedin.com/company/almondbot"},
+  "Nori":{city:"San Francisco",region:"CA",source:"https://www.norirobotics.com/"},
+  "OS3":{city:"San Francisco",region:"CA",source:"https://os3robotics.com/"},
+  "Maven":{city:"Santa Clara",region:"CA",source:"https://www.linkedin.com/company/maven-robotics/"},
+  "Eden":{city:"London",region:"UK",source:"https://edenrobotics.ai/eden-robotics"},
+  "Genesis AI":{city:"San Carlos",region:"CA",source:"https://www.genesis.ai/news/press-release-gene-265"},
+  "Hello Robot":{city:"Martinez",region:"CA",source:"https://www.linkedin.com/company/hello-robot-inc"},
+  "Kovari":{city:"San Francisco",region:"CA",source:"https://www.linkedin.com/company/kovari-industries/"},
+  "7X":{city:"Bellevue",region:"WA",source:"https://www.linkedin.com/company/7xrobotics"},
+  "Pantograph":{city:"San Francisco",region:"CA",source:"https://pantograph.com/"},
+  "Matic":{city:"Menlo Park",region:"CA",source:"https://www.linkedin.com/company/maticrobots"},
+  "Innate":{city:"San Francisco",region:"CA",source:"https://www.ycombinator.com/companies/innate"},
+  "Feather":{city:"San Francisco",region:"CA",source:"https://www.sec.gov/Archives/edgar/data/2128909/000212890926000001/xslFormDX08/primary_doc.xml"},
+  "Syncere":{city:"Palo Alto",region:"CA",source:"https://syncere.com/story"},
+  "Dyna":{city:"Redwood City",region:"CA",source:"https://www.dyna.co/careers"},
+  "Flourish":{city:"San Francisco",region:"CA",source:"https://www.prnewswire.com/news-releases/flourish-robots-launches-flourish-1--a-3-555-home-robot-built-to-give-people-their-potential-back-302891638.html"},
+  "Bracket":{city:"San Francisco",region:"CA",source:"https://www.linkedin.com/company/bracket-bot"},
+  "Apptronik":{city:"Austin",region:"TX",source:"https://www.builtinaustin.com/company/apptronik/offices"},
+  "Menlo Research":{city:"Singapore",region:"Singapore",source:"https://sg.linkedin.com/company/menloresearch"},
+  "Boston Dynamics":{city:"Waltham",region:"MA",source:"https://bostondynamics.com/news/boston-dynamics-expands-massachusetts-footprint-with-new-323000-square-foot-facility-in-waltham/"},
+  "Tesla":{city:"Austin",region:"TX",source:"https://www.sec.gov/Archives/edgar/data/1318605/000162828026064366/tsla-20261002.htm"},
+  "Figure":{city:"San Jose",region:"CA",source:"https://www.linkedin.com/company/figure-ai"},
+  "1X":{city:"Palo Alto",region:"CA",source:"https://www.1x.tech/discover/palo-alto-hq"}
 };
 
 const companyBadges={
@@ -787,6 +816,11 @@ function sortedRows(group,visibleCompanies){
   return visibleCompanies
     .filter(c=>c.group===group)
     .sort((a,b)=>{
+      if(active==="location"){
+        const cityA=headquarters[a.name]?.city||"ZZZ";
+        const cityB=headquarters[b.name]?.city||"ZZZ";
+        return cityA.localeCompare(cityB)||a.name.localeCompare(b.name);
+      }
       const av=typeof a[active]==="number"?a[active]:-Infinity;
       const bv=typeof b[active]==="number"?b[active]:-Infinity;
       if(group==="HUMANOID"&&active==="robotsDeployed"&&av===bv){
@@ -815,20 +849,27 @@ function render(animateFrom=null){
     return Math.max(minHeight,v/groupMax*100);
   };
 
+  const locationMode=active==="location";
   groupsEl.innerHTML=["HOME SEMI-HUMANOIDS","FACTORY SEMI-HUMANOIDS","HUMANOID","COMPACT ROBOTS"].map(group=>{
     const rows=sortedRows(group,visibleCompanies);
     const count=rows.length;
     const header='<div class="group-label">'+group+'</div>';
     const cards=rows.map(c=>{
-      const v=c[active],st=statusFor(c),height=scaledHeight(v,rows,group);
       const color=companyColors[c.name]||"#d9dee3";
-      const initial=animateFrom&&animateFrom[c.name]!=null?animateFrom[c.name]+"px":height+"%";
       const chartImage=c.image?'<div class="product-strip"><img class="chart-product-image" src="'+c.image+'" alt="" loading="lazy" onerror="this.closest(\'.product-strip\').remove()"></div>':"";
-      const card='<button class="company" data-company="'+c.name+'" style="--company-color:'+color+'"><div class="value">'+labelFor(c)+changeBadgeFor(c,active)+'</div><div class="bar-stage"><div class="bar '+st+'" data-target-height="'+height+'" style="height:'+initial+'"></div></div><div class="company-brand"><div class="company-name">'+(c.shortName||c.name)+'</div><div class="product-name">'+(c.product||"&nbsp;")+'</div></div>'+chartImage+'</button>';
-      return card;
+      if(locationMode){
+        const hq=headquarters[c.name];
+        const place=hq?.city||"Unverified";
+        const region=hq?.region||"Headquarters not confirmed";
+        return '<button class="company location-company" data-company="'+c.name+'" style="--company-color:'+color+'"><div class="location-panel"><span class="location-pin" aria-hidden="true">📍</span><span class="location-city">'+place+'</span><span class="location-region">'+region+'</span></div><div class="company-brand"><div class="company-name">'+(c.shortName||c.name)+'</div><div class="product-name">'+(c.product||"&nbsp;")+'</div></div>'+chartImage+'</button>';
+      }
+      const v=c[active],st=statusFor(c),height=scaledHeight(v,rows,group);
+      const initial=animateFrom&&animateFrom[c.name]!=null?animateFrom[c.name]+"px":height+"%";
+      return '<button class="company" data-company="'+c.name+'" style="--company-color:'+color+'"><div class="value">'+labelFor(c)+changeBadgeFor(c,active)+'</div><div class="bar-stage"><div class="bar '+st+'" data-target-height="'+height+'" style="height:'+initial+'"></div></div><div class="company-brand"><div class="company-name">'+(c.shortName||c.name)+'</div><div class="product-name">'+(c.product||"&nbsp;")+'</div></div>'+chartImage+'</button>';
     }).join("");
-    const estimateNote=rows.some(c=>c.estimate?.[active])?'<div class="group-estimate-note">* estimated</div>':"";
-    return '<section class="group">'+header+'<div class="bars" style="--count:'+count+'">'+cards+'</div>'+estimateNote+'</section>';
+    const estimateNote=!locationMode&&rows.some(c=>c.estimate?.[active])?'<div class="group-estimate-note">* estimated</div>':"";
+    const barsClass=locationMode?"bars location-bars":"bars";
+    return '<section class="group">'+header+'<div class="'+barsClass+'" style="--count:'+count+'">'+cards+'</div>'+estimateNote+'</section>';
   }).join("");
 
   document.querySelectorAll(".company").forEach(b=>b.onclick=()=>{
@@ -846,7 +887,8 @@ function render(animateFrom=null){
 function renderDrawer(){
   if(!selected){drawerRoot.innerHTML="";return}
   const color=companyColors[selected.name]||"#d9dee3";
-  drawerRoot.innerHTML=`<div class="backdrop"></div><aside class="drawer" style="--company-color:${color}"><button class="drawer-close">×</button><div class="drawer-kicker">${selected.group}</div><h2>${selected.name}</h2><p class="drawer-product">${selected.product||"Product not yet recorded"}</p>${selected.image?`<div class="drawer-product-image" style="--image-fit:${selected.imageFit||"cover"}"><img src="${selected.image}" alt="${selected.name} ${selected.product||"robot"}" loading="lazy" onerror="this.closest('.drawer-product-image').remove()"></div>`:""}${selected.productUrl?`<a class="product-link" href="${selected.productUrl}" target="_blank" rel="noreferrer">View product page <span>↗</span></a>`:""}<div class="detail-grid">${metrics.map(m=>`<div class="detail-row"><span>${m.label}</span><strong>${labelFor(selected,m.key)}${changeBadgeFor(selected,m.key)}</strong><small>${detailNoteFor(selected,m.key)}${evidenceFor(selected,m.key)}</small></div>`).join("")}</div><div class="source-block"><div class="source-title">SOURCES</div>${selected.sources?.length?selected.sources.map(s=>`<a href="${s.url}" target="_blank" rel="noreferrer">${s.label}<span>↗</span></a>`).join(""):'<div class="no-source">No verified public source added yet.</div>'}</div></aside>`;
+  const hq=headquarters[selected.name];
+  drawerRoot.innerHTML=`<div class="backdrop"></div><aside class="drawer" style="--company-color:${color}"><button class="drawer-close">×</button><div class="drawer-kicker">${selected.group}</div><h2>${selected.name}</h2><p class="drawer-product">${selected.product||"Product not yet recorded"}</p>${selected.image?`<div class="drawer-product-image" style="--image-fit:${selected.imageFit||"cover"}"><img src="${selected.image}" alt="${selected.name} ${selected.product||"robot"}" loading="lazy" onerror="this.closest('.drawer-product-image').remove()"></div>`:""}${selected.productUrl?`<a class="product-link" href="${selected.productUrl}" target="_blank" rel="noreferrer">View product page <span>↗</span></a>`:""}<div class="detail-grid"><div class="detail-row"><span>HEADQUARTERS</span><strong>${hq?`${hq.city}, ${hq.region}`:"Not verified"}</strong><small>${hq?.source?`<a href="${hq.source}" target="_blank" rel="noreferrer">Headquarters source ↗</a>`:"No reliable headquarters source yet"}</small></div>${metrics.map(m=>`<div class="detail-row"><span>${m.label}</span><strong>${labelFor(selected,m.key)}${changeBadgeFor(selected,m.key)}</strong><small>${detailNoteFor(selected,m.key)}${evidenceFor(selected,m.key)}</small></div>`).join("")}</div><div class="source-block"><div class="source-title">SOURCES</div>${selected.sources?.length?selected.sources.map(s=>`<a href="${s.url}" target="_blank" rel="noreferrer">${s.label}<span>↗</span></a>`).join(""):'<div class="no-source">No verified public source added yet.</div>'}</div></aside>`;
   document.querySelector(".drawer-close").onclick=closeDrawer;
   document.querySelector(".backdrop").onclick=closeDrawer;
 }
