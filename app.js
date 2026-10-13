@@ -22,6 +22,7 @@ const companyBadges={
   "OS3":"O",
   "Maven":"M",
   "Eden":"E",
+  "Genesis AI":"G",
   "Hello Robot":"H",
   "Kovari":"K",
   "Matic":"M",
@@ -30,6 +31,7 @@ const companyBadges={
   "Syncere":"S",
   "Dyna":"D",
   "Flourish":"F",
+  "Apptronik":"A",
   "Tesla":"T",
   "Figure":"F",
   "1X":"1X"
@@ -43,6 +45,7 @@ const companyColors={
   "OS3":"#7b7168",
   "Maven":"#9aa62d",
   "Eden":"#879a82",
+  "Genesis AI":"#6f747a",
   "Hello Robot":"#6f7f86",
   "Kovari":"#60656a",
   "Matic":"#006859",
@@ -51,6 +54,7 @@ const companyColors={
   "Syncere":"#323f35",
   "Dyna":"#45484d",
   "Flourish":"#9faa62",
+  "Apptronik":"#7a858f",
   "Tesla":"#e82127",
   "Figure":"#4b5563",
   "1X":"#5b8cff"
@@ -79,6 +83,12 @@ const estimateReasons={
     robotsDeployed:"Eden says Eden I deliveries start Sep–Nov 2026, but we found no confirmed external customer delivery count as of Oct. 12. We therefore show 0* rather than assuming a scheduled delivery has occurred.",
     monthsSinceLaunch:"Eden’s public delivery window has started, but without a confirmed external customer delivery date we keep months deployed at 0*."
   },
+  "Genesis AI":{
+    robotsBuilt:[{label:"Genesis — Eno unveiled as working general-purpose robot",url:"https://www.genesis.ai/"}],
+    robotsDeployed:[{label:"Genesis — targeted customer deployments planned by end of 2026",url:"https://www.genesis.ai/"}],
+    monthsSinceLaunch:[{label:"Genesis — deployment timing",url:"https://www.genesis.ai/"}],
+    funding:[{label:"Genesis — $105M seed funding",url:"https://www.genesis.ai/news/press-release-gene-265"}]
+  },
   "Hello Robot":{
     funding:"An A3/Automate industry profile reports Hello Robot has raised about $7.7M total. We mark the total as approximate because the company does not publish a complete funding history."
   },
@@ -99,6 +109,12 @@ const estimateReasons={
   "Flourish":{},
   "Tesla":{
     robotsBuilt:"The Information reports Tesla ramped Optimus from a few dozen units per week in Q2 to several hundred per week by August 2026. ~3,000 is a rough cumulative estimate from that ramp through early October; Tesla has not disclosed a cumulative built total."
+  },
+  "Apptronik":{
+    robotsBuilt:[{label:"Apptronik — operational fleets of Apollo 2",url:"https://apptronik.com/news-collection/welcome-to-robot-park-where-apptroniks-apollo-goes-to-work"}],
+    robotsDeployed:[{label:"Apptronik — Apollo 2 active at customer and partner sites",url:"https://apptronik.com/news-collection/welcome-to-robot-park-where-apptroniks-apollo-goes-to-work"}],
+    monthsSinceLaunch:[{label:"Apptronik — customer-site Apollo 2 fleets confirmed June 30, 2026",url:"https://apptronik.com/news-collection/welcome-to-robot-park-where-apptroniks-apollo-goes-to-work"}],
+    funding:[{label:"Apptronik — $935M+ Series A",url:"https://apptronik.com/news-collection/apptronik-closes-over-935-million-series-a"}]
   },
   "Figure":{
     monthsSinceLaunch:"Figure 03 arrived at BMW Group Plant Spartanburg on June 30, 2026. About three months have elapsed to October 12, 2026; earlier Figure 02 deployments are excluded."
@@ -387,6 +403,23 @@ const companies=[
     ]
   },
   {
+    name:"Genesis AI",productUrl:"https://www.genesis.ai/",group:"SEMI-HUMANOID",product:"Eno",
+    robotsBuilt:1,robotsDeployed:0,monthsSinceLaunch:0,price:null,funding:105000000,valuation:null,
+    estimate:{},
+    lowerBound:{robotsBuilt:true},
+    metricNotes:{
+      robotsBuilt:"Genesis unveiled a working Eno in June 2026 but has not disclosed a production count; 1+ is the defensible lower bound.",
+      robotsDeployed:"0 confirmed customer deployments counted yet. Genesis says targeted Eno customer deployments are planned by the end of 2026.",
+      monthsSinceLaunch:"0 until a customer deployment is publicly confirmed.",
+      price:"No public Eno purchase price has been announced."
+    },
+    sources:[
+      {label:"Genesis AI — Eno",url:"https://www.genesis.ai/"},
+      {label:"Genesis AI — Eno launch / deployment plan",url:"https://www.prnewswire.com/news-releases/introducing-eno-genesis-ais-first-general-purpose-robot-is-challenging-traditional-humanoid-design-302801103.html"},
+      {label:"Genesis AI — LG CNS deployment partnership",url:"https://www.prnewswire.com/news-releases/genesis-ai-and-lg-cns-enter-industry-first-strategic-partnership-to-scale-general-purpose-robotics-across-enterprise-operations-302801102.html"}
+    ]
+  },
+  {
     name:"Hello Robot",shortName:"Hello",image:"https://images.squarespace-cdn.com/content/v1/65789f5bc31b3c64091939a3/31563aa0-c09d-46a1-a2d1-b0193528775e/STRETCH%2B3%2BKEYSHOT%2B2024%2BFULL%2B02%2B%281%29.png?format=2500w",imageFit:"contain",productUrl:"https://hello-robot.com/",group:"SEMI-HUMANOID",product:"Stretch 4",
     robotsBuilt:1,robotsDeployed:null,monthsSinceLaunch:null,price:29950,funding:7700000,valuation:null,
     estimate:{funding:true},
@@ -494,6 +527,24 @@ const companies=[
       monthsSinceLaunch:"0 until customer deliveries begin."
     },
     sources:[{label:"Flourish 1 launch / December delivery schedule",url:"https://www.prnewswire.com/news-releases/flourish-robots-launches-flourish-1--a-3-555-home-robot-built-to-give-people-their-potential-back-302891638.html"}]
+  },
+  {
+    name:"Apptronik",productUrl:"https://apptronik.com/apollo/apollo-2",group:"HUMANOID",product:"Apollo 2",
+    robotsBuilt:1,robotsDeployed:1,monthsSinceLaunch:3,price:null,funding:935000000,valuation:null,
+    estimate:{},
+    lowerBound:{robotsBuilt:true,robotsDeployed:true,monthsSinceLaunch:true,funding:true},
+    metricNotes:{
+      robotsBuilt:"Apptronik says operational fleets of Apollo 2 are active across Robot Park and customer/partner sites, but gives no unit total; 1+ is the conservative lower bound.",
+      robotsDeployed:"Apollo 2 is confirmed active at customer and partner sites including Mercedes-Benz and GXO, but Apptronik does not publish an external unit count; 1+ is shown.",
+      monthsSinceLaunch:"Customer-site Apollo 2 fleets were publicly confirmed by June 30, 2026. 3+ months is a conservative public lower bound as of Oct. 12.",
+      price:"No public Apollo 2 list price.",
+      funding:"Apptronik says its Series A exceeds $935M and total capital raised is nearly $1B; the tracker uses $935M+ as the disclosed lower bound."
+    },
+    sources:[
+      {label:"Apptronik — Apollo 2 / Robot Park deployments",url:"https://apptronik.com/news-collection/welcome-to-robot-park-where-apptroniks-apollo-goes-to-work"},
+      {label:"Apptronik — Apollo 2",url:"https://apptronik.com/apollo/apollo-2"},
+      {label:"Apptronik — $935M+ Series A",url:"https://apptronik.com/news-collection/apptronik-closes-over-935-million-series-a"}
+    ]
   },
   {
     name:"Tesla",image:"https://upload.wikimedia.org/wikipedia/commons/2/23/Tesla_Bot_2023.jpg",imageFit:"contain",productUrl:"https://www.tesla.com/AI",group:"HUMANOID",product:"Optimus",
