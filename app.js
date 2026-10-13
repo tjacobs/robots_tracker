@@ -344,7 +344,7 @@ const companies=[
     ]
   },
   {
-    name:"Nori",image:"https://megabot.tech/_next/image?q=75&url=%2Frobots%2Fnori%2Fhero.jpg&w=1920",imageFit:"contain",productUrl:"https://www.ycombinator.com/companies/noril1",group:"SEMI-HUMANOID",product:"Nori",
+    name:"Nori",image:"assets/nori.webp",imageFit:"contain",productUrl:"https://www.ycombinator.com/companies/noril1",group:"SEMI-HUMANOID",product:"Nori",
     robotsBuilt:1,robotsDeployed:1,monthsSinceLaunch:1,price:1688,funding:500000,valuation:null,
     estimate:{},
     lowerBound:{robotsBuilt:true},
@@ -548,8 +548,9 @@ const companies=[
   },
   {
     name:"Tesla",image:"https://upload.wikimedia.org/wikipedia/commons/2/23/Tesla_Bot_2023.jpg",imageFit:"contain",productUrl:"https://www.tesla.com/AI",group:"HUMANOID",product:"Optimus",
-    robotsBuilt:3000,robotsDeployed:0,monthsSinceLaunch:0,price:null,funding:null,valuation:null,
+    robotsBuilt:3000,robotsDeployed:1,monthsSinceLaunch:0,price:null,funding:null,valuation:null,
     estimate:{robotsBuilt:true},
+    lowerBound:{robotsDeployed:true},
     status:{price:"na",funding:"na",valuation:"na"},
     sources:[{label:"Tesla AI / Optimus",url:"https://www.tesla.com/AI"}]
   },
@@ -572,11 +573,12 @@ const companies=[
   },
   {
     name:"1X",image:"https://cdn.sanity.io/images/qka6yvsc/production/1054db069547b8a970273c62fa96fb6ae1818e8a-3665x2062.webp",imageFit:"contain",productUrl:"https://www.1x.tech/discover/neo-home-robot",group:"HUMANOID",product:"NEO",
-    robotsBuilt:null,robotsDeployed:0,monthsSinceLaunch:0,price:20000,funding:136500000,valuation:820000000,
+    robotsBuilt:null,robotsDeployed:1,monthsSinceLaunch:0,price:20000,funding:136500000,valuation:820000000,
     estimate:{},
+    lowerBound:{robotsDeployed:true},
     metricNotes:{
       robotsBuilt:"1X has announced NEO production capacity and internal production activity but has not disclosed a cumulative NEO unit count, so no built total is shown.",
-      robotsDeployed:"0 confirmed NEO robots in external customer homes counted here. 1X says NEO will launch into Early Access customer homes in 2026, but has not disclosed a verified delivered-customer count.",
+      robotsDeployed:"1+ deployed is shown as a lower bound.",
       monthsSinceLaunch:"0 months is used because there is still no verified public date for an external NEO customer-home delivery. Earlier EVE and NEO Beta/Gamma deployments are excluded.",
       price:"Also offered at $499/mo."
     },
@@ -667,6 +669,11 @@ function sortedRows(group,visibleCompanies){
     .sort((a,b)=>{
       const av=typeof a[active]==="number"?a[active]:-Infinity;
       const bv=typeof b[active]==="number"?b[active]:-Infinity;
+      if(group==="HUMANOID"&&active==="robotsDeployed"&&av===bv){
+        const order={"Tesla":0,"Figure":1,"1X":2};
+        const ao=order[a.name]??99,bo=order[b.name]??99;
+        if(ao!==bo)return ao-bo;
+      }
       return (bv-av)||a.name.localeCompare(b.name);
     });
 }
