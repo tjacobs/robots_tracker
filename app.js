@@ -26,7 +26,7 @@ const companyBadges={
   "Hello Robot":"H",
   "Kovari":"K",
   "Bracket Bot":"B",
-  "7X Robotics":"7X",
+  "7X":"7X",
   "Pantograph":"P",
   "Matic":"M",
   "Innate":"I",
@@ -54,7 +54,7 @@ const companyColors={
   "Hello Robot":"#6f7f86",
   "Kovari":"#60656a",
   "Bracket Bot":"#6f7c86",
-  "7X Robotics":"#3b6f8f",
+  "7X":"#3b6f8f",
   "Pantograph":"#606b86",
   "Matic":"#006859",
   "Innate":"#4700f5",
@@ -102,7 +102,7 @@ const estimateReasons={
   "Hello Robot":{
     funding:"An A3/Automate industry profile reports Hello Robot has raised about $7.7M total. We mark the total as approximate because the company does not publish a complete funding history."
   },
-  "7X Robotics":{
+  "7X":{
     monthsSinceLaunch:"7X shows a verified buyer from December 2025. ~10 months uses that earliest customer evidence through October 12, 2026."
   },
   "Matic":{
@@ -271,11 +271,11 @@ const metricSources={
     monthsSinceLaunch:[{label:"Kovari — live customer-site deployments",url:"https://builtin.com/job/robot-operations-manager/11387960"}],
     funding:[{label:"Kovari — over $6M raised",url:"https://builtin.com/job/robot-operations-manager/11387960"}]
   },
-  "7X Robotics":{
-    robotsBuilt:[{label:"7X Robotics — 12 units sold",url:"https://7xr.tech/"}],
-    robotsDeployed:[{label:"7X Robotics — 12 units sold",url:"https://7xr.tech/"}],
-    monthsSinceLaunch:[{label:"7X Robotics — verified customer evidence",url:"https://7xr.tech/"}],
-    price:[{label:"7X Robotics — ALF-1 price",url:"https://7xr.tech/"}]
+  "7X":{
+    robotsBuilt:[{label:"7X — 12 units sold",url:"https://7xr.tech/"}],
+    robotsDeployed:[{label:"7X — 12 units sold",url:"https://7xr.tech/"}],
+    monthsSinceLaunch:[{label:"7X — verified customer evidence",url:"https://7xr.tech/"}],
+    price:[{label:"7X — ALF-1 price",url:"https://7xr.tech/"}]
   },
   "Bracket Bot":{
     robotsBuilt:[{label:"Bracket Bot hackathon — 40 teams, one robot each",url:"https://luma.com/cisohvoj"}],
@@ -492,7 +492,7 @@ const companies=[
     ]
   },
   {
-    name:"7X Robotics",image:"https://7xr.tech/images/robot-hero.jpg",imageFit:"contain",productUrl:"https://7xr.tech/",group:"HOME SEMI-HUMANOIDS",product:"ALF-1",
+    name:"7X",image:"https://7xr.tech/images/robot-hero.jpg",imageFit:"contain",productUrl:"https://7xr.tech/",group:"HOME SEMI-HUMANOIDS",product:"ALF-1",
     robotsBuilt:12,robotsDeployed:12,monthsSinceLaunch:10,price:1499,funding:null,valuation:null,
     estimate:{monthsSinceLaunch:true},
     lowerBound:{robotsBuilt:true},
@@ -503,7 +503,7 @@ const companies=[
       price:"Current listed ALF-1 price is $1,499, reduced from $1,999."
     },
     sources:[
-      {label:"7X Robotics — ALF-1 / 12 units sold / price",url:"https://7xr.tech/"}
+      {label:"7X — ALF-1 / 12 units sold / price",url:"https://7xr.tech/"}
     ]
   },
   {
