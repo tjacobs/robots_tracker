@@ -496,7 +496,7 @@ const companies=[
     sources:[{label:"Flourish 1 launch / December delivery schedule",url:"https://www.prnewswire.com/news-releases/flourish-robots-launches-flourish-1--a-3-555-home-robot-built-to-give-people-their-potential-back-302891638.html"}]
   },
   {
-    name:"Tesla",image:"https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto%2Cq_auto/Tesla-Bot-AI.jpg",imageFit:"cover",productUrl:"https://www.tesla.com/AI",group:"HUMANOID",product:"Optimus",
+    name:"Tesla",image:"https://upload.wikimedia.org/wikipedia/commons/2/23/Tesla_Bot_2023.jpg",imageFit:"contain",productUrl:"https://www.tesla.com/AI",group:"HUMANOID",product:"Optimus",
     robotsBuilt:3000,robotsDeployed:0,monthsSinceLaunch:0,price:null,funding:null,valuation:null,
     estimate:{robotsBuilt:true},
     status:{price:"na",funding:"na",valuation:"na"},
