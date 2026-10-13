@@ -57,7 +57,7 @@ h1{margin:0;font-size:clamp(50px,6vw,80px);line-height:.9;letter-spacing:-.065em
   .value{font-size:13px;line-height:1.1;overflow:visible}
   .bar{width:min(54px,76%)}
   .company-brand{gap:1px;padding-top:1px}
-  .company-name{font-size:13px;line-height:1;text-align:center;white-space:nowrap}
+  .company-name{font-size:11.5px;line-height:1.05;text-align:center;white-space:normal;overflow-wrap:anywhere;max-width:100%;letter-spacing:-.025em}
   .product-name{font-size:10px;max-width:64px;text-align:center}
   .product-strip{width:calc(100% + 8px);height:94px;margin-left:-4px;padding:5px 3px 4px}
   .chart-product-image{width:100%;height:100%}
@@ -91,6 +91,7 @@ h1{margin:0;font-size:clamp(50px,6vw,80px);line-height:.9;letter-spacing:-.065em
   .group{padding-left:8px;padding-right:8px}
   .bars{grid-template-columns:repeat(var(--count),68px);gap:5px}
   .company{min-width:68px}
+  .company-name{font-size:10.5px}
   .product-name{max-width:60px}
 }
 
