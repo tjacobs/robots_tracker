@@ -285,8 +285,8 @@ const metricSources={
   },
   "Pantograph":{
     robotsBuilt:[{label:"Pantograph — Pandroid hardware prototypes",url:"https://pantograph.com/hardware"}],
-    robotsDeployed:[{label:"Pantograph — orders not yet open",url:"https://pantograph.com/hardware"}],
-    monthsSinceLaunch:[{label:"Pantograph — early access, no confirmed deliveries",url:"https://pantograph.com/hardware"}],
+    robotsDeployed:[{label:"Pantograph — Pandroid hardware",url:"https://pantograph.com/hardware"}],
+    monthsSinceLaunch:[{label:"Pantograph — Pandroid hardware",url:"https://pantograph.com/hardware"}],
     price:[{label:"Pantograph — Pandroid starting price",url:"https://pantograph.com/hardware"}]
   },
   "Matic":{
@@ -508,13 +508,12 @@ const companies=[
   },
   {
     name:"Pantograph",image:"https://pantograph.com/images/hardware/full-body-garden.jpg",imageFit:"contain",productUrl:"https://pantograph.com/hardware",group:"COMPACT ROBOTS",product:"Pandroid",
-    robotsBuilt:1,robotsDeployed:0,monthsSinceLaunch:0,price:4199,funding:null,valuation:null,
+    robotsBuilt:2,robotsDeployed:2,monthsSinceLaunch:null,price:4199,funding:null,valuation:null,
     estimate:{},
-    lowerBound:{robotsBuilt:true},
     metricNotes:{
-      robotsBuilt:"Pantograph publicly demonstrates functioning Pandroid hardware, establishing at least one built. It has not disclosed a production count.",
-      robotsDeployed:"0 confirmed customer deliveries. Pantograph currently lists early access, with orders expected later in 2026; developer evaluation kits are not counted without confirmed external handovers.",
-      monthsSinceLaunch:"0 months of verified external customer deployments; waitlist is open but orders have not started.",
+      robotsBuilt:"2 Pandroid units built, reported directly to the tracker; not independently verified.",
+      robotsDeployed:"2 Pandroid units deployed, reported directly to the tracker; not independently verified.",
+      monthsSinceLaunch:"First deployment date not provided, so months deployed is left blank.",
       price:"Starting price of $4,199 on the official hardware page; Pantograph says purchases will open later in 2026."
     },
     sources:[
