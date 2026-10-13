@@ -27,6 +27,7 @@ const companyBadges={
   "Kovari":"K",
   "Bracket Bot":"B",
   "7X Robotics":"7X",
+  "Pantograph":"P",
   "Matic":"M",
   "Innate":"I",
   "Feather":"F",
@@ -54,6 +55,7 @@ const companyColors={
   "Kovari":"#60656a",
   "Bracket Bot":"#6f7c86",
   "7X Robotics":"#3b6f8f",
+  "Pantograph":"#606b86",
   "Matic":"#006859",
   "Innate":"#4700f5",
   "Feather":"#5f6368",
@@ -281,6 +283,12 @@ const metricSources={
     monthsSinceLaunch:[{label:"Hack the North 2025 — Bracket Bot used externally",url:"https://devpost.com/software/jedi-clanker"}],
     price:[{label:"Bracket Bot — $2,000 general-purpose robot",url:"https://www.bracket.bot/"}]
   },
+  "Pantograph":{
+    robotsBuilt:[{label:"Pantograph — Pandroid hardware prototypes",url:"https://pantograph.com/hardware"}],
+    robotsDeployed:[{label:"Pantograph — orders not yet open",url:"https://pantograph.com/hardware"}],
+    monthsSinceLaunch:[{label:"Pantograph — early access, no confirmed deliveries",url:"https://pantograph.com/hardware"}],
+    price:[{label:"Pantograph — Pandroid starting price",url:"https://pantograph.com/hardware"}]
+  },
   "Matic":{
     price:[{label:"Price source",url:"https://maticrobots.com/product"}],
     funding:[{label:"Funding source",url:"https://maticrobots.com/company"}]
@@ -496,6 +504,22 @@ const companies=[
     },
     sources:[
       {label:"7X Robotics — ALF-1 / 12 units sold / price",url:"https://7xr.tech/"}
+    ]
+  },
+  {
+    name:"Pantograph",image:"https://pantograph.com/images/hardware/full-body-garden.jpg",imageFit:"contain",productUrl:"https://pantograph.com/hardware",group:"COMPACT ROBOTS",product:"Pandroid",
+    robotsBuilt:1,robotsDeployed:0,monthsSinceLaunch:0,price:4199,funding:null,valuation:null,
+    estimate:{},
+    lowerBound:{robotsBuilt:true},
+    metricNotes:{
+      robotsBuilt:"Pantograph publicly demonstrates functioning Pandroid hardware, establishing at least one built. It has not disclosed a production count.",
+      robotsDeployed:"0 confirmed customer deliveries. Pantograph currently lists early access, with orders expected later in 2026; developer evaluation kits are not counted without confirmed external handovers.",
+      monthsSinceLaunch:"0 months of verified external customer deployments; waitlist is open but orders have not started.",
+      price:"Starting price of $4,199 on the official hardware page; Pantograph says purchases will open later in 2026."
+    },
+    sources:[
+      {label:"Pantograph — Pandroid product, price and hardware photo",url:"https://pantograph.com/hardware"},
+      {label:"Pantograph — company and research",url:"https://pantograph.com/"}
     ]
   },
   {
