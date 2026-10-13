@@ -741,7 +741,7 @@ function render(animateFrom=null){
     if(typeof v!=="number"||v<=0)return 0;
     const groupVals=groupRows.map(c=>c[active]).filter(x=>typeof x==="number"&&x>0);
     const humanoidDeployed=group==="HUMANOID"&&active==="robotsDeployed";
-    const groupMax=humanoidDeployed?Math.max(...groupVals,100):Math.max(...groupVals,1);
+    const groupMax=humanoidDeployed?Math.max(...groupVals,25):Math.max(...groupVals,1);
     const minHeight=humanoidDeployed?1:8;
     return Math.max(minHeight,v/groupMax*100);
   };
