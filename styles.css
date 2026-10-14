@@ -123,15 +123,15 @@ h1{margin:0;font-size:clamp(50px,6vw,80px);line-height:.9;letter-spacing:-.065em
 /* Headquarters view: compact cards replace data bars. */
 .location-bars{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(145px,1fr));
-  gap:10px;
+  grid-template-columns:repeat(var(--count),minmax(78px,1fr));
+  gap:6px;
   min-height:0;
-  overflow:visible;
+  overflow-x:auto;
   align-items:stretch;
 }
 .location-company{
   width:100%;
-  min-width:0;
+  min-width:78px;
   height:238px;
   grid-template-rows:minmax(0,1fr) auto 88px;
   gap:3px;
@@ -147,30 +147,30 @@ h1{margin:0;font-size:clamp(50px,6vw,80px);line-height:.9;letter-spacing:-.065em
   padding:4px;
   text-align:center;
 }
-.location-pin{font-size:20px;line-height:1}
+.location-pin{font-size:18px;line-height:1}
 .location-city{
-  font-size:17px;
+  font-size:13px;
   line-height:1.12;
   font-weight:800;
-  overflow-wrap:normal;
+  overflow-wrap:anywhere;
   white-space:normal;
   text-wrap:balance;
 }
-.location-region{font-size:11px;color:var(--muted);font-weight:650}
+.location-region{font-size:10px;color:var(--muted);font-weight:650}
 .location-company .company-name{white-space:normal;overflow-wrap:anywhere}
 .location-company .product-name{max-width:100%}
 .location-company .product-strip{height:88px}
 .detail-row small a{color:var(--company-color);text-decoration:none;font-weight:700}
 .detail-row small a:hover{text-decoration:underline}
 @media(max-width:900px){
-  .location-bars{grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:7px}
-  .location-company{height:216px;min-width:0;grid-template-rows:minmax(0,1fr) auto 80px;gap:2px}
-  .location-city{font-size:15px}
+  .location-bars{grid-template-columns:repeat(var(--count),72px);gap:5px}
+  .location-company{height:216px;min-width:72px;grid-template-rows:minmax(0,1fr) auto 80px;gap:2px}
+  .location-city{font-size:12px}
   .location-company .product-strip{height:80px}
 }
 @media(max-width:480px){
-  .location-bars{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
-  .location-company{height:216px;min-width:0}
-  .location-company .company-name{font-size:12px}
-  .location-city{font-size:16px}
+  .location-bars{grid-template-columns:repeat(var(--count),68px);gap:5px}
+  .location-company{height:216px;min-width:68px}
+  .location-company .company-name{font-size:10.5px}
+  .location-city{font-size:11px}
 }
