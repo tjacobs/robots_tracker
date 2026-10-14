@@ -816,14 +816,10 @@ function sortedRows(group,visibleCompanies){
   return visibleCompanies
     .filter(c=>c.group===group)
     .sort((a,b)=>{
-      if(active==="location"){
-        const cityA=headquarters[a.name]?.city||"ZZZ";
-        const cityB=headquarters[b.name]?.city||"ZZZ";
-        return cityA.localeCompare(cityB)||a.name.localeCompare(b.name);
-      }
-      const av=typeof a[active]==="number"?a[active]:-Infinity;
-      const bv=typeof b[active]==="number"?b[active]:-Infinity;
-      if(group==="HUMANOID"&&active==="robotsDeployed"&&av===bv){
+      const sortKey=active==="location"?"robotsDeployed":active;
+      const av=typeof a[sortKey]==="number"?a[sortKey]:-Infinity;
+      const bv=typeof b[sortKey]==="number"?b[sortKey]:-Infinity;
+      if(group==="HUMANOID"&&sortKey==="robotsDeployed"&&av===bv){
         const order={"Tesla":0,"Figure":1,"1X":2};
         const ao=order[a.name]??99,bo=order[b.name]??99;
         if(ao!==bo)return ao-bo;
