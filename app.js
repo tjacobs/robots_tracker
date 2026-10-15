@@ -342,8 +342,10 @@ const metricSources={
     funding:[{label:"Funding source",url:"https://speedrun.a16z.com/companies/syncere"}]
   },
   "Dyna":{
-    monthsSinceLaunch:[{label:"Taku launch / deployment status",url:"https://www.dyna.co/dyna-2.1"}],
+    robotsBuilt:[{label:"Dyna — generations of working robots",url:"https://www.dyna.co/research/scaling-customer-deployments"}],
+    robotsDeployed:[{label:"Dyna — customer deployments across generations",url:"https://www.dyna.co/research/scaling-customer-deployments"}],
     funding:[{label:"Funding source",url:"https://www.caplight.com/company/dyna-robotics"}]
+  
   },
   "Flourish":{
     robotsBuilt:[{label:"Flourish 1 launch / working product",url:"https://www.prnewswire.com/news-releases/flourish-robots-launches-flourish-1--a-3-555-home-robot-built-to-give-people-their-potential-back-302891638.html"}],
@@ -598,14 +600,15 @@ const companies=[
     ]
   },
   {
-    name:"Dyna",image:"https://www.dyna.co/assets/we/workflow-video-poster.jpg",imageFit:"cover",productUrl:"https://www.dyna.co/dyna-2.1",group:"FACTORY SEMI-HUMANOIDS",product:"Taku",
-    robotsBuilt:null,robotsDeployed:0,monthsSinceLaunch:0,price:null,funding:143500000,valuation:600000000,
+    name:"Dyna",image:"https://www.dyna.co/assets/we/workflow-video-poster.jpg",imageFit:"cover",productUrl:"https://www.dyna.co/dyna-2.1",group:"FACTORY SEMI-HUMANOIDS",product:"Taku + earlier",
+    robotsBuilt:10,robotsDeployed:10,monthsSinceLaunch:null,price:null,funding:143500000,valuation:600000000,
     estimate:{},
+    lowerBound:{robotsBuilt:true,robotsDeployed:true},
     greaterThan:{valuation:true},
     metricNotes:{
-      robotsBuilt:"Dyna has not disclosed how many Taku units have been built. Earlier Dyna robots are excluded so this row stays product-specific to Taku.",
-      robotsDeployed:"Taku itself is not yet counted as deployed with customers. Dyna’s earlier robot generations have customer deployments, but those are excluded here so this row stays product-specific to Taku.",
-      monthsSinceLaunch:"Taku was introduced Sep. 29, 2026, 13 days before this tracker date. Dyna shows the new platform completing full workflows, but has not disclosed a confirmed external Taku customer deployment, so we still count Taku itself as 0 months deployed."
+      robotsBuilt:"10+ Dyna robots built across generations, per the latest count supplied for this tracker. This is not a Taku-only production figure; a public model-by-model count has not been disclosed.",
+      robotsDeployed:"10+ Dyna robots deployed across generations, per the latest count supplied for this tracker. Dyna documents customer-site deployments, but the precise publicly verified fleet total is unavailable.",
+      monthsSinceLaunch:"Dyna has customer deployments across earlier robot generations, but the first confirmed deployment month for the combined fleet is not established. Left blank rather than using Taku-only launch timing."
     },
     sources:[
       {label:"Dyna — Series A",url:"https://www.dyna.co/news/series-a"},
