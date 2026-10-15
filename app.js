@@ -401,7 +401,7 @@ const companies=[
     sources:[{label:"Sunday — Series B / beta rollout",url:"https://www.sunday.ai/blog/series-b"},{label:"Sunday — current Memo status",url:"https://www.sunday.ai/"}]
   },
   {
-    name:"Almond",image:"https://www.almond.bot/render/axol_mount_mobile_kit.png",imageFit:"contain",productUrl:"https://www.almond.bot/axol",group:"FACTORY SEMI-HUMANOIDS",product:"Axol",
+    name:"Almond",image:"https://www.almond.bot/render/axol_mount_mobile_kit.png",imageFit:"contain",productUrl:"https://www.almond.bot/axol",group:"INDUSTRIAL SEMI-HUMANOIDS",product:"Axol",
     robotsBuilt:40,robotsDeployed:40,monthsSinceLaunch:1,price:8999,funding:500000,valuation:null,
     estimate:{},
     lowerBound:{robotsBuilt:true,robotsDeployed:true,funding:true},
@@ -424,7 +424,7 @@ const companies=[
     sources:[{label:"Nori — YC",url:"https://www.ycombinator.com/companies/noril1"},{label:"Nori A3 — shipping status",url:"https://www.norirobotics.com/"}]
   },
   {
-    name:"OS3",image:"https://os3robotics.com/assets/hardware/robot-front-cutout.webp?dpl=dpl_CeMN68mmfoJPYVpSAKxx4GgsCijN",imageFit:"contain",productUrl:"https://os3robotics.com/",group:"FACTORY SEMI-HUMANOIDS",product:"HALE 1.0",
+    name:"OS3",image:"https://os3robotics.com/assets/hardware/robot-front-cutout.webp?dpl=dpl_CeMN68mmfoJPYVpSAKxx4GgsCijN",imageFit:"contain",productUrl:"https://os3robotics.com/",group:"INDUSTRIAL SEMI-HUMANOIDS",product:"HALE 1.0",
     robotsBuilt:1,robotsDeployed:1,monthsSinceLaunch:3,price:14995,funding:500000,valuation:null,
     estimate:{monthsSinceLaunch:true},
     lowerBound:{robotsBuilt:true,robotsDeployed:true,funding:true},
@@ -441,7 +441,7 @@ const companies=[
     ]
   },
   {
-    name:"Maven",image:"https://ml.globenewswire.com/Resource/Download/5276f26c-4a60-4049-8a6d-486a55ec0e9c",imageFit:"cover",productUrl:"https://www.mavenrobotics.ai/",group:"FACTORY SEMI-HUMANOIDS",product:"Gen 3",
+    name:"Maven",image:"https://ml.globenewswire.com/Resource/Download/5276f26c-4a60-4049-8a6d-486a55ec0e9c",imageFit:"cover",productUrl:"https://www.mavenrobotics.ai/",group:"INDUSTRIAL SEMI-HUMANOIDS",product:"Gen 3",
     robotsBuilt:8,robotsDeployed:8,monthsSinceLaunch:null,price:null,funding:118200000,valuation:null,
     estimate:{robotsBuilt:true,robotsDeployed:true},
     metricNotes:{
@@ -455,7 +455,7 @@ const companies=[
     ]
   },
   {
-    name:"Eden",image:"https://edenrobotics.ai/assets/images/eden-1-1.png",imageFit:"contain",productUrl:"https://edenrobotics.ai/eden-1",group:"FACTORY SEMI-HUMANOIDS",product:"Eden I",
+    name:"Eden",image:"https://edenrobotics.ai/assets/images/eden-1-1.png",imageFit:"contain",productUrl:"https://edenrobotics.ai/eden-1",group:"INDUSTRIAL SEMI-HUMANOIDS",product:"Eden I",
     robotsBuilt:1,robotsDeployed:0,monthsSinceLaunch:0,price:null,funding:500000,valuation:null,
     estimate:{robotsDeployed:true,monthsSinceLaunch:true},
     lowerBound:{robotsBuilt:true,funding:true},
@@ -506,7 +506,7 @@ const companies=[
     ]
   },
   {
-    name:"Kovari",image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHihnptKTG0XmuMcLcgsoRLhFT0DsWQTj2q5I0FTuqX8rlmMPIE-YdCCE&s=10",imageFit:"cover",productUrl:"https://www.instagram.com/p/Dcgf3gZmwvc/",group:"FACTORY SEMI-HUMANOIDS",product:"Kovari Robot",
+    name:"Kovari",image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHihnptKTG0XmuMcLcgsoRLhFT0DsWQTj2q5I0FTuqX8rlmMPIE-YdCCE&s=10",imageFit:"cover",productUrl:"https://www.instagram.com/p/Dcgf3gZmwvc/",group:"INDUSTRIAL SEMI-HUMANOIDS",product:"Kovari Robot",
     robotsBuilt:1,robotsDeployed:1,monthsSinceLaunch:1,price:null,funding:6000000,valuation:null,
     lowerBound:{robotsBuilt:true,robotsDeployed:true,monthsSinceLaunch:true,funding:true},
     metricNotes:{
@@ -575,7 +575,7 @@ const companies=[
     ]
   },
   {
-    name:"Feather",image:"https://framerusercontent.com/images/Qp7z38dGNF6GAP9w3hvEDaEc98.png",imageFit:"contain",productUrl:"https://feather.dev/technology",group:"FACTORY SEMI-HUMANOIDS",product:"Feather",
+    name:"Feather",image:"https://framerusercontent.com/images/Qp7z38dGNF6GAP9w3hvEDaEc98.png",imageFit:"contain",productUrl:"https://feather.dev/technology",group:"INDUSTRIAL SEMI-HUMANOIDS",product:"Feather",
     robotsBuilt:35,robotsDeployed:30,monthsSinceLaunch:12,price:29990,funding:7600000,valuation:null,
     estimate:{robotsBuilt:true,robotsDeployed:true,monthsSinceLaunch:true},
     metricNotes:{price:"Promotional listed price; regular price has been listed higher."},
@@ -600,7 +600,7 @@ const companies=[
     ]
   },
   {
-    name:"Dyna",image:"https://www.dyna.co/assets/we/workflow-video-poster.jpg",imageFit:"cover",productUrl:"https://www.dyna.co/dyna-2.1",group:"FACTORY SEMI-HUMANOIDS",product:"Taku + earlier",
+    name:"Dyna",image:"https://www.dyna.co/assets/we/workflow-video-poster.jpg",imageFit:"cover",productUrl:"https://www.dyna.co/dyna-2.1",group:"INDUSTRIAL SEMI-HUMANOIDS",product:"Taku + earlier",
     robotsBuilt:10,robotsDeployed:10,monthsSinceLaunch:null,price:null,funding:143500000,valuation:600000000,
     estimate:{},
     lowerBound:{robotsBuilt:true,robotsDeployed:true},
@@ -628,7 +628,7 @@ const companies=[
     sources:[{label:"Flourish 1 launch / December delivery schedule",url:"https://www.prnewswire.com/news-releases/flourish-robots-launches-flourish-1--a-3-555-home-robot-built-to-give-people-their-potential-back-302891638.html"}]
   },
   {
-    name:"Bracket",image:"https://framerusercontent.com/images/AuLtYk95Q0vgmq9Lop5o76RjXQk.png?height=3840&scale-down-to=4096&width=5158",imageFit:"contain",productUrl:"https://bracketbot.com/",group:"FACTORY SEMI-HUMANOIDS",product:"Bracket Bot",
+    name:"Bracket",image:"https://framerusercontent.com/images/AuLtYk95Q0vgmq9Lop5o76RjXQk.png?height=3840&scale-down-to=4096&width=5158",imageFit:"contain",productUrl:"https://bracketbot.com/",group:"INDUSTRIAL SEMI-HUMANOIDS",product:"Bracket Bot",
     robotsBuilt:40,robotsDeployed:10,monthsSinceLaunch:13,price:2000,funding:null,valuation:null,
     estimate:{},
     lowerBound:{robotsBuilt:true,robotsDeployed:true,monthsSinceLaunch:true},
@@ -849,7 +849,7 @@ function render(animateFrom=null){
   };
 
   const locationMode=active==="location";
-  groupsEl.innerHTML=["HOME SEMI-HUMANOIDS","FACTORY SEMI-HUMANOIDS","HUMANOID","COMPACT ROBOTS"].map(group=>{
+  groupsEl.innerHTML=["HOME SEMI-HUMANOIDS","INDUSTRIAL SEMI-HUMANOIDS","HUMANOID","COMPACT ROBOTS"].map(group=>{
     const rows=sortedRows(group,visibleCompanies);
     const count=rows.length;
     const header='<div class="group-label">'+group+'</div>';
