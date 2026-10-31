@@ -777,7 +777,7 @@ function statusFor(c,key=active){
 function labelFor(c,key=active){
   const st=statusFor(c,key),m=metrics.find(x=>x.key===key),v=metricValue(c,key);
   if(st==="na")return"N/A";
-  if(v==null)return"";
+  if(v==null)return key==="robotsBuilt"&&(c.name==="Tesla"||c.name==="1X")?"N/D":"";
   let out;
   if(key==="funding") out=money(v);
   else if(key==="price"){
