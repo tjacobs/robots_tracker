@@ -7,9 +7,9 @@ const metrics=[
 ];
 
 const metricDescriptions={
-  "robotsBuilt":"Number of robots built.",
-  "robotsDeployed":"Number of robots with customers.",
-  "monthsSinceLaunch":"Number of months since launching robots to customers.",
+  "robotsBuilt":"Number of completed robots built. † Reported, not independently verified; * estimated; + lower bound.",
+  "robotsDeployed":"Robots at outside customers, excluding internal tests. † Reported or sales proxy; * estimated; + lower bound.",
+  "monthsSinceLaunch":"Elapsed months since first documented external deployment; automatically calculated where an initial date is known. + lower bound.",
   "price":"Current listed purchase price.",
   "funding":"Amount of funding raised so far.",
   "location":"Headquarters city for each robotics company. Select a robot to view the source."
@@ -747,7 +747,7 @@ const companies=[
   }
 ];
 
-const today=new Date("2026-10-12T00:00:00");
+const today=new Date();
 
 let active="robotsDeployed";
 let selected=null;
@@ -762,17 +762,24 @@ function money(v){
   return"$"+v.toLocaleString();
 }
 function metric(){return metrics.find(m=>m.key===active)}
+function metricValue(c,key){
+  if(key!=="monthsSinceLaunch"||!c.deployedSince)return c[key];
+  const [year,month,day]=c.deployedSince.split("-").map(Number);
+  const months=(today.getFullYear()-year)*12+today.getMonth()+1-month-(day&&today.getDate()<day?1:0);
+  return Math.max(0,months);
+}
 function statusFor(c,key=active){
   if(c.status?.[key])return c.status[key];
   if(c.estimate?.[key])return"estimated";
-  return c[key]==null?"unknown":"confirmed";
+  if(c.reported?.[key])return"reported";
+  return metricValue(c,key)==null?"unknown":"confirmed";
 }
 function labelFor(c,key=active){
-  const st=statusFor(c,key),m=metrics.find(x=>x.key===key),v=c[key];
+  const st=statusFor(c,key),m=metrics.find(x=>x.key===key),v=metricValue(c,key);
   if(st==="na")return"N/A";
   if(v==null)return"";
   let out;
-  if(key==="funding") out="$"+(v/1e6).toLocaleString(undefined,{maximumFractionDigits:1})+"M";
+  if(key==="funding") out=money(v);
   else if(key==="price"){
     const k=v/1000;
     out="$"+k.toLocaleString(undefined,{maximumFractionDigits:k<1?3:2})+"K";
@@ -780,21 +787,21 @@ function labelFor(c,key=active){
   if(c.greaterThan?.[key])out=">"+out;
   if(c.lowerBound?.[key])out+="+";
   if(c.estimate?.[key])out+="*";
+  if(c.reported?.[key])out+="†";
   return out;
 }
 function changeBadgeFor(c,key){
-  return c.name==="Almond"&&key==="price"
-    ? '<span class="change-badge">PRICE DROP</span>'
-    : "";
+  return "";
 }
 function detailNoteFor(c,key){
   const notes=[];
-  if(c.estimate?.[key])notes.push("Estimated from public disclosures");
-  else if(c.lowerBound?.[key])notes.push("Publicly disclosed lower bound");
+  if(c.estimate?.[key])notes.push("Approximate estimate; review underlying source");
+  else if(c.reported?.[key])notes.push("Reported by company / directly to tracker; independently unverified");
+  else if(c.lowerBound?.[key])notes.push("Source-backed lower bound");
   else if(c.greaterThan?.[key])notes.push("Reported as greater than this value");
   else if(statusFor(c,key)==="na")notes.push("Not applicable / not publicly for sale");
-  else if(c[key]==null)notes.push("Not publicly disclosed");
-  else notes.push("Publicly disclosed / reported");
+  else if(metricValue(c,key)==null)notes.push("Not publicly disclosed / unverified");
+  else notes.push("Company-disclosed or externally documented");
   if(c.metricNotes?.[key])notes.push(c.metricNotes[key]);
   return notes.join(" · ");
 }
@@ -825,8 +832,8 @@ function sortedRows(group,visibleCompanies){
     .filter(c=>c.group===group)
     .sort((a,b)=>{
       const sortKey=active==="location"?"robotsDeployed":active;
-      const av=typeof a[sortKey]==="number"?a[sortKey]:-Infinity;
-      const bv=typeof b[sortKey]==="number"?b[sortKey]:-Infinity;
+      const av=typeof metricValue(a,sortKey)==="number"?metricValue(a,sortKey):-Infinity;
+      const bv=typeof metricValue(b,sortKey)==="number"?metricValue(b,sortKey):-Infinity;
       if(group==="HUMANOID"&&sortKey==="robotsDeployed"&&av===bv){
         const order={"Tesla":0,"Figure":1,"1X":2};
         const ao=order[a.name]??99,bo=order[b.name]??99;
@@ -846,7 +853,7 @@ function render(animateFrom=null){
   const visibleCompanies=companies;
   const scaledHeight=(v,groupRows,group)=>{
     if(typeof v!=="number"||v<=0)return 0;
-    const groupVals=groupRows.map(c=>c[active]).filter(x=>typeof x==="number"&&x>0);
+    const groupVals=groupRows.map(c=>metricValue(c,active)).filter(x=>typeof x==="number"&&x>0);
     const humanoidDeployed=group==="HUMANOID"&&active==="robotsDeployed";
     const groupMax=humanoidDeployed?Math.max(...groupVals,25):Math.max(...groupVals,1);
     const minHeight=humanoidDeployed?1:8;
@@ -867,7 +874,7 @@ function render(animateFrom=null){
         const region=hq?.region||"Headquarters not confirmed";
         return '<button class="company location-company" data-company="'+c.name+'" style="--company-color:'+color+'"><div class="location-panel"><span class="location-pin" aria-hidden="true">📍</span><span class="location-city">'+place+'</span><span class="location-region">'+region+'</span></div><div class="company-brand"><div class="company-name">'+(c.shortName||c.name)+'</div><div class="product-name">'+(c.product||"&nbsp;")+'</div></div>'+chartImage+'</button>';
       }
-      const v=c[active],st=statusFor(c),height=scaledHeight(v,rows,group);
+      const v=metricValue(c,active),st=statusFor(c),height=scaledHeight(v,rows,group);
       const initial=animateFrom&&animateFrom[c.name]!=null?animateFrom[c.name]+"px":height+"%";
       return '<button class="company" data-company="'+c.name+'" style="--company-color:'+color+'"><div class="value">'+labelFor(c)+changeBadgeFor(c,active)+'</div><div class="bar-stage"><div class="bar '+st+'" data-target-height="'+height+'" style="height:'+initial+'"></div></div><div class="company-brand"><div class="company-name">'+(c.shortName||c.name)+'</div><div class="product-name">'+(c.product||"&nbsp;")+'</div></div>'+chartImage+'</button>';
     }).join("");
@@ -892,7 +899,7 @@ function renderDrawer(){
   if(!selected){drawerRoot.innerHTML="";return}
   const color=companyColors[selected.name]||"#d9dee3";
   const hq=headquarters[selected.name];
-  drawerRoot.innerHTML=`<div class="backdrop"></div><aside class="drawer" style="--company-color:${color}"><button class="drawer-close">×</button><div class="drawer-kicker">${selected.group}</div><h2>${selected.name}</h2><p class="drawer-product">${selected.product||"Product not yet recorded"}</p>${selected.image?`<div class="drawer-product-image" style="--image-fit:${selected.imageFit||"cover"}"><img src="${selected.image}" alt="${selected.name} ${selected.product||"robot"}" loading="lazy" onerror="this.closest('.drawer-product-image').remove()"></div>`:""}${selected.productUrl?`<a class="product-link" href="${selected.productUrl}" target="_blank" rel="noreferrer">View product page <span>↗</span></a>`:""}<div class="detail-grid"><div class="detail-row"><span>HEADQUARTERS</span><strong>${hq?`${hq.city}, ${hq.region}`:"Not verified"}</strong><small>${hq?.source?`<a href="${hq.source}" target="_blank" rel="noreferrer">Headquarters source ↗</a>`:"No reliable headquarters source yet"}</small></div>${metrics.map(m=>`<div class="detail-row"><span>${m.label}</span><strong>${labelFor(selected,m.key)}${changeBadgeFor(selected,m.key)}</strong><small>${detailNoteFor(selected,m.key)}${evidenceFor(selected,m.key)}</small></div>`).join("")}</div><div class="source-block"><div class="source-title">SOURCES</div>${selected.sources?.length?selected.sources.map(s=>`<a href="${s.url}" target="_blank" rel="noreferrer">${s.label}<span>↗</span></a>`).join(""):'<div class="no-source">No verified public source added yet.</div>'}</div></aside>`;
+  drawerRoot.innerHTML=`<div class="backdrop"></div><aside class="drawer" style="--company-color:${color}"><button class="drawer-close">×</button><div class="drawer-kicker">${selected.group}</div><h2>${selected.name}</h2><p class="drawer-product">${selected.product||"Product not yet recorded"}</p>${selected.image?`<div class="drawer-product-image" style="--image-fit:${selected.imageFit||"cover"}"><img src="${selected.image}" alt="${selected.name} ${selected.product||"robot"}" loading="lazy" onerror="this.closest('.drawer-product-image').remove()"></div>`:""}${selected.productUrl?`<a class="product-link" href="${selected.productUrl}" target="_blank" rel="noreferrer">View product page <span>↗</span></a>`:""}${selected.additionalProducts?.length?`<div class="additional-products"><div class="source-title">ADDITIONAL PRODUCTS</div>${selected.additionalProducts.map(p=>`<div class="additional-product"><a href="${p.url}" target="_blank" rel="noreferrer">${p.name} ↗</a><strong>${p.price}</strong><small>${p.availability}</small></div>`).join("")}</div>`:""}<div class="detail-grid"><div class="detail-row"><span>HEADQUARTERS</span><strong>${hq?`${hq.city}, ${hq.region}`:"Not verified"}</strong><small>${hq?.source?`<a href="${hq.source}" target="_blank" rel="noreferrer">Headquarters source ↗</a>`:"No reliable headquarters source yet"}</small></div>${metrics.map(m=>`<div class="detail-row"><span>${m.label}</span><strong>${labelFor(selected,m.key)||"Not disclosed"}${changeBadgeFor(selected,m.key)}</strong><small>${detailNoteFor(selected,m.key)}${evidenceFor(selected,m.key)}</small></div>`).join("")}</div><div class="source-block"><div class="source-title">SOURCES</div>${selected.sources?.length?selected.sources.map(s=>`<a href="${s.url}" target="_blank" rel="noreferrer">${s.label}<span>↗</span></a>`).join(""):'<div class="no-source">No verified public source added yet.</div>'}</div></aside>`;
   document.querySelector(".drawer-close").onclick=closeDrawer;
   document.querySelector(".backdrop").onclick=closeDrawer;
 }
