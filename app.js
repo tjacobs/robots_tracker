@@ -150,7 +150,7 @@ const estimateReasons={
   "Dyna":{},
   "Flourish":{},
   "Tesla":{
-    robotsBuilt:"The Information reports Tesla ramped Optimus from a few dozen units per week in Q2 to several hundred per week by August 2026. ~3,000 is a rough cumulative estimate from that ramp through early October; Tesla has not disclosed a cumulative built total."
+    robotsBuilt:"No publicly disclosed cumulative built total, so the old 3,000-unit speculative estimate has been removed."
   },
   "Apptronik":{
     robotsBuilt:[{label:"Apptronik — operational fleets of Apollo 2",url:"https://apptronik.com/news-collection/welcome-to-robot-park-where-apptroniks-apollo-goes-to-work"}],
@@ -310,7 +310,7 @@ const metricSources={
     robotsBuilt:[{label:"Bracket Bot hackathon — 40 teams, one robot each",url:"https://luma.com/cisohvoj"}],
     robotsDeployed:[{label:"Bracket Bot hackathon — 10 winning teams took robots home",url:"https://luma.com/cisohvoj"}],
     monthsSinceLaunch:[{label:"Hack the North 2025 — Bracket Bot used externally",url:"https://devpost.com/software/jedi-clanker"}],
-    price:[{label:"Bracket Bot — $2,000 general-purpose robot",url:"https://www.bracket.bot/"}]
+    price:[{label:"Bracket hackathon — $400 prize value, not retail price",url:"https://luma.com/cisohvoj"}]
   },
   "Pantograph":{
     robotsBuilt:[{label:"Pantograph — Pandroid hardware prototypes",url:"https://pantograph.com/hardware"}],
@@ -362,7 +362,7 @@ const metricSources={
       {label:"Figure 03 at BMW — confirmed external site",url:"https://www.figure.ai/news/f-03-at-bmw"},
       {label:"Figure / Catalyst commercial deployment agreement",url:"https://www.figure.ai/news/figure-signs-agreement-with-catalyst-brands"}
     ],
-    funding:[{label:"Funding source",url:"https://forgeglobal.com/figure-ai_stock/"}]
+    funding:[{label:"Figure — $1B+ Series C and $39B valuation",url:"https://www.figure.ai/news/series-c"},{label:"Figure and Nscale strategic investment (amount not disclosed)",url:"https://www.figure.ai/news/figure-and-nscale-sign-strategic-partnership"}]
   },
   "1X":{
     robotsDeployed:[
@@ -379,10 +379,11 @@ const metricSources={
 
 const companies=[
   {
-    name:"Weave",image:"https://www.weaverobotics.com/_next/image?q=75&url=%2Fimages%2Fproducts%2Fspecs.webp&w=3840",imageFit:"contain",productUrl:"https://www.weaverobotics.com/isaac-0",group:"HOME SEMI-HUMANOIDS",product:"Isaac 0",
+    name:"Weave",image:"https://www.weaverobotics.com/_next/image?q=75&url=%2Fimages%2Fproducts%2Fspecs.webp&w=3840",imageFit:"contain",productUrl:"https://www.weaverobotics.com/isaac-0",group:"HOME SEMI-HUMANOIDS",product:"Isaac 0",deployedSince:"2026-02",
     robotsBuilt:30,robotsDeployed:25,monthsSinceLaunch:8,price:3999,funding:500000,valuation:null,
     estimate:{robotsBuilt:true,robotsDeployed:true,monthsSinceLaunch:true},
-    metricNotes:{price:"Purchase price; other subscription/financing options are offered."},
+    additionalProducts:[{name:"Isaac 1",price:"$7,999 up-front / $449 per month",availability:"Pre-orders open; first deliveries targeted for fall 2026, with no separately verified shipped units.",url:"https://www.weaverobotics.com/isaac-1"}],
+    metricNotes:{price:"Isaac 0 listed price; Isaac 1 is an additional pre-order product.",monthsSinceLaunch:"Automatically calculated from the February 2026 Isaac 0 shipping month."},
     sources:[
       {label:"Isaac 0",url:"https://www.weaverobotics.com/isaac-0"},
       {label:"Weave Robotics",url:"https://www.weaverobotics.com/about"}
@@ -402,10 +403,11 @@ const companies=[
   },
   {
     name:"Almond",image:"https://www.almond.bot/render/axol_mount_mobile_kit.png",imageFit:"contain",productUrl:"https://www.almond.bot/axol",group:"INDUSTRIAL SEMI-HUMANOIDS",product:"Axol",
-    robotsBuilt:40,robotsDeployed:40,monthsSinceLaunch:1,price:8999,funding:500000,valuation:null,
+    robotsBuilt:40,robotsDeployed:40,monthsSinceLaunch:1,price:9499,funding:500000,valuation:null,
     estimate:{},
     lowerBound:{robotsBuilt:true,robotsDeployed:true,funding:true},
-    metricNotes:{robotsBuilt:"40+ built, based on the latest reported count supplied for this tracker; independent public corroboration is pending.",robotsDeployed:"40+ deployed, based on the latest reported count supplied for this tracker; independent public corroboration is pending.",price:"PRICE DROP: Axol’s base price fell from $9,499 to $8,999 — a $500 reduction."},
+    reported:{robotsBuilt:true,robotsDeployed:true},
+    metricNotes:{robotsBuilt:"40+ built, based on the latest reported count supplied for this tracker; independent public corroboration is pending.",robotsDeployed:"40+ deployed, based on the latest reported count supplied for this tracker; independent public corroboration is pending.",price:"Current Axol starting price is $9,499 (October 30, 2026); options cost extra."},
     sources:[
       {label:"Almond",url:"https://www.almond.bot/"},
       {label:"Almond — YC",url:"https://www.ycombinator.com/companies/almond-2"}
@@ -496,7 +498,7 @@ const companies=[
       robotsBuilt:"Stretch 4 is available and ready to ship, but Hello Robot has not disclosed a Stretch 4 production total; 1+ is the minimum.",
       robotsDeployed:"Hello Robot documents real-world Stretch deployments, but current public material does not isolate how many are the new Stretch 4 generation, so this product-specific count is left blank.",
       monthsSinceLaunch:"Stretch 4 was introduced in 2026, but without a confirmed first external Stretch 4 delivery date we leave product-specific deployment age blank.",
-      price:"Current Stretch 4 list price; optional accessories are extra."
+      price:"Current Stretch 4 list price; optional accessories are extra. Stretch 4 serves robotics research, assistive-technology pilots and enterprise developers, not a mass-market home rollout."
     },
     sources:[
       {label:"Hello Robot — Stretch 4",url:"https://hello-robot.com/"},
@@ -527,9 +529,10 @@ const companies=[
     robotsBuilt:12,robotsDeployed:12,monthsSinceLaunch:10,price:1499,funding:null,valuation:null,
     estimate:{monthsSinceLaunch:true},
     lowerBound:{robotsBuilt:true},
+    reported:{robotsBuilt:true,robotsDeployed:true},
     metricNotes:{
       robotsBuilt:"7X reports 12 ALF-1 units sold. 12+ built is used because sold customer units establish a minimum, while internal/demo units may exist in addition.",
-      robotsDeployed:"7X reports 12 units sold; the tracker counts those 12 customer units here.",
+      robotsDeployed:"7X reports 12 ALF-1 units sold. The displayed 12 is a sales proxy, not independently confirmed deliveries to 12 customers.",
       monthsSinceLaunch:"7X shows a verified buyer from December 2025; about 10 months have elapsed through October 12, 2026.",
       price:"Current listed ALF-1 price is $1,499, reduced from $1,999."
     },
@@ -541,6 +544,7 @@ const companies=[
     name:"Pantograph",image:"https://pantograph.com/images/hardware/full-body-garden.jpg",imageFit:"contain",productUrl:"https://pantograph.com/hardware",group:"COMPACT ROBOTS",product:"Pandroid",
     robotsBuilt:2,robotsDeployed:2,monthsSinceLaunch:null,price:4199,funding:null,valuation:null,
     estimate:{},
+    reported:{robotsBuilt:true,robotsDeployed:true},
     metricNotes:{
       robotsBuilt:"2 Pandroid units built, reported directly to the tracker; not independently verified.",
       robotsDeployed:"2 Pandroid units deployed, reported directly to the tracker; not independently verified.",
@@ -603,6 +607,7 @@ const companies=[
     name:"Dyna",image:"https://www.dyna.co/assets/we/workflow-video-poster.jpg",imageFit:"cover",productUrl:"https://www.dyna.co/dyna-2.1",group:"INDUSTRIAL SEMI-HUMANOIDS",product:"Taku + earlier",
     robotsBuilt:10,robotsDeployed:10,monthsSinceLaunch:null,price:null,funding:143500000,valuation:600000000,
     estimate:{},
+    reported:{robotsBuilt:true,robotsDeployed:true},
     lowerBound:{robotsBuilt:true,robotsDeployed:true},
     greaterThan:{valuation:true},
     metricNotes:{
@@ -628,15 +633,15 @@ const companies=[
     sources:[{label:"Flourish 1 launch / December delivery schedule",url:"https://www.prnewswire.com/news-releases/flourish-robots-launches-flourish-1--a-3-555-home-robot-built-to-give-people-their-potential-back-302891638.html"}]
   },
   {
-    name:"Bracket",image:"https://framerusercontent.com/images/AuLtYk95Q0vgmq9Lop5o76RjXQk.png?height=3840&scale-down-to=4096&width=5158",imageFit:"contain",productUrl:"https://bracketbot.com/",group:"INDUSTRIAL SEMI-HUMANOIDS",product:"Bracket Bot",
-    robotsBuilt:40,robotsDeployed:10,monthsSinceLaunch:13,price:2000,funding:null,valuation:null,
+    name:"Bracket",image:"https://framerusercontent.com/images/AuLtYk95Q0vgmq9Lop5o76RjXQk.png?height=3840&scale-down-to=4096&width=5158",imageFit:"contain",productUrl:"https://bracketbot.com/",group:"INDUSTRIAL SEMI-HUMANOIDS",product:"Bracket Bot",deployedSince:"2025-09",
+    robotsBuilt:40,robotsDeployed:10,monthsSinceLaunch:13,price:null,funding:null,valuation:null,
     estimate:{},
     lowerBound:{robotsBuilt:true,robotsDeployed:true,monthsSinceLaunch:true},
     metricNotes:{
       robotsBuilt:"Bracket Bot’s 2026 hackathon provided one robot to each of 40 teams, establishing a 40+ public build lower bound.",
       robotsDeployed:"At least 10 external units are confirmed because all members of 10 winning hackathon teams were offered robots to take home. Temporary hackathon loan units are not counted as deployments.",
       monthsSinceLaunch:"Bracket Bot hardware was already being used by external developers at Hack the North in September 2025, so 13+ months is a conservative public lower bound as of October 2026.",
-      price:"Bracket Bot has advertised its current general-purpose robot at about $2,000."
+      price:"Public retail price not verified. The hackathon assigned a $400 prize value per robot; that is not a retail sale price."
     },
     sources:[
       {label:"Bracket Bot",url:"https://bracketbot.com/"},
@@ -645,7 +650,7 @@ const companies=[
     ]
   },
   {
-    name:"Apptronik",image:"https://www.automate.org/userAssets/a3/contents/industry-insights/image/Apollo%202%20Wave.jpg",imageFit:"contain",productUrl:"https://apptronik.com/apollo/apollo-2",group:"HUMANOID",product:"Apollo 2",
+    name:"Apptronik",image:"https://www.automate.org/userAssets/a3/contents/industry-insights/image/Apollo%202%20Wave.jpg",imageFit:"contain",productUrl:"https://apptronik.com/apollo/apollo-2",group:"HUMANOID",product:"Apollo 2",deployedSince:"2026-06-30",
     robotsBuilt:10,robotsDeployed:1,monthsSinceLaunch:3,price:null,funding:935000000,valuation:null,
     estimate:{},
     lowerBound:{robotsBuilt:true,robotsDeployed:true,monthsSinceLaunch:true,funding:true},
@@ -700,21 +705,22 @@ const companies=[
   },
   {
     name:"Tesla",image:"https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Tesla-Bot-AI.jpg",imageFit:"contain",productUrl:"https://www.tesla.com/AI",group:"HUMANOID",product:"Optimus",
-    robotsBuilt:3000,robotsDeployed:1,monthsSinceLaunch:0,price:null,funding:null,valuation:null,
-    estimate:{robotsBuilt:true},
-    lowerBound:{robotsDeployed:true},
+    robotsBuilt:null,robotsDeployed:0,monthsSinceLaunch:0,price:null,funding:null,valuation:null,
+    estimate:{},
+    metricNotes:{robotsBuilt:"Tesla confirmed production-quality Optimus units off the Fremont line in October 2026 but did not disclose a unit count; capacity plans are not production figures.",robotsDeployed:"0 publicly confirmed outside-customer deliveries as of October 30, 2026. Internal training robots are not customer deployments.",monthsSinceLaunch:"No confirmed external customer deployment, hence 0 confirmed months."},
     status:{funding:"na",valuation:"na"},
-    sources:[{label:"Tesla AI / Optimus",url:"https://www.tesla.com/AI"}]
+    sources:[{label:"Tesla Q3 2026 — Optimus early ramp and undisclosed output",url:"https://ir.tesla.com/_flysystem/s3/sec/000162828026066738/tsla-20261021-gen.pdf"},{label:"Tesla AI / Optimus",url:"https://www.tesla.com/AI"}]
   },
   {
-    name:"Figure",image:"https://lookingglassxr.com/wp-content/uploads/2025/12/Figure-AI-Figure-03-Looking-Glass-XR.jpg",imageFit:"contain",productUrl:"https://www.figure.ai/figure",group:"HUMANOID",product:"Figure 03",
-    robotsBuilt:1000,robotsDeployed:1,monthsSinceLaunch:3,price:null,funding:5250000000,valuation:42500000000,
-    estimate:{monthsSinceLaunch:true},
+    name:"Figure",image:"https://lookingglassxr.com/wp-content/uploads/2025/12/Figure-AI-Figure-03-Looking-Glass-XR.jpg",imageFit:"contain",productUrl:"https://www.figure.ai/figure",group:"HUMANOID",product:"Figure 03",deployedSince:"2026-06-30",
+    robotsBuilt:1000,robotsDeployed:1,monthsSinceLaunch:3,price:null,funding:1745000000,valuation:39000000000,
+    estimate:{funding:true},
+    reported:{robotsBuilt:true},
     lowerBound:{robotsBuilt:true,robotsDeployed:true},
     metricNotes:{
       robotsDeployed:"Figure confirms Figure 03 at BMW and a commercial deployment agreement with Catalyst Brands, but does not disclose a current external unit count. 1+ is therefore the defensible lower bound instead of estimating a fleet size.",
-      robotsBuilt:"Figure officially reported 350+ Figure 03 units by April; CEO Brett Adcock later announced the 1,000th Figure 03 manufactured in July.",
-      monthsSinceLaunch:"Figure 03 arrived at BMW on June 30, 2026; this rounded month count excludes earlier Figure 02 deployments."
+      robotsBuilt:"Figure disclosed 350+ Figure 03 robots in April; a July announcement attributed to the founder reported 1,000 manufactured. The latter is not independently confirmed by an official Figure newsroom update.",
+      monthsSinceLaunch:"Automatically calculated from the June 30, 2026 Figure 03 deployment at BMW, excluding Figure 02.",funding:"Approximate publicly identified funding: $70M Series A + $675M Series B + over $1B Series C commitments. A September 2026 Nscale strategic investment had no disclosed dollar amount. Last announced post-money valuation: $39B (September 2025)."
     },
     status:{},
     sources:[
@@ -725,12 +731,11 @@ const companies=[
   },
   {
     name:"1X",image:"https://cdn.sanity.io/images/qka6yvsc/production/1054db069547b8a970273c62fa96fb6ae1818e8a-3665x2062.webp",imageFit:"contain",productUrl:"https://www.1x.tech/discover/neo-home-robot",group:"HUMANOID",product:"NEO",
-    robotsBuilt:10,robotsDeployed:1,monthsSinceLaunch:0,price:20000,funding:136500000,valuation:820000000,
+    robotsBuilt:null,robotsDeployed:0,monthsSinceLaunch:0,price:20000,funding:136500000,valuation:820000000,
     estimate:{},
-    lowerBound:{robotsDeployed:true,robotsBuilt:true},
     metricNotes:{
-      robotsBuilt:"1X has announced NEO production activity but has not disclosed a cumulative unit count; 10+ is shown as a lower bound.",
-      robotsDeployed:"1+ deployed is shown as a lower bound.",
+      robotsBuilt:"1X says NEO is in production at Hayward, but no cumulative completed-robot total is disclosed. Factory capacity of 10,000 per year is not actual production.",
+      robotsDeployed:"0 independently confirmed paying-customer NEO deliveries as of October 30, 2026; 1X promises delivery starting in 2026. Internal test homes and preorders do not count.",
       monthsSinceLaunch:"0 months is used because there is still no verified public date for an external NEO customer-home delivery. Earlier EVE and NEO Beta/Gamma deployments are excluded.",
       price:"Also offered at $499/mo."
     },
