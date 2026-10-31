@@ -7,8 +7,8 @@ const metrics=[
 ];
 
 const metricDescriptions={
-  "robotsBuilt":"Number of completed robots built. † Reported, not independently verified; * estimated; + lower bound.",
-  "robotsDeployed":"Robots at outside customers, excluding internal tests. † Reported or sales proxy; * estimated; + lower bound.",
+  "robotsBuilt":"Number of completed robots built. * estimated; + lower bound.",
+  "robotsDeployed":"Robots at outside customers, excluding internal tests. * estimated; + lower bound.",
   "monthsSinceLaunch":"Elapsed months since first documented external deployment; automatically calculated where an initial date is known. + lower bound.",
   "price":"Current listed purchase price.",
   "funding":"Amount of funding raised so far.",
@@ -107,8 +107,8 @@ const estimateReasons={
   },
   "Sunday":{},
   "Almond":{
-    robotsBuilt:"Almond says every unit in its first production batch shipped and that a week later its second batch was already 50% sold. The company does not disclose batch size; ~15 remains a rough small-batch production estimate, not a disclosed count.",
-    robotsDeployed:"Almond says its first production batch sold out and shipped to every customer. The company does not disclose how many units were in that batch; ~10 is a rough estimate of that first customer batch."
+    robotsBuilt:"40+ built is supplied directly to this tracker and has not been independently corroborated. The public source confirms that batches have shipped without providing a unit total.",
+    robotsDeployed:"40+ deployed is supplied directly to this tracker and has not been independently corroborated. The public source confirms customer shipments but does not give an exact unit total."
   },
   "Nori":{},
   "OS3":{
@@ -404,9 +404,8 @@ const companies=[
   {
     name:"Almond",image:"https://www.almond.bot/assets/axol-page/standalone.webp",imageFallback:"https://www.almond.bot/assets/axol-page/hand_pose.webp",imageFit:"contain",productUrl:"https://www.almond.bot/axol",group:"INDUSTRIAL SEMI-HUMANOIDS",product:"Axol",
     robotsBuilt:40,robotsDeployed:40,monthsSinceLaunch:1,price:9499,funding:500000,valuation:null,
-    estimate:{},
+    estimate:{robotsBuilt:true,robotsDeployed:true},
     lowerBound:{robotsBuilt:true,robotsDeployed:true,funding:true},
-    reported:{robotsBuilt:true,robotsDeployed:true},
     metricNotes:{robotsBuilt:"40+ built, based on the latest reported count supplied for this tracker; independent public corroboration is pending.",robotsDeployed:"40+ deployed, based on the latest reported count supplied for this tracker; independent public corroboration is pending.",price:"Current Axol starting price is $9,499 (October 30, 2026); options cost extra."},
     sources:[
       {label:"Almond",url:"https://www.almond.bot/"},
@@ -531,7 +530,7 @@ const companies=[
     lowerBound:{robotsBuilt:true},
     metricNotes:{
       robotsBuilt:"12+ built is inferred from the company’s reported 12 ALF-1 sales; individual completed units have not been independently verified. Shown as an estimate.",
-      robotsDeployed:"About 12 deployments estimated from the company’s reported 12 ALF-1 sales; deliveries to individual customers are not independently verified.",
+      robotsDeployed:"12 deployments estimated from the company’s reported sales; individual customer deliveries are not independently verified.",
       monthsSinceLaunch:"7X shows a verified buyer from December 2025; about 10 months have elapsed through October 12, 2026.",
       price:"Current listed ALF-1 price is $1,499, reduced from $1,999."
     },
@@ -542,8 +541,7 @@ const companies=[
   {
     name:"Pantograph",image:"https://pantograph.com/images/hardware/full-body-garden.jpg",imageFit:"contain",productUrl:"https://pantograph.com/hardware",group:"COMPACT ROBOTS",product:"Pandroid",
     robotsBuilt:2,robotsDeployed:2,monthsSinceLaunch:null,price:4199,funding:null,valuation:null,
-    estimate:{},
-    reported:{robotsBuilt:true,robotsDeployed:true},
+    estimate:{robotsBuilt:true,robotsDeployed:true},
     metricNotes:{
       robotsBuilt:"2 Pandroid units built, reported directly to the tracker; not independently verified.",
       robotsDeployed:"2 Pandroid units deployed, reported directly to the tracker; not independently verified.",
@@ -605,8 +603,7 @@ const companies=[
   {
     name:"Dyna",image:"https://www.dyna.co/assets/we/workflow-video-poster.jpg",imageFit:"cover",productUrl:"https://www.dyna.co/dyna-2.1",group:"INDUSTRIAL SEMI-HUMANOIDS",product:"Taku + earlier",
     robotsBuilt:10,robotsDeployed:10,monthsSinceLaunch:null,price:null,funding:143500000,valuation:600000000,
-    estimate:{},
-    reported:{robotsBuilt:true,robotsDeployed:true},
+    estimate:{robotsBuilt:true,robotsDeployed:true},
     lowerBound:{robotsBuilt:true,robotsDeployed:true},
     greaterThan:{valuation:true},
     metricNotes:{
@@ -713,8 +710,7 @@ const companies=[
   {
     name:"Figure",image:"https://lookingglassxr.com/wp-content/uploads/2025/12/Figure-AI-Figure-03-Looking-Glass-XR.jpg",imageFit:"contain",productUrl:"https://www.figure.ai/figure",group:"HUMANOID",product:"Figure 03",deployedSince:"2026-06-30",
     robotsBuilt:1000,robotsDeployed:1,monthsSinceLaunch:3,price:null,funding:1745000000,valuation:39000000000,
-    estimate:{funding:true},
-    reported:{robotsBuilt:true},
+    estimate:{funding:true,robotsBuilt:true},
     lowerBound:{robotsBuilt:true,robotsDeployed:true},
     metricNotes:{
       robotsDeployed:"Figure confirms Figure 03 at BMW and a commercial deployment agreement with Catalyst Brands, but does not disclose a current external unit count. 1+ is therefore the defensible lower bound instead of estimating a fleet size.",
@@ -770,7 +766,6 @@ function metricValue(c,key){
 function statusFor(c,key=active){
   if(c.status?.[key])return c.status[key];
   if(c.estimate?.[key])return"estimated";
-  if(c.reported?.[key])return"reported";
   return metricValue(c,key)==null?"unknown":"confirmed";
 }
 function labelFor(c,key=active){
@@ -786,7 +781,6 @@ function labelFor(c,key=active){
   if(c.greaterThan?.[key])out=">"+out;
   if(c.lowerBound?.[key])out+="+";
   if(c.estimate?.[key])out+="*";
-  if(c.reported?.[key])out+="†";
   return out;
 }
 function changeBadgeFor(c,key){
@@ -795,7 +789,6 @@ function changeBadgeFor(c,key){
 function detailNoteFor(c,key){
   const notes=[];
   if(c.estimate?.[key])notes.push("Approximate estimate; review underlying source");
-  else if(c.reported?.[key])notes.push("Reported by company / directly to tracker; independently unverified");
   else if(c.lowerBound?.[key])notes.push("Source-backed lower bound");
   else if(c.greaterThan?.[key])notes.push("Reported as greater than this value");
   else if(statusFor(c,key)==="na")notes.push("Not applicable / not publicly for sale");
