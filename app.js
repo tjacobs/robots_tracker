@@ -402,7 +402,7 @@ const companies=[
     sources:[{label:"Sunday — Series B / beta rollout",url:"https://www.sunday.ai/blog/series-b"},{label:"Sunday — current Memo status",url:"https://www.sunday.ai/"}]
   },
   {
-    name:"Almond",image:"https://www.almond.bot/render/axol_mount_mobile_kit.png",imageFit:"contain",productUrl:"https://www.almond.bot/axol",group:"INDUSTRIAL SEMI-HUMANOIDS",product:"Axol",
+    name:"Almond",image:"https://www.almond.bot/assets/axol-page/standalone.webp",imageFallback:"https://www.almond.bot/assets/axol-page/hand_pose.webp",imageFit:"contain",productUrl:"https://www.almond.bot/axol",group:"INDUSTRIAL SEMI-HUMANOIDS",product:"Axol",
     robotsBuilt:40,robotsDeployed:40,monthsSinceLaunch:1,price:9499,funding:500000,valuation:null,
     estimate:{},
     lowerBound:{robotsBuilt:true,robotsDeployed:true,funding:true},
@@ -527,12 +527,11 @@ const companies=[
   {
     name:"7X",image:"https://7xr.tech/images/robot-hero.jpg",imageFit:"contain",productUrl:"https://7xr.tech/",group:"HOME SEMI-HUMANOIDS",product:"ALF-1",
     robotsBuilt:12,robotsDeployed:12,monthsSinceLaunch:10,price:1499,funding:null,valuation:null,
-    estimate:{monthsSinceLaunch:true},
+    estimate:{robotsBuilt:true,robotsDeployed:true,monthsSinceLaunch:true},
     lowerBound:{robotsBuilt:true},
-    reported:{robotsBuilt:true,robotsDeployed:true},
     metricNotes:{
-      robotsBuilt:"7X reports 12 ALF-1 units sold. 12+ built is used because sold customer units establish a minimum, while internal/demo units may exist in addition.",
-      robotsDeployed:"7X reports 12 ALF-1 units sold. The displayed 12 is a sales proxy, not independently confirmed deliveries to 12 customers.",
+      robotsBuilt:"12+ built is inferred from the company’s reported 12 ALF-1 sales; individual completed units have not been independently verified. Shown as an estimate.",
+      robotsDeployed:"About 12 deployments estimated from the company’s reported 12 ALF-1 sales; deliveries to individual customers are not independently verified.",
       monthsSinceLaunch:"7X shows a verified buyer from December 2025; about 10 months have elapsed through October 12, 2026.",
       price:"Current listed ALF-1 price is $1,499, reduced from $1,999."
     },
