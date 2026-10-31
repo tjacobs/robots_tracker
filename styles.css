@@ -174,3 +174,12 @@ h1{margin:0;font-size:clamp(50px,6vw,80px);line-height:.9;letter-spacing:-.065em
   .location-company .company-name{font-size:10.5px}
   .location-city{font-size:11px}
 }
+
+/* Separate preorder products from the currently charted robot generation. */
+.additional-products{margin:18px 0 12px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fafbfc}
+.additional-products .source-title{margin-bottom:8px}
+.additional-product{display:flex;flex-direction:column;gap:4px}
+.additional-product a{color:var(--company-color);font-size:15px;font-weight:800;text-decoration:none}
+.additional-product a:hover{text-decoration:underline}
+.additional-product strong{color:#292e36;font-size:13px}
+.additional-product small{color:var(--muted);font-size:12px;line-height:1.4}
