@@ -557,7 +557,7 @@ const companies=[
     ]
   },
   {
-    name:"Matic",image:"https://maticrobots.com/_next/image?q=75&url=%2F_next%2Fstatic%2Fmedia%2Fhero-view-quarter.84f6f448.webp&w=3840",imageFit:"contain",productUrl:"https://maticrobots.com/product",group:"COMPACT ROBOTS",product:"Matic",
+    name:"Matic",image:"https://gcp-na-images.contentstack.com/v3/assets/bltea6093859af6183b/bltff1017a5074a159b/698a8a31db2987978c270c9a/matic-best-inventions.jpeg?auto=webp&branch=production&crop=3%3A2&quality=75&width=3840",imageFallback:"https://images.ctfassets.net/6p328xbjc78k/2tpnLBQHnxxFmrSyCYBjoT/ac30c5691329e72db3fc28da164a0584/MATIC-PDP-Hero-01.webp",imageFit:"contain",productUrl:"https://maticrobots.com/product",group:"COMPACT ROBOTS",product:"Matic",
     robotsBuilt:13000,robotsDeployed:13000,monthsSinceLaunch:24,price:1495,funding:115000000,valuation:645000000,
     estimate:{monthsSinceLaunch:true},
     lowerBound:{robotsBuilt:true,robotsDeployed:true},
@@ -668,7 +668,7 @@ const companies=[
     ]
   },
   {
-    name:"Menlo Research",shortName:"Menlo",image:"https://docs.menlo.ai/_next/static/media/asimov-v1.41b1c69b.jpeg",imageFit:"contain",productUrl:"https://menlo.ai/asimov-1",group:"HUMANOID",product:"Asimov 1",
+    name:"Menlo Research",shortName:"Menlo",image:"https://menlo.ai/images/asimov-1-front-1.webp",imageFallback:"https://raw.githubusercontent.com/menloresearch/asimov-1/main/assets/asimov-v1.jpg",imageFit:"contain",productUrl:"https://menlo.ai/asimov-1",group:"HUMANOID",product:"Asimov 1",
     robotsBuilt:2,robotsDeployed:1,monthsSinceLaunch:1,price:20000,funding:null,valuation:null,
     estimate:{},
     lowerBound:{robotsBuilt:true,robotsDeployed:true,monthsSinceLaunch:true},
@@ -818,6 +818,15 @@ function evidenceFor(c,key){
     '</div>';
 }
 
+function handleImageError(img){
+  if(img.dataset.fallback && img.dataset.fallbackUsed!=="1"){
+    img.dataset.fallbackUsed="1";
+    img.src=img.dataset.fallback;
+    return;
+  }
+  img.closest(".product-strip, .drawer-product-image")?.remove();
+}
+
 function snapshotBarHeights(){
   const snap={};
   document.querySelectorAll(".company[data-company] .bar").forEach(bar=>{
@@ -867,7 +876,7 @@ function render(animateFrom=null){
     const header='<div class="group-label">'+group+'</div>';
     const cards=rows.map(c=>{
       const color=companyColors[c.name]||"#d9dee3";
-      const chartImage=c.image?'<div class="product-strip"><img class="chart-product-image" src="'+c.image+'" alt="" loading="lazy" onerror="this.closest(\'.product-strip\').remove()"></div>':"";
+      const chartImage=c.image?'<div class="product-strip"><img class="chart-product-image" src="'+c.image+'" alt="" loading="lazy" data-fallback="'+(c.imageFallback||"")+'" onerror="handleImageError(this)"></div>':"";
       if(locationMode){
         const hq=headquarters[c.name];
         const place=hq?.city||"Unverified";
@@ -899,7 +908,7 @@ function renderDrawer(){
   if(!selected){drawerRoot.innerHTML="";return}
   const color=companyColors[selected.name]||"#d9dee3";
   const hq=headquarters[selected.name];
-  drawerRoot.innerHTML=`<div class="backdrop"></div><aside class="drawer" style="--company-color:${color}"><button class="drawer-close">×</button><div class="drawer-kicker">${selected.group}</div><h2>${selected.name}</h2><p class="drawer-product">${selected.product||"Product not yet recorded"}</p>${selected.image?`<div class="drawer-product-image" style="--image-fit:${selected.imageFit||"cover"}"><img src="${selected.image}" alt="${selected.name} ${selected.product||"robot"}" loading="lazy" onerror="this.closest('.drawer-product-image').remove()"></div>`:""}${selected.productUrl?`<a class="product-link" href="${selected.productUrl}" target="_blank" rel="noreferrer">View product page <span>↗</span></a>`:""}${selected.additionalProducts?.length?`<div class="additional-products"><div class="source-title">ADDITIONAL PRODUCTS</div>${selected.additionalProducts.map(p=>`<div class="additional-product"><a href="${p.url}" target="_blank" rel="noreferrer">${p.name} ↗</a><strong>${p.price}</strong><small>${p.availability}</small></div>`).join("")}</div>`:""}<div class="detail-grid"><div class="detail-row"><span>HEADQUARTERS</span><strong>${hq?`${hq.city}, ${hq.region}`:"Not verified"}</strong><small>${hq?.source?`<a href="${hq.source}" target="_blank" rel="noreferrer">Headquarters source ↗</a>`:"No reliable headquarters source yet"}</small></div>${metrics.map(m=>`<div class="detail-row"><span>${m.label}</span><strong>${labelFor(selected,m.key)||"Not disclosed"}${changeBadgeFor(selected,m.key)}</strong><small>${detailNoteFor(selected,m.key)}${evidenceFor(selected,m.key)}</small></div>`).join("")}</div><div class="source-block"><div class="source-title">SOURCES</div>${selected.sources?.length?selected.sources.map(s=>`<a href="${s.url}" target="_blank" rel="noreferrer">${s.label}<span>↗</span></a>`).join(""):'<div class="no-source">No verified public source added yet.</div>'}</div></aside>`;
+  drawerRoot.innerHTML=`<div class="backdrop"></div><aside class="drawer" style="--company-color:${color}"><button class="drawer-close">×</button><div class="drawer-kicker">${selected.group}</div><h2>${selected.name}</h2><p class="drawer-product">${selected.product||"Product not yet recorded"}</p>${selected.image?`<div class="drawer-product-image" style="--image-fit:${selected.imageFit||"cover"}"><img src="${selected.image}" alt="${selected.name} ${selected.product||"robot"}" loading="lazy" data-fallback="${selected.imageFallback||""}" onerror="handleImageError(this)"></div>`:""}${selected.productUrl?`<a class="product-link" href="${selected.productUrl}" target="_blank" rel="noreferrer">View product page <span>↗</span></a>`:""}${selected.additionalProducts?.length?`<div class="additional-products"><div class="source-title">ADDITIONAL PRODUCTS</div>${selected.additionalProducts.map(p=>`<div class="additional-product"><a href="${p.url}" target="_blank" rel="noreferrer">${p.name} ↗</a><strong>${p.price}</strong><small>${p.availability}</small></div>`).join("")}</div>`:""}<div class="detail-grid"><div class="detail-row"><span>HEADQUARTERS</span><strong>${hq?`${hq.city}, ${hq.region}`:"Not verified"}</strong><small>${hq?.source?`<a href="${hq.source}" target="_blank" rel="noreferrer">Headquarters source ↗</a>`:"No reliable headquarters source yet"}</small></div>${metrics.map(m=>`<div class="detail-row"><span>${m.label}</span><strong>${labelFor(selected,m.key)||"Not disclosed"}${changeBadgeFor(selected,m.key)}</strong><small>${detailNoteFor(selected,m.key)}${evidenceFor(selected,m.key)}</small></div>`).join("")}</div><div class="source-block"><div class="source-title">SOURCES</div>${selected.sources?.length?selected.sources.map(s=>`<a href="${s.url}" target="_blank" rel="noreferrer">${s.label}<span>↗</span></a>`).join(""):'<div class="no-source">No verified public source added yet.</div>'}</div></aside>`;
   document.querySelector(".drawer-close").onclick=closeDrawer;
   document.querySelector(".backdrop").onclick=closeDrawer;
 }
